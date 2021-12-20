@@ -1,0 +1,46 @@
+// My
+@import "./theme-functions";
+@import "./theme-variables";
+
+// Required
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+// + Custom Map
+// @import "./mixins/";
+@function color($key: "blue") {
+  @return map-get($colors, $key);
+}
+
+@function theme-color($key: "primary") {
+  @return map-get($theme-colors, $key);
+}
+
+@function gray($key: "100") {
+  @return map-get($grays, $key);
+}
+
+// Optional
+@import "~bootstrap/scss/root";
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/type";
+@import "~bootstrap/scss/images";
+@import "~bootstrap/scss/containers";
+@import "~bootstrap/scss/grid";
+
+
+
+.hello {
+  color: red;
+  background: url('../images/icon.png');
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+  background-color: black;
+  color: white;
+}
