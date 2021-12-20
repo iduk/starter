@@ -14,23 +14,24 @@ module.exports = {
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
+    assetModuleFilename: "assets/[name][ext]",
     clean: true, // 생성된 파일만 보임
   },
 
 
-  optimization: {
-    moduleIds: 'deterministic',
-    runtimeChunk: 'single',
-    splitChunks: {
-      cacheGroups: {
-        vendor: {
-          test: /[\\/]node_modules[\\/]/,
-          name: 'vendors',
-          chunks: 'all',
-        },
-      },
-    },
-  },
+  // optimization: {
+  //   moduleIds: 'deterministic',
+  //   runtimeChunk: 'single',
+  //   splitChunks: {
+  //     cacheGroups: {
+  //       vendor: {
+  //         test: /[\\/]node_modules[\\/]/,
+  //         name: 'vendors',
+  //         chunks: 'all',
+  //       },
+  //     },
+  //   },
+  // },
 
 
   devtool: 'inline-source-map',
@@ -73,23 +74,20 @@ module.exports = {
       },
       // assets
       {
-        test: /\.(jpe?g|png|gif)$/i,
-        type: 'asset/resource'
-      },
-      {
-        test: /\.svg/,
-        type: 'asset/inline'
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        type: 'asset/resource',
+        generator : {
+          filename : 'images/[name][ext][query]',
+        }
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
         type: 'asset/resource',
+        generator : {
+          filename : 'fonts/[name][ext][query]',
+        }
       },
       // html
-      {
-        test: /\.html/,
-        type: 'asset/resource',
-      }
-
     ]
   },
 

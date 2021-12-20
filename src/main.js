@@ -8,6 +8,7 @@ async function getComponent() {
 
   // Lodash, now imported by this script
   console.log(Image)
+  element.documents.getSelector('hello');
 
   return element;
 }
