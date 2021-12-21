@@ -1,18 +1,11 @@
-import * as bootstrap from 'bootstrap';
-import './assets/scss/style.scss';
-import Image from './assets/images/icon.png'
+import _ from 'lodash'
+import * as bootstrap from 'bootstrap'
+import './assets/scss/style.scss'
 
+function component() {
+  const element = document.createElement('#root')
 
-async function getComponent() {
-  const { default: _ } = await import('lodash');
-
-  // Lodash, now imported by this script
-  console.log(Image)
-  element.documents.getSelector('hello');
-
-  return element;
+  return element
 }
 
-getComponent().then((component) => {
-   document.body.appendChild(component);
- });
+document.body.appendChild(component())

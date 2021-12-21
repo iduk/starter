@@ -1,3 +1,126 @@
 // theme variables
-$blue: #008cff;
-$danger: #ff4136;
+
+// grayscale
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #6c757d;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #212529;
+
+$white: #fff;
+$black: #000;
+
+// all colors
+$blue: #1774ff;
+$indigo: #9c85fb;
+$green: #22cf7c;
+$yellow: #f4bb4b;
+$red: #ff5656;
+
+$orange: #fd7e14;
+$purple: #6f42c1;
+$pink: #d63384;
+$teal: #2d9978;
+$cyan: #37ccd1;
+
+$colors: (
+  'blue': $blue,
+  'indigo': $indigo,
+  'purple': $purple,
+  'pink': $pink,
+  'red': $red,
+  'orange': $orange,
+  'yellow': $yellow,
+  'green': $green,
+  'teal': $teal,
+  'cyan': $cyan,
+  'white': $white,
+  'gray': $gray-600,
+  'gray-dark': $gray-800,
+);
+
+// theme
+$primary: $blue;
+$secondary: $indigo;
+$success: $green;
+$info: $gray-400;
+$warning: $yellow;
+$danger: $red;
+$light: $gray-100;
+$dark: $gray-900;
+
+$theme-colors: (
+  'primary': $primary,
+  'secondary': $secondary,
+  'success': $success,
+  'info': $info,
+  'warning': $warning,
+  'danger': $danger,
+  'light': $light,
+  'dark': $dark,
+);
+
+$min-contrast-ratio: 3;
+
+// Customize the light and dark text colors for use in our color contrast function.
+$color-contrast-dark: $black;
+$color-contrast-light: $white;
+
+// Options
+//
+// Quickly modify global styling by enabling or disabling optional features.
+
+$enable-caret: true;
+$enable-rounded: true;
+$enable-shadows: false;
+$enable-gradients: false;
+$enable-transitions: true;
+$enable-reduced-motion: true;
+$enable-smooth-scroll: false;
+$enable-grid-classes: true;
+$enable-button-pointers: true;
+$enable-rfs: true;
+$enable-validation-icons: true;
+$enable-negative-margins: false;
+$enable-deprecation-messages: true;
+$enable-important-utilities: true;
+
+// Prefix for :root CSS variables
+$variable-prefix: bs-;
+
+// scss-docs-start variable-gradient
+$gradient: linear-gradient(180deg, rgba($white, 0.15), rgba($white, 0));
+
+// Spacing
+$spacer: 1rem;
+$spacers: (
+  0: 0,
+  1: $spacer * 0.5,
+  2: $spacer * 1,
+  3: $spacer * 1.5,
+  4: $spacer * 2,
+  5: $spacer * 2.5,
+  6: $spacer * 3,
+  7: $spacer * 3.5,
+  8: $spacer * 4,
+  9: $spacer * 4.5,
+  10: $spacer * 5,
+  11: $spacer * 5.5,
+  12: $spacer * 6,
+);
+
+// Position
+$position-values: (
+  0: 0,
+  50: 50%,
+  100: 100%,
+);
+
+// Body
+$body-bg: $white;
+$body-color: $gray-900;
+$body-text-align: null;

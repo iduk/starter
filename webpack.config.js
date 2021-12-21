@@ -1,108 +1,117 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const path = require('path')
+const glob = require('glob')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const PurgecssPlugin = require('purgecss-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+
+const PATHS = {
+  src: path.join(__dirname, 'src'),
+}
 
 module.exports = {
   mode: 'development',
-
 
   entry: {
     main: './src/main.js',
   },
 
-
   output: {
-    filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist'),
-    assetModuleFilename: "assets/[name][ext]",
+    filename: '[name].[chunkhash].js',
+    path: path.resolve(__dirname, './dist'),
+    assetModuleFilename: 'assets/[name][ext]',
     clean: true, // 생성된 파일만 보임
   },
 
-
-  // optimization: {
-  //   moduleIds: 'deterministic',
-  //   runtimeChunk: 'single',
-  //   splitChunks: {
-  //     cacheGroups: {
-  //       vendor: {
-  //         test: /[\\/]node_modules[\\/]/,
-  //         name: 'vendors',
-  //         chunks: 'all',
-  //       },
-  //     },
-  //   },
-  // },
-
-
-  devtool: 'inline-source-map',
-  devServer: {
-    static: 'dist',
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        styles: {
+          name: 'styles',
+          test: /\.css$/,
+          chunks: 'all',
+          enforce: true,
+        },
+      },
+    },
   },
 
+  devtool: 'cheap-source-map',
+  devServer: {
+    static: './dist',
+  },
 
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.js$/i,
         include: path.resolve(__dirname, 'src'),
         loader: 'babel-loader',
+        options: {
+          presets: ['@babel/preset-env'],
+        },
       },
       {
         test: /\.s[ac]ss$/i,
         use: [
-           "style-loader",
           {
-            loader: "css-loader",
+            loader: MiniCssExtractPlugin.loader,
           },
           {
-            loader: "postcss-loader",
+            loader: 'css-loader',
+          },
+          {
+            loader: 'postcss-loader',
             options: {
               postcssOptions: {
                 plugins: function () {
-                  return [
-                    require('precss'),
-                    require('autoprefixer')
-                  ];
-                }
+                  return [require('precss'), require('autoprefixer')]
+                },
               },
             },
           },
           {
-            loader: "sass-loader",
+            loader: 'sass-loader',
           },
-        ]
+        ],
       },
       // assets
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
         type: 'asset/resource',
-        generator : {
-          filename : 'images/[name][ext][query]',
-        }
+        generator: {
+          filename: 'images/[name][ext][query]',
+        },
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
         type: 'asset/resource',
-        generator : {
-          filename : 'fonts/[name][ext][query]',
-        }
+        generator: {
+          filename: 'fonts/[name][ext][query]',
+        },
       },
-      // html
-    ]
+      // html 추가 예정
+    ],
   },
-
 
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Index Template',
       template: './src/index.html',
-      chunks: ['main']
+      chunks: ['main'],
       // inject : 'body',
     }),
 
     new MiniCssExtractPlugin({
-      filename: "[name].css",
-      chunkFilename: "[name].[id].css",
-    })
+      filename: '[name].css',
+      chunkFilename: '[id].css',
+    }),
+
+    // * 사용안된 Css 제거
+    new PurgecssPlugin({
+      paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true }),
+    }),
+
+    new CleanWebpackPlugin(),
   ],
 }
