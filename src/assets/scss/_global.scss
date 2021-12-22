@@ -16,10 +16,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI',
-    'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
-  background-color: black;
-  color: white;
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI';
 }
 
 .btns {
@@ -37,4 +34,20 @@ body {
 
 .doc-section {
   margin-top: 3rem;
+}
+
+// 3D effect 원근법 효과
+.effect {
+  width: 400px;
+  height: auto;
+  perspective: 800px;
+
+  &--child {
+    transform: rotateX(10deg) rotateY(-18deg) rotateZ(3deg);
+    transition: 0.3s;
+
+    &:hover {
+      transform: rotate(0);
+    }
+  }
 }
