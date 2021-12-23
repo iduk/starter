@@ -38,16 +38,43 @@ body {
 
 // 3D effect 원근법 효과
 .effect {
-  width: 400px;
-  height: auto;
   perspective: 800px;
 
   &--child {
     transform: rotateX(10deg) rotateY(-18deg) rotateZ(3deg);
     transition: 0.3s;
 
-    &:hover {
+    &:hover,
+    &:focus {
       transform: rotate(0);
     }
+  }
+}
+
+// animation gradient button
+.anim-bg-gradient {
+  background: linear-gradient(120deg, $indigo, $red, $yellow);
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  transition: background-position 0.5s;
+  border: none;
+
+  &:hover,
+  &:focus {
+    background-position: 0 0;
+  }
+}
+
+// animation Text Underline
+.anim-underline-fx {
+  background-image: linear-gradient(to right, $indigo 50%, $blue 50%);
+  background-size: 200% 4px;
+  background-repeat: no-repeat;
+  background-position: 100% 100%;
+  transition: background-position 0.3s;
+
+  &:hover,
+  &:focus {
+    background-position: 0% 100%;
   }
 }

@@ -68,7 +68,7 @@ $theme-colors: (
 $theme-colors-rgb: map-loop($theme-colors, to-rgb, '$value');
 // scss-docs-end theme-colors-rgb
 
-$min-contrast-ratio: 4;
+$min-contrast-ratio: 3.5;
 
 // Customize the light and dark text colors for use in our color contrast function.
 $color-contrast-dark: $black;
