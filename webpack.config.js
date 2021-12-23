@@ -17,7 +17,7 @@ module.exports = {
   },
 
   output: {
-    filename: '[name].[chunkhash].js',
+    filename: '[name].js',
     path: path.resolve(__dirname, './dist'),
     assetModuleFilename: 'assets/[name][ext]',
     clean: true, // 생성된 파일만 보임
