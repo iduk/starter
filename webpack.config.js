@@ -13,16 +13,17 @@ module.exports = {
   mode: 'development',
 
   entry: {
-    main: './src/main.js',
+    main: './src/index.js',
   },
 
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, './dist'),
-    assetModuleFilename: 'assets/[name][ext]',
+    assetModuleFilename: 'assets/[name][ext]', // 리소스 경로 구성
     clean: true, // 생성된 파일만 보임
   },
 
+  // 최적화 설정
   optimization: {
     splitChunks: {
       cacheGroups: {
@@ -90,20 +91,20 @@ module.exports = {
           filename: 'fonts/[name][ext][query]',
         },
       },
-      // html 추가 예정
+      // html
       {
         test: /\.html$/,
-        use: ['html-loader'],
+        loader: 'html-loader',
+        options: { minimize: true },
       },
     ],
   },
 
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Index Template',
-      template: './src/index.html',
       chunks: ['main'],
-      // inject : 'body',
+      template: './src/index.html',
+      filename: 'index.html',
     }),
 
     new MiniCssExtractPlugin({
