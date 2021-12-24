@@ -1,7 +1,5 @@
-import _ from 'lodash'
-import * as bootstrap from 'bootstrap'
-import './assets/scss/style.scss'
+import React from 'react'
+import ReactDOM from 'react-dom'
+import App from './App'
 
-const element = document.getElementbyId('a')
-
-element.innerHTML = 'A Files'
+ReactDOM.render(<App />, document.getElementById('root'))

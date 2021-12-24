@@ -45,8 +45,8 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/i,
-        include: path.resolve(__dirname, 'src'),
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
         loader: 'babel-loader',
         options: {
           presets: ['@babel/preset-env'],
@@ -90,6 +90,10 @@ module.exports = {
         generator: {
           filename: 'fonts/[name][ext][query]',
         },
+      },
+      {
+        test: /\.svg/,
+        type: 'asset/inline',
       },
       // html
       {
