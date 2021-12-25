@@ -23,6 +23,10 @@ module.exports = {
     clean: true, // 생성된 파일만 보임
   },
 
+  resolve: {
+    extensions: ['*', '.js', '.jsx'],
+  },
+
   // 최적화 설정
   optimization: {
     splitChunks: {
@@ -40,6 +44,7 @@ module.exports = {
   devtool: 'cheap-source-map',
   devServer: {
     static: './dist',
+    historyApiFallback: true,
   },
 
   module: {
