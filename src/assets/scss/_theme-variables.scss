@@ -11,21 +11,19 @@ $gray-700: #404248;
 $gray-800: #2e2f33;
 $gray-900: #1b1c1e;
 
-$white: #fff;
-$black: #000;
-
 // all colors
 $blue: #85e3fb;
 $indigo: #9c85fb;
 $green: #85fb9c;
 $yellow: #fbd785;
 $red: #d74247;
-
 $orange: #fb9c85;
 $purple: #d685fb;
 $pink: #fb85a9;
 $teal: #85fbd7;
 $cyan: #8fdcf1;
+$white: #fff;
+$black: #000;
 
 $colors: (
   'blue': $blue,
@@ -38,9 +36,10 @@ $colors: (
   'green': $green,
   'teal': $teal,
   'cyan': $cyan,
-  'white': $white,
   'gray': $gray-600,
   'gray-dark': $gray-800,
+  'white': $white,
+  'black': $black,
 );
 
 // theme
@@ -62,6 +61,10 @@ $theme-colors: (
   'danger': $danger,
   'light': $light,
   'dark': $dark,
+  'gray': $gray-600,
+  'gray-dark': $gray-800,
+  'white': $white,
+  'black': $black,
 );
 
 $min-contrast-ratio: 3.5;
