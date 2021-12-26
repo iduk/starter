@@ -3,7 +3,14 @@ module.exports = {
     [
       'postcss-preset-env',
       {
-        // Options
+        autoprefixer: {
+          flexbox: 'no-2009',
+          grid: true,
+        },
+        stage: 3,
+        features: {
+          'nesting-rules': true,
+        },
       },
     ],
   ],

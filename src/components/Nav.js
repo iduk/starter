@@ -13,15 +13,12 @@ const Nav = () => {
             Index
           </Link>
           <button
-            className="navbar-toggler d-lg-none"
+            className="btn btn-outline-primary d-lg-none"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#collapsibleNavId"
-            aria-controls="collapsibleNavId"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
           >
-            <span className="navbar-toggler-icon" />
+            열고닫아라
           </button>
           <div className="collapse navbar-collapse" id="collapsibleNavId">
             <ul className="navbar-nav ms-auto me-0 mt-2 mt-lg-0">

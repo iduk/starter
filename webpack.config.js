@@ -5,6 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const PurgecssPlugin = require('purgecss-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
+// Basic Path
 const PATHS = {
   src: path.join(__dirname, 'src'),
 }
@@ -58,29 +59,26 @@ module.exports = {
         },
       },
       {
-        test: /\.s[ac]ss$/i,
+        test: /\.((c|sa|sc)ss)$/i,
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
           },
           {
             loader: 'css-loader',
+            options: {
+              importLoaders: 2,
+            },
           },
           {
             loader: 'postcss-loader',
-            options: {
-              postcssOptions: {
-                plugins: function () {
-                  return [require('precss'), require('autoprefixer')]
-                },
-              },
-            },
           },
           {
             loader: 'sass-loader',
           },
         ],
       },
+
       // assets
       {
         test: /\.(jpe?g|png|gif|svg)$/i,

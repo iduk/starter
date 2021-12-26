@@ -391,31 +391,5 @@ $gutters: $spacers;
 // Container padding
 $container-padding-x: $grid-gutter-width * 0.5;
 
-// Components
-$border-width: 1px;
-$border-widths: (
-  1: 1px,
-  2: 2px,
-  3: 3px,
-  4: 4px,
-  5: 5px,
-);
-
-$border-color: $gray-300;
-$border-radius: 0.25rem;
-$border-radius-sm: 0.2rem;
-$border-radius-lg: 0.3rem;
-$border-radius-pill: 50rem;
-
-$box-shadow: 0 0.5rem 1rem rgba($black, 0.15);
-$box-shadow-sm: 0 0.125rem 0.25rem rgba($black, 0.075);
-$box-shadow-lg: 0 1rem 3rem rgba($black, 0.175);
-$box-shadow-inset: inset 0 1px 2px rgba($black, 0.075);
-
-$component-active-color: $white;
-$component-active-bg: $primary;
-
-// caret-variables
-$caret-width: 0.3em;
-$caret-vertical-align: $caret-width * 0.85;
-$caret-spacing: $caret-width * 0.85;
+// fontSize
+$font-size-base: 1rem;
