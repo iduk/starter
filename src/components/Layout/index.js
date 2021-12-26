@@ -1,16 +1,6 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-// import Nav from './Nav'
 import './Layout.scss'
-
-// export default function Layout_0() {
-//   return (
-//     <div>
-//       <Nav />
-//       <Outlet />
-//     </div>
-//   )
-// }
 
 export default function Layout() {
   return (
@@ -66,7 +56,7 @@ export default function Layout() {
   )
 }
 
-document.addEventListener('DOMContentLoaded', function(event) {
+document.addEventListener('DOMContentLoaded', function (event) {
   const showNavbar = (toggleId, navId, bodyId, topbarId) => {
     const toggle = document.getElementById(toggleId),
       nav = document.getElementById(navId),
@@ -94,10 +84,10 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
   function colorLink() {
     if (linkColor) {
-      linkColor.forEach(l => l.classList.remove('active'))
+      linkColor.forEach((l) => l.classList.remove('active'))
       this.classList.add('active')
     }
   }
 
-  linkColor.forEach(l => l.addEventListener('click', colorLink))
+  linkColor.forEach((l) => l.addEventListener('click', colorLink))
 })

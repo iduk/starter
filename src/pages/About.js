@@ -1,7 +1,4 @@
 import React from 'react'
-import './About.scss'
-
-// const cx = classNames.bind(styles)
 
 export default function About() {
   return (
