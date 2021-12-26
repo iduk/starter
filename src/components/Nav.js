@@ -1,10 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Nav.scss'
 import { Link } from 'react-router-dom'
 
 // const cx = classNames.bind(styles)
+export default function Nav() {
+  const [btnText, setBtnText] = useState(false)
 
-const Nav = () => {
+  const handleClick = (e) => {
+    // const current = e.target.id
+    setBtnText(!btnText)
+  }
+
   return (
     <header>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -17,12 +23,13 @@ const Nav = () => {
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#collapsibleNavId"
+            onClick={handleClick}
           >
-            열고닫아라
+            {`menu ${btnText ? 'close' : 'open'}`}
           </button>
           <div className="collapse navbar-collapse" id="collapsibleNavId">
             <ul className="navbar-nav ms-auto me-0 mt-2 mt-lg-0">
-              <li className="nav-item active">
+              <li className="nav-item">
                 <Link className="nav-link" to="/">
                   Home <span className="visually-hidden">(current)</span>
                 </Link>
@@ -39,5 +46,3 @@ const Nav = () => {
     </header>
   )
 }
-
-export default Nav

@@ -5,23 +5,9 @@ import './About.scss'
 
 export default function About() {
   return (
-    <div>
-      <h1 className={'title'}>About Page</h1>
-
-      <main className="parent">
-        <section className="child">
-          <h1>One</h1>
-        </section>
-        <section className="child">
-          <h1>Two</h1>
-        </section>
-        <section className="child">
-          <h1>Three</h1>
-        </section>
-        <section className="child">
-          <h1>Four</h1>
-        </section>
-      </main>
+    <div className="container">
+      <h5 className={'title mt-5'}>About Page</h5>
+      <h6>Fullpage Ex.</h6>
     </div>
   )
 }

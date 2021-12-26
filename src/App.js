@@ -8,14 +8,12 @@ import NoMatch from './components/NoMatch'
 
 export default function App() {
   return (
-    <div>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="about" element={<About />} />
-          <Route path="*" element={<NoMatch />} />
-        </Route>
-      </Routes>
-    </div>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="about" element={<About />} />
+        <Route path="*" element={<NoMatch />} />
+      </Route>
+    </Routes>
   )
 }

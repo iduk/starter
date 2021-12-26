@@ -19,7 +19,7 @@ $blue: #85e3fb;
 $indigo: #9c85fb;
 $green: #85fb9c;
 $yellow: #fbd785;
-$red: #e66973;
+$red: #d74247;
 
 $orange: #fb9c85;
 $purple: #d685fb;
@@ -63,10 +63,6 @@ $theme-colors: (
   'light': $light,
   'dark': $dark,
 );
-
-// scss-docs-start theme-colors-rgb
-$theme-colors-rgb: map-loop($theme-colors, to-rgb, '$value');
-// scss-docs-end theme-colors-rgb
 
 $min-contrast-ratio: 3.5;
 
@@ -294,15 +290,8 @@ $cyans: (
   'cyan-800': $cyan-800,
   'cyan-900': $cyan-900,
 );
-// fusv-enable
-
-// Characters which are escaped by the escape-svg function
-$escaped-characters: (('<', '%3c'), ('>', '%3e'), ('#', '%23'), ('(', '%28'), (')', '%29'));
 
 // Options
-//
-// Quickly modify global styling by enabling or disabling optional features.
-
 $enable-caret: true;
 $enable-rounded: true;
 $enable-shadows: false;
@@ -351,8 +340,10 @@ $position-values: (
 
 // Body
 $body-bg: $dark;
-$body-color: $gray-900;
-$body-text-align: null;
+$body-color: $gray-400;
+
+// fontSize
+$font-size-base: 1rem;
 
 // Paragraphs
 $paragraph-margin-bottom: 1rem;
@@ -367,9 +358,6 @@ $grid-breakpoints: (
   xxl: 1400px,
 );
 
-@include _assert-ascending($grid-breakpoints, '$grid-breakpoints');
-@include _assert-starts-at-zero($grid-breakpoints, '$grid-breakpoints');
-
 // Grid containers
 $container-max-widths: (
   sm: 540px,
@@ -378,8 +366,6 @@ $container-max-widths: (
   xl: 1140px,
   xxl: 1320px,
 );
-
-@include _assert-ascending($container-max-widths, '$container-max-widths');
 
 // Grid columns
 $grid-columns: 12;
@@ -390,6 +376,3 @@ $gutters: $spacers;
 
 // Container padding
 $container-padding-x: $grid-gutter-width * 0.5;
-
-// fontSize
-$font-size-base: 1rem;

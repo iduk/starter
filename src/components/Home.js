@@ -191,6 +191,7 @@ const Home = () => {
           </div>
         </article>
       </section>
+
       <section className="doc-section">
         <h5>3D Transform Effect</h5>
         <article>
@@ -198,6 +199,25 @@ const Home = () => {
             <img className="effect--child img-fluid" src={Img} alt="Image description" />
           </figure>
         </article>
+      </section>
+
+      <section className="doc-section">
+        <h5>Scroll Snap</h5>
+
+        <div className="scroll-snap mx-auto" style={{ height: 500 }}>
+          <section className="scroll-snap__child">
+            <h1>1</h1>
+          </section>
+          <section className="scroll-snap__child">
+            <h1>2</h1>
+          </section>
+          <section className="scroll-snap__child">
+            <h1>3</h1>
+          </section>
+          <section className="scroll-snap__child">
+            <h1>4</h1>
+          </section>
+        </div>
       </section>
     </main>
   )
