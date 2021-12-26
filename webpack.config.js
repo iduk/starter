@@ -18,7 +18,7 @@ module.exports = {
   },
 
   output: {
-    filename: '[name].js',
+    filename: '[name].bundle.js',
     path: path.resolve(__dirname, './dist'),
     assetModuleFilename: 'assets/[name][ext]', // 리소스 경로 구성
     clean: true, // 생성된 파일만 보임
@@ -60,6 +60,7 @@ module.exports = {
       },
       {
         test: /\.((c|sa|sc)ss)$/i,
+        type: 'javascript/auto',
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
@@ -72,9 +73,26 @@ module.exports = {
           },
           {
             loader: 'postcss-loader',
+            options: {
+              postcssOptions: {
+                plugins: [
+                  [
+                    'postcss-preset-env',
+                    {
+                      'postcss-import': {},
+                    },
+                  ],
+                ],
+              },
+            },
           },
           {
             loader: 'sass-loader',
+            options: {
+              implementation: require('sass'),
+              sourceMap: true,
+              additionalData: `@import "${PATHS.src}/assets/scss/_theme-variables.scss";`,
+            },
           },
         ],
       },
@@ -110,7 +128,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       chunks: ['main'],
-      template: './src/index.html',
+      template: './public/index.html',
       filename: 'index.html',
     }),
 
@@ -119,7 +137,7 @@ module.exports = {
       chunkFilename: '[id].css',
     }),
 
-    // * 사용안된 Css 제거
+    // * 사용안된 Css 제거 (dev)
     new PurgecssPlugin({
       paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true }),
     }),
