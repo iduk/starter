@@ -91,7 +91,11 @@ module.exports = {
             options: {
               implementation: require('sass'),
               sourceMap: true,
-              additionalData: `@import "${PATHS.src}/assets/scss/_theme-variables.scss";`,
+              additionalData: `
+              @import "~bootstrap/scss/_functions.scss";
+              @import '~bootstrap/scss/mixins';
+              @import "${PATHS.src}/assets/scss/_theme-variables.scss";
+              `,
             },
           },
         ],

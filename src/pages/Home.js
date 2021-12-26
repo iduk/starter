@@ -5,8 +5,8 @@ const Home = () => {
   return (
     <main className="container text-white">
       <div className="py-3">
-        <h1 className="mb-3">App.js</h1>
-        <figcaption className="blockquote-footer">Static Pages, React 17 + Webpack 5 + Bootstrap 5.1</figcaption>
+        <h1 className="mb-3">Pictor.js</h1>
+        <figcaption className="blockquote-footer">Static Pages, by iduk</figcaption>
       </div>
       <section className="doc-section">
         <h5>Buttons</h5>

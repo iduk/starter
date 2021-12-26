@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import './Nav.scss'
 import { Link } from 'react-router-dom'
+import './Nav.scss'
 
 // const cx = classNames.bind(styles)
 export default function Nav() {
