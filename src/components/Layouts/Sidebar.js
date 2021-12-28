@@ -1,49 +1,38 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Outlet } from 'react-router-dom'
 import './Layout.scss'
 
-export default function Layout() {
-  // const [isPush, setIsPush] = useState(false)
-
-  // const sidebarPush = () => {
-  //   setIsPush(!isPush)
-  // }
-
+export default function Sidebar() {
   return (
     <>
-      <main id="body-pd">
-        <header className="topbar" id="topbar">
+      <main id="layout-wrap">
+        <header className="topbar" id="top-bar">
           <div className="sidebar_toggle">
-            <i className="bx bx-right-arrow-alt" id="sidebar-toggle" />
+            <i className="bx bx-menu-alt-left" id="sidebar-toggle" />
           </div>
           <div className="header_img">111</div>
         </header>
 
-        <div className="l-navbar" id="nav-bar">
+        <div className="sidebar" id="sidebar">
           <nav className="nav">
             <div>
-              <a href="#" className="nav_logo">
+              <a href="/" className="nav_logo">
                 <i className="bx bxs-planet bx-spin-hover nav_logo-icon" />
                 <span className="nav_logo-name">PICTOR</span>
               </a>
 
               <div className="nav_list">
-                <a href="#" className="nav_link active">
+                <a href="/" className="nav_link active">
                   <i className="bx bx-bell bx-spin-hover nav_icon" />
                   <span className="nav_name">Dashboard</span>
                 </a>
-                <a href="#" className="nav_link">
+                <a href="/sub" className="nav_link">
                   <i className="bx bx-blanket nav_icon" />
-                  <span className="nav_name">Users</span>
+                  <span className="nav_name">Subpage</span>
                 </a>
-                <a href="#" className="nav_link">
+                <a href="/doc" className="nav_link">
                   <i className="bx bx-message-square-detail nav_icon" />
-                  <span className="nav_name">Messages</span>
-                </a>
-
-                <a href="#" className="nav_link">
-                  <i className="bx bx-bookmark nav_icon" />
-                  <span className="nav_name">Bookmark</span>
+                  <span className="nav_name">Documents</span>
                 </a>
               </div>
             </div>
@@ -54,7 +43,7 @@ export default function Layout() {
             </a>
           </nav>
         </div>
-        <div id="main-container" className="height-100">
+        <div class="main-container">
           <Outlet />
         </div>
       </main>
@@ -63,24 +52,24 @@ export default function Layout() {
 }
 
 document.addEventListener('DOMContentLoaded', function (event) {
-  const showNavbar = (toggleId, navId, bodyId, topbarId) => {
+  const showNavbar = (toggleId, navId, layoutWrapId, topBarId) => {
     const toggle = document.getElementById(toggleId),
       nav = document.getElementById(navId),
-      bodypd = document.getElementById(bodyId),
-      topbarpd = document.getElementById(topbarId) // Validate that all variables exist
+      layoutWrap = document.getElementById(layoutWrapId),
+      topBar = document.getElementById(topBarId) // Validate that all variables exist
 
-    if (toggle && nav && bodypd && topbarpd) {
+    if (toggle && nav && layoutWrap && topBar) {
       toggle.addEventListener('click', () => {
         // show navbar
         nav.classList.toggle('show') // change icon
         toggle.classList.toggle('bx-x') // add padding to body
-        bodypd.classList.toggle('body-pd') // add padding to topbar
-        topbarpd.classList.toggle('body-pd')
+        layoutWrap.classList.toggle('layout-wrap') // add padding to topBar
+        topBar.classList.toggle('open')
       })
     }
   }
 
-  showNavbar('sidebar-toggle', 'nav-bar', 'body-pd', 'topbar')
+  showNavbar('sidebar-toggle', 'sidebar', 'layout-wrap', 'top-bar')
 
   /*===== LINK ACTIVE =====*/
   const linkColor = document.querySelectorAll('.nav_link')

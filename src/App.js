@@ -1,21 +1,28 @@
 import * as React from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 // components
-import Layout from './components/Layouts/Layout'
+import BaseLayout from './components/Layouts/BaseLayout'
 import Error404 from './components/Error/Error404'
 // page
 import Home from './pages/Home'
-import About from './pages/About'
+import Sub from './pages/Sub'
+import Doc from './pages/Doc'
 
 export default function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Home />} />
-        <Route path="about" element={<About />} />
+    <BrowserRouter>
+      <Routes>
+        {/* Nav Layout */}
+        <Route path="/" element={<BaseLayout />}>
+          <Route index element={<Home />} />
+          <Route path="sub" element={<Sub />} />
+          <Route path="doc" element={<Doc />} />
+        </Route>
+
+        {/* None Layout */}
         <Route path="*" element={<Error404 />} />
-      </Route>
-    </Routes>
+      </Routes>
+    </BrowserRouter>
   )
 }

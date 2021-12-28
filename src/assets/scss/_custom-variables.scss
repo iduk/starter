@@ -3,25 +3,25 @@
 // grayscale
 $gray-100: #f4f4f5;
 $gray-200: #eaeaec;
-$gray-300: #dfe0e3;
-$gray-400: #c0c2c7;
-$gray-500: #8c8f99;
-$gray-600: #656872;
-$gray-700: #404248;
+$gray-300: #caccd0;
+$gray-400: #a1a4ab;
+$gray-500: #82868f;
+$gray-600: #656971;
+$gray-700: #494c52;
 $gray-800: #2e2f33;
 $gray-900: #1b1c1e;
 
 // all colors
-$blue: #85e3fb;
-$indigo: #9c85fb;
-$green: #85fb9c;
-$yellow: #fbd785;
-$red: #d74247;
-$orange: #fb9c85;
-$purple: #d685fb;
-$pink: #fb85a9;
-$teal: #85fbd7;
-$cyan: #8fdcf1;
+$blue: #2c5dff;
+$indigo: #5e43fa;
+$green: #0ef074;
+$yellow: #ffbe0a;
+$red: #fa423e;
+$orange: #ff734c;
+$purple: #bba1ff;
+$pink: #ff81d0;
+$teal: #00f4a3;
+$cyan: #6fdaf6;
 $white: #fff;
 $black: #000;
 
@@ -44,19 +44,17 @@ $colors: (
 
 // theme
 $primary: $blue;
-$secondary: $indigo;
+$secondary: $gray-700;
 $success: $green;
-$info: $gray-400;
 $warning: $yellow;
 $danger: $red;
-$light: $gray-100;
+$light: $gray-300;
 $dark: $gray-900;
 
 $theme-colors: (
   'primary': $primary,
   'secondary': $secondary,
   'success': $success,
-  'info': $info,
   'warning': $warning,
   'danger': $danger,
   'light': $light,
@@ -65,6 +63,15 @@ $theme-colors: (
   'gray-dark': $gray-800,
   'white': $white,
   'black': $black,
+  'gray-100': $gray-100,
+  'gray-200': $gray-200,
+  'gray-300': $gray-300,
+  'gray-400': $gray-400,
+  'gray-500': $gray-500,
+  'gray-600': $gray-600,
+  'gray-700': $gray-700,
+  'gray-800': $gray-800,
+  'gray-900': $gray-900,
 );
 
 $min-contrast-ratio: 3.5;
@@ -341,13 +348,6 @@ $position-values: (
   100: 100%,
 );
 
-// Body
-$body-bg: $dark;
-$body-color: $gray-400;
-
-// fontSize
-$font-size-base: 1rem;
-
 // Paragraphs
 $paragraph-margin-bottom: 1rem;
 
@@ -379,3 +379,32 @@ $gutters: $spacers;
 
 // Container padding
 $container-padding-x: $grid-gutter-width * 0.5;
+
+// Body
+$body-bg: null;
+$body-color: null;
+
+// fontSize
+$font-size-root: 14px;
+$font-size-base: 1rem;
+$font-size-sm: $font-size-base * 0.875;
+$font-size-lg: $font-size-base * 1.25;
+
+$h1-font-size: $font-size-base * 3;
+$h2-font-size: $font-size-base * 2;
+$h3-font-size: $font-size-base * 1.75;
+$h4-font-size: $font-size-base * 1.5;
+$h5-font-size: $font-size-base * 1.25;
+$h6-font-size: $font-size-base;
+
+// scss-docs-start input-btn-variables
+$input-btn-padding-y: 0.375rem;
+$input-btn-padding-x: 0.75rem;
+$input-btn-padding-y-sm: 0.25rem;
+$input-btn-padding-x-sm: 0.5rem;
+$input-btn-padding-y-lg: 0.5rem;
+$input-btn-padding-x-lg: 1rem;
+
+$input-btn-font-size: $font-size-base;
+$input-btn-font-size-sm: $font-size-sm;
+$input-btn-font-size-lg: $font-size-lg;

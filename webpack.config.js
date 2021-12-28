@@ -94,7 +94,7 @@ module.exports = {
               additionalData: `
               @import "~bootstrap/scss/_functions.scss";
               @import '~bootstrap/scss/mixins';
-              @import "${PATHS.src}/assets/scss/_theme-variables.scss";
+              @import "${PATHS.src}/assets/scss/_custom-variables.scss";
               `,
             },
           },

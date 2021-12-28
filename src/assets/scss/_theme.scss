@@ -1,0 +1,26 @@
+// Theming Element
+@mixin color-yiq($background) {
+  $r: red($background);
+  $g: green($background);
+  $b: blue($background);
+
+  $yiq: (($r * 299) + ($g * 587) + ($b * 114)) / 1000;
+
+  @if ($yiq >= 128) {
+    color: #000 !important;
+  } @else {
+    color: #fff !important;
+  }
+}
+
+body {
+  &[data-theme='dark'] {
+    background-color: $dark !important;
+    @include color-yiq($dark);
+  }
+
+  &[data-theme='light'] {
+    background-color: $white !important;
+    @include color-yiq($white);
+  }
+}

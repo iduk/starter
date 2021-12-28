@@ -2,15 +2,13 @@
 @import '~bootstrap/scss/functions';
 
 // Custom
-@import './theme-variables';
+@import './custom-variables';
+@import './theme';
 
 // Required Base
 @import '~bootstrap/scss/variables';
 @import '~bootstrap/scss/mixins';
 @import '~bootstrap/scss/root';
-
-// mixins custom components
-@import './components';
 
 // Optional
 @import '~bootstrap/scss/utilities';
@@ -46,6 +44,9 @@
 @import '~bootstrap/scss/placeholders';
 @import '~bootstrap/scss/helpers';
 @import '~bootstrap/scss/utilities/api';
+
+// mixins My custom components
+@import './components';
 
 // Common
 @import './global';

@@ -1,0 +1,42 @@
+// Base Layout Style
+.topnav {
+  // brand
+  .brand {
+    display: inline-flex;
+    font-size: 2rem;
+    font-weight: bold;
+    color: inherit;
+  }
+  // nav
+  .navlist {
+    display: flex;
+    flex-wrap: wrap;
+
+    // nav
+    &--item {
+      a[role='button'] {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.5rem 1rem;
+        color: inherit;
+        transition: 0.3s;
+
+        &:hover,
+        &:focus {
+          background-color: rgba(black, 0.15);
+        }
+
+        i,
+        span {
+          display: inline-flex;
+          align-items: baseline;
+          line-height: normal;
+        }
+      }
+    }
+  }
+}
+
+@include media-breakpoint-down(md) {
+  //
+}
