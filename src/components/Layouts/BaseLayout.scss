@@ -1,42 +1,83 @@
 // Base Layout Style
-.topnav {
+
+$navbar-h: 60px;
+$navbar-h-m: 50px;
+
+.navbar {
+  height: $navbar-h;
+
   // brand
-  .brand {
+  .navbar-brand {
     display: inline-flex;
     font-size: 2rem;
+    font-family: 'Yeseva One';
     font-weight: bold;
     color: inherit;
   }
-  // nav
-  .navlist {
-    display: flex;
-    flex-wrap: wrap;
 
-    // nav
-    &--item {
-      a[role='button'] {
-        display: inline-flex;
-        align-items: center;
-        padding: 0.5rem 1rem;
-        color: inherit;
-        transition: 0.3s;
+  // btn
+  .navbar-toggler {
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: bolder;
+    font-family: 'Yeseva One';
+    border: 0;
+    transition: 0.3s;
+    cursor: pointer;
 
-        &:hover,
-        &:focus {
-          background-color: rgba(black, 0.15);
-        }
-
-        i,
-        span {
-          display: inline-flex;
-          align-items: baseline;
-          line-height: normal;
-        }
+    &:hover,
+    &:focus {
+      @supports (--css: variables) {
+        background: linear-gradient(to right, $primary, $success);
+        color: transparent;
+        background-clip: text;
       }
+    }
+  }
+
+  .menu-item {
+    &__link {
+      display: inline-block;
+      padding: 2rem 1.5rem;
+      color: inherit;
     }
   }
 }
 
+// mobile
 @include media-breakpoint-down(md) {
-  //
+  .navbar {
+    height: $navbar-h-m;
+
+    .navbar-brand,
+    .navbar-toggler {
+      z-index: 1;
+    }
+
+    .navbar-brand {
+      font-size: 1.5rem;
+    }
+
+    .navbar-collapse {
+      backdrop-filter: blur(14px);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding-top: $navbar-h-m;
+
+      .navbar-nav {
+        padding: 2rem 0;
+      }
+
+      .menu-item {
+        &__link {
+          display: block;
+          padding: 0.5rem 0;
+          font-size: 1.5rem;
+          text-align: center;
+        }
+      }
+    }
+  }
 }

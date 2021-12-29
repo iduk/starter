@@ -1,5 +1,14 @@
 @use 'sass:math';
 
+// mode properties
+$dark-bg: $dark;
+$dark-text: $white;
+$dark-border: rgba(#fff, 0.15);
+$light-bg: $white;
+$light-text: $dark-bg;
+$light-border: rgba(#000, 0.15);
+$transition-bg: background 0.3s cubic-bezier(0.185, 0.475, 0.895, 0.39);
+
 // Theming Element
 @mixin color-yiq($background) {
   $r: red($background);
@@ -9,20 +18,68 @@
   $yiq: (($r * 299) + ($g * 587) + ($b * 114)) * 0.001;
 
   @if ($yiq >= 128) {
-    color: #000 !important;
+    color: $dark-bg;
   } @else {
-    color: #fff !important;
+    color: $light-bg;
   }
 }
 
-body {
-  &[data-theme='dark'] {
-    background-color: $dark !important;
-    @include color-yiq($dark);
+@mixin themes($dark-mode: true) {
+  @if $dark-mode {
+    background-color: $dark-bg !important;
+    border-color: $dark-border !important;
+    @include color-yiq($dark-bg);
+  } @else {
+    background-color: $light-bg !important;
+    border-color: $light-border !important;
+    @include color-yiq($light-bg);
   }
 
-  &[data-theme='light'] {
-    background-color: $white !important;
-    @include color-yiq($white);
+  // transition: $transition-bg;
+}
+
+body {
+  position: relative;
+  transition: $transition-bg;
+}
+
+body[data-theme='dark'] {
+  @include themes($dark-mode: true);
+  // mode target
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  a,
+  a[role='nav-link'] {
+    background-color: inherit;
+    border-color: inherit;
+    color: inherit;
+  }
+  .navbar {
+    border-color: rgba(#fff, 0.15);
+  }
+}
+body[data-theme='light'] {
+  @include themes($dark-mode: false);
+  // mode target
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  a,
+  a[role='nav-link'] {
+    background-color: inherit;
+    border-color: inherit;
+    color: inherit;
+  }
+  .navbar {
+    border-color: rgba(#000, 0.15);
   }
 }

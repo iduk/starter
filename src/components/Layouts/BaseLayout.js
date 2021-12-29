@@ -1,66 +1,69 @@
 import React, { useState } from 'react'
 import { Outlet, Link } from 'react-router-dom'
-import ThemeSwitch from '../ThemeSwitch'
 import './BaseLayout.scss'
 
 function BaseLayout() {
   const [isActive, setIsActive] = useState(false)
+  const [btnText, setBtnText] = useState(false)
+
+  const handleClick = (e) => {
+    setBtnText(!btnText)
+  }
 
   const navlist = [
     {
       id: 0,
       path: '/',
       name: 'Index',
-      icon: 'bx-fork',
     },
     {
       id: 1,
       path: '/sub',
       name: 'Sub',
-      icon: 'bx-notepad',
     },
     {
       id: 2,
-      path: '/doc',
-      name: 'Guide',
-      icon: 'bx-vial',
+      path: '/example',
+      name: 'Example',
     },
     {
       id: 3,
       path: '/error',
       name: 'Error',
-      icon: 'bxs-traffic-barrier',
     },
   ]
 
   return (
     <>
-      <main>
-        <div className="container">
-          <nav className="topnav row align-items-center border-bottom border-warning">
-            <div className="col-lg-6 col-12">
-              <Link to="/" className="brand py-2">
-                Pictor.
-              </Link>
-            </div>
-            <div className="col">
-              <ul className="navlist row row-cols-4 g-1">
-                {navlist.map((nav) => (
-                  <li key={nav.id} className="navlist--item bx-ui text-center">
-                    <Link to={nav.path} role="button" onClick={() => setIsActive(!isActive)}>
-                      <i className={`bx bx-fw ${nav.icon}`}></i>
-                      <span>{nav.name}</span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </nav>
+      <nav className="navbar navbar-expand-lg">
+        <div className="container-xl">
+          <Link to="/" className={'navbar-brand'}>
+            Pictor.
+          </Link>
+          <a
+            className="navbar-toggler d-lg-none"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapsibleNavId"
+            onClick={handleClick}
+          >
+            {`${btnText ? 'close' : 'menu'}`}
+          </a>
+          <div className="collapse navbar-collapse" id="collapsibleNavId">
+            <ul className="navbar-nav ms-auto me-0 mt-lg-0">
+              {navlist.map((nav) => (
+                <li key={nav.id} className="menu-item">
+                  <Link to={nav.path} className="menu-item__link" onClick={() => setIsActive(!isActive)}>
+                    {nav.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
+      </nav>
 
+      <main className="pt-6">
         <Outlet />
-
-        <ThemeSwitch />
       </main>
     </>
   )

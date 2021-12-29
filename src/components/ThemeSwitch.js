@@ -15,10 +15,10 @@ function ThemeSwitch() {
 
   const SwitchBox = styled.div`
     position: fixed;
-    bottom: 3rem;
-    right: 3rem;
+    bottom: 2rem;
+    right: 2rem;
     padding: 1rem;
-    width: 160px;
+    width: 200px;
   `
 
   const isToggle = () => {

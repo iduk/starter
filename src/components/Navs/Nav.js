@@ -12,7 +12,7 @@ export default function Nav() {
   }
 
   return (
-    <header>
+    <aside>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container">
           <Link to="/" className={'navbar-brand'}>
@@ -43,6 +43,6 @@ export default function Nav() {
           </div>
         </div>
       </nav>
-    </header>
+    </aside>
   )
 }
