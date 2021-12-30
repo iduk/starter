@@ -1,37 +1,16 @@
 import React, { useState } from 'react'
-import { Outlet, Link } from 'react-router-dom'
+import { Outlet, Link, NavLink } from 'react-router-dom'
+import { getNavList } from '../data/data'
 import './BaseLayout.scss'
 
 function BaseLayout() {
-  const [isActive, setIsActive] = useState(false)
+  let navlist = getNavList()
+
   const [btnText, setBtnText] = useState(false)
 
   const handleClick = (e) => {
     setBtnText(!btnText)
   }
-
-  const navlist = [
-    {
-      id: 0,
-      path: '/',
-      name: 'Index',
-    },
-    {
-      id: 1,
-      path: '/sub',
-      name: 'Sub',
-    },
-    {
-      id: 2,
-      path: '/example',
-      name: 'Example',
-    },
-    {
-      id: 3,
-      path: '/error',
-      name: 'Error',
-    },
-  ]
 
   return (
     <>
@@ -52,9 +31,9 @@ function BaseLayout() {
             <ul className="navbar-nav ms-auto me-0 mt-lg-0">
               {navlist.map((nav) => (
                 <li key={nav.id} className="menu-item">
-                  <Link to={nav.path} className="menu-item__link" onClick={() => setIsActive(!isActive)}>
+                  <NavLink to={nav.path} className={'menu-item__link'}>
                     {nav.name}
-                  </Link>
+                  </NavLink>
                 </li>
               ))}
             </ul>
