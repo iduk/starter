@@ -2,6 +2,9 @@ import _ from 'lodash'
 import * as bootstrap from 'bootstrap'
 import './assets/scss/style.scss'
 
-const element = document.getElementbyId('a')
+function component() {
+  const element = document.getElementById('root')
+  return element
+}
 
-element.innerHTML = 'A Files'
+document.body.appendChild(component())

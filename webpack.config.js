@@ -5,6 +5,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const PurgecssPlugin = require('purgecss-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
+const devMode = process.env.NODE_ENV !== 'production'
+
 const PATHS = {
   src: path.join(__dirname, 'src'),
 }
@@ -52,27 +54,45 @@ module.exports = {
           presets: ['@babel/preset-env'],
         },
       },
+      // css & scss
       {
         test: /\.s[ac]ss$/i,
         use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-          },
+          MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
+            options: {
+              sourceMap: true,
+              importLoaders: 2,
+            },
           },
           {
             loader: 'postcss-loader',
             options: {
               postcssOptions: {
-                plugins: function () {
-                  return [require('precss'), require('autoprefixer')]
-                },
+                plugins: [
+                  [
+                    'postcss-preset-env',
+                    {
+                      'postcss-import': {},
+                    },
+                  ],
+                ],
               },
             },
           },
+          // scss
           {
             loader: 'sass-loader',
+            options: {
+              sourceMap: true,
+              implementation: require.resolve('sass'),
+              additionalData: `
+              @import "~bootstrap/scss/functions";
+              @import '~bootstrap/scss/mixins';
+              @import './src/assets/scss/_theme-variables.scss';
+              `,
+            },
           },
         ],
       },
@@ -91,20 +111,28 @@ module.exports = {
           filename: 'fonts/[name][ext][query]',
         },
       },
-      // html
+      // hbs
       {
-        test: /\.html$/,
-        loader: 'html-loader',
-        options: { minimize: true },
+        test: /\.hbs$/,
+        loader: 'handlebars-loader',
       },
     ],
   },
 
   plugins: [
+    // HtmlWebpackPlugin => 여러개를 생성해서 html 파일을 추출하는수밖에 없다
+    // 이게 싫다면 ejs, handlebars 등의 플러그인 사용
     new HtmlWebpackPlugin({
-      chunks: ['main'],
+      title: 'Static Page',
       template: './src/index.html',
       filename: 'index.html',
+      chunks: ['main'],
+    }),
+
+    new HtmlWebpackPlugin({
+      title: 'Content Page',
+      template: './src/content.html',
+      filename: 'content.html',
     }),
 
     new MiniCssExtractPlugin({
@@ -113,9 +141,9 @@ module.exports = {
     }),
 
     // * 사용안된 Css 제거
-    new PurgecssPlugin({
-      paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true }),
-    }),
+    // new PurgecssPlugin({
+    //   paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true }),
+    // }),
 
     new CleanWebpackPlugin(),
   ],
