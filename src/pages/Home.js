@@ -1,10 +1,13 @@
 import React from 'react'
+import styles from './Home.module.scss'
 
 const Home = () => {
   return (
     <div className="container">
-      <p className="display-1">Hello?</p>
-      <p className="display-1">I'm Pictor.</p>
+      <div className={styles.wrap}>
+        <p className="display-1">Hello?</p>
+        <p className="display-1">I'm Pictor.</p>
+      </div>
     </div>
   )
 }

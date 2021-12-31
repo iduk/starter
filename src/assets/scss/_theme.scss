@@ -53,8 +53,7 @@ body[data-theme='dark'] {
   h5,
   h6,
   p,
-  a,
-  a[role='nav-link'] {
+  .menu-item__link {
     background-color: inherit;
     border-color: inherit;
     color: inherit;
@@ -73,8 +72,7 @@ body[data-theme='light'] {
   h5,
   h6,
   p,
-  a,
-  a[role='nav-link'] {
+  .menu-item__link {
     background-color: inherit;
     border-color: inherit;
     color: inherit;

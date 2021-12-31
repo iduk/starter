@@ -31,7 +31,11 @@ function BaseLayout() {
             <ul className="navbar-nav ms-auto me-0 mt-lg-0">
               {navlist.map((nav) => (
                 <li key={nav.id} className="menu-item">
-                  <NavLink to={nav.path} className={'menu-item__link'}>
+                  <NavLink
+                    to={nav.path}
+                    // className={'menu-item__link'}
+                    className={({ isActive }) => `menu-item__link ${isActive ? 'active' : ''}`}
+                  >
                     {nav.name}
                   </NavLink>
                 </li>

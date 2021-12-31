@@ -5,6 +5,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const PurgecssPlugin = require('purgecss-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
+const devMode = process.env.NODE_ENV !== 'production'
+
 // Basic Path
 const PATHS = {
   src: path.join(__dirname, 'src'),
@@ -58,13 +60,12 @@ module.exports = {
           presets: ['@babel/preset-env'],
         },
       },
+
+      // css & scss
       {
-        test: /\.((c|sa|sc)ss)$/i,
-        type: 'javascript/auto',
+        test: /\.s[ac]ss$/i,
         use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-          },
+          devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
             options: {
@@ -86,11 +87,12 @@ module.exports = {
               },
             },
           },
+          // scss
           {
             loader: 'sass-loader',
             options: {
-              implementation: require('sass'),
               sourceMap: true,
+              implementation: require.resolve('sass'),
               additionalData: `
               @import "~bootstrap/scss/_functions.scss";
               @import '~bootstrap/scss/mixins';
