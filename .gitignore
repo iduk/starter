@@ -13,4 +13,15 @@ dist
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+.hg
+.git
+.gitmodules
+.svn
+.cache
+.next
+.now
 .vercel
+.npmignore
+.dockerignore
+.gitignore
