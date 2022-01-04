@@ -18,8 +18,9 @@ export default function App() {
         {/* Nav Layout */}
         <Route path="/" element={<BaseLayout />}>
           <Route index element={<Home />} />
-          <Route path="sub/*" element={<Sub />}>
-            <Route path=":id" element={<SubContent />} />
+          <Route path="sub" element={<Sub />}>
+            <Route path="content1" element={<div>1111111</div>} />
+            <Route path="content2" element={<div>22222</div>} />
           </Route>
           <Route path="example" element={<Example />} />
         </Route>

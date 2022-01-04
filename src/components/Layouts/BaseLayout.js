@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
-import { Outlet, Link, NavLink, useParams } from 'react-router-dom'
+import { Outlet, Link, NavLink, useParams, useLocation, useNavigate } from 'react-router-dom'
 import { getNavList } from '../data/data'
 import './BaseLayout.scss'
 
 function BaseLayout() {
   let params = useParams()
   let navlist = getNavList()
+  let navigate = useNavigate()
+  let location = useLocation()
 
   const [btnText, setBtnText] = useState(false)
 

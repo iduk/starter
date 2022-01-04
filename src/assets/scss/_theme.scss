@@ -58,6 +58,11 @@ body[data-theme='dark'] {
     border-color: inherit;
     color: inherit;
   }
+  .menu-item__link.active {
+    &::after {
+      background-color: $light-bg;
+    }
+  }
   .navbar {
     border-color: rgba(#fff, 0.15);
   }
@@ -76,6 +81,11 @@ body[data-theme='light'] {
     background-color: inherit;
     border-color: inherit;
     color: inherit;
+  }
+  .menu-item__link.active {
+    &::after {
+      background-color: $dark-bg;
+    }
   }
   .navbar {
     border-color: rgba(#000, 0.15);

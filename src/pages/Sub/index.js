@@ -2,14 +2,17 @@ import React from 'react'
 import { Link, Outlet, useParams, useLocation } from 'react-router-dom'
 
 export default function Sub() {
-  const { id } = useParams()
+  const { subId } = useParams()
   const location = useLocation()
 
   return (
     <div>
-      <h1 className="display-1">{id}</h1>
+      <h1 className="display-1">{subId}</h1>
       <p>location: {location.pathname}</p>
-      <Link to="content">Sub Content</Link>
+
+      <Link to="content1">content1</Link>
+      <Link to="content2">content2</Link>
+
       <Outlet />
     </div>
   )
