@@ -1,12 +1,9 @@
 import React from 'react'
 import { Link, Outlet, useParams, useLocation } from 'react-router-dom'
-// import { useRouteMatch } from 'react-router-dom'
 
 export default function Sub() {
   const { id } = useParams()
   const location = useLocation()
-  const match = useRouteMatch()
-  console.log(match)
 
   return (
     <div>

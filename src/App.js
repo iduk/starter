@@ -18,10 +18,10 @@ export default function App() {
         {/* Nav Layout */}
         <Route path="/" element={<BaseLayout />}>
           <Route index element={<Home />} />
-          <Route path="/sub/*" element={<Sub />}>
+          <Route path="sub/*" element={<Sub />}>
             <Route path=":id" element={<SubContent />} />
           </Route>
-          <Route path="/example" element={<Example />} />
+          <Route path="example" element={<Example />} />
         </Route>
 
         {/* None Layout */}

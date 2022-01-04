@@ -4,6 +4,7 @@
   "private": "false",
   "author": "iduk",
   "license": "MIT",
+  "homepage": "https://bootstrap5-webpack.vercel.app/",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "webpack --watch",
