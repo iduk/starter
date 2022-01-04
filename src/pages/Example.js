@@ -3,9 +3,9 @@ import Img from '../assets/images/macbook.png'
 
 function Example() {
   return (
-    <div className="container">
+    <div>
       <div className="pb-3">
-        <h1 className="display-1 pb-4">Example</h1>
+        <h1 className="display-1 pb-4"></h1>
         <figcaption className="blockquote-footer">Static Pages, by iduk</figcaption>
       </div>
 
@@ -201,7 +201,7 @@ function Example() {
       <section className="doc-section">
         <h5>3D Transform Effect</h5>
         <article>
-          <figure className="effect">
+          <figure className="effect" style={{ maxWidth: 500 }}>
             <img className="effect--child img-fluid" src={Img} alt="Image description" />
           </figure>
         </article>
@@ -210,7 +210,7 @@ function Example() {
       <section className="doc-section">
         <h5>Scroll Snap</h5>
 
-        <div className="scroll-snap mx-auto" style={{ height: 500 }}>
+        <div className="scroll-snap" style={{ height: 500, maxWidth: 500 }}>
           <section className="scroll-snap__child">
             <h1>1</h1>
           </section>

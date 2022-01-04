@@ -1,23 +1,19 @@
 let navlist = [
   {
-    id: 0,
-    path: '/',
-    name: 'Index',
+    pathname: '/',
+    title: 'Index',
   },
   {
-    id: 1,
-    path: '/sub',
-    name: 'Sub',
+    pathname: 'sub/index',
+    title: 'Sub',
   },
   {
-    id: 2,
-    path: '/example',
-    name: 'Example',
+    pathname: 'example',
+    title: 'Example',
   },
   {
-    id: 3,
-    path: '/error',
-    name: 'Error',
+    pathname: 'error',
+    title: 'Error',
   },
 ]
 

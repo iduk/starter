@@ -1,29 +1,29 @@
 // theme variables
 
 // grayscale
-$gray-100: #f4f4f5 !default;
-$gray-200: #eaeaec !default;
-$gray-300: #caccd0 !default;
-$gray-400: #a1a4ab !default;
-$gray-500: #82868f !default;
-$gray-600: #656971 !default;
-$gray-700: #494c52 !default;
-$gray-800: #2e2f33 !default;
-$gray-900: #1b1c1e !default;
+$gray-100: #f4f4f5;
+$gray-200: #eaeaec;
+$gray-300: #caccd0;
+$gray-400: #a1a4ab;
+$gray-500: #82868f;
+$gray-600: #656971;
+$gray-700: #494c52;
+$gray-800: #2e2f33;
+$gray-900: #1b1c1e;
 
 // all colors
-$blue: #2c5dff !default;
-$indigo: #5e43fa !default;
-$green: #0ef074 !default;
-$yellow: #ffbe0a !default;
-$red: #fa423e !default;
-$orange: #ff734c !default;
-$purple: #bba1ff !default;
-$pink: #ff81d0 !default;
-$teal: #00f4a3 !default;
-$cyan: #6fdaf6 !default;
-$white: #fff !default;
-$black: #000 !default;
+$blue: #2c5dff;
+$indigo: #5e43fa;
+$green: #0ef074;
+$yellow: #ffbe0a;
+$red: #fa423e;
+$orange: #ff734c;
+$purple: #bba1ff;
+$pink: #ff81d0;
+$teal: #00f4a3;
+$cyan: #6fdaf6;
+$white: #fff;
+$black: #000;
 
 $colors: (
   'blue': $blue,
@@ -40,16 +40,16 @@ $colors: (
   'gray-dark': $gray-800,
   'white': $white,
   'black': $black,
-) !default;
+);
 
 // theme
-$primary: $blue !default;
-$secondary: $gray-700 !default;
-$success: $green !default;
-$warning: $yellow !default;
-$danger: $red !default;
-$light: $gray-300 !default;
-$dark: $gray-900 !default;
+$primary: $blue;
+$secondary: $gray-700;
+$success: $green;
+$warning: $yellow;
+$danger: $red;
+$light: $gray-300;
+$dark: $gray-900;
 
 $theme-colors: (
   'primary': $primary,
@@ -72,9 +72,9 @@ $theme-colors: (
   'gray-700': $gray-700,
   'gray-800': $gray-800,
   'gray-900': $gray-900,
-) !default;
+);
 
-$min-contrast-ratio: 4.5 !default;
+$min-contrast-ratio: 4.5;
 
 // Customize the light and dark text colors for use in our color contrast function.
 $color-contrast-dark: $dark !default;

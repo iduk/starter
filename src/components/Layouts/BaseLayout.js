@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import { Outlet, Link, NavLink } from 'react-router-dom'
+import { Outlet, Link, NavLink, useParams } from 'react-router-dom'
 import { getNavList } from '../data/data'
 import './BaseLayout.scss'
 
 function BaseLayout() {
+  let params = useParams()
   let navlist = getNavList()
 
   const [btnText, setBtnText] = useState(false)
@@ -29,14 +30,14 @@ function BaseLayout() {
           </a>
           <div className="collapse navbar-collapse" id="collapsibleNavId">
             <ul className="navbar-nav ms-auto me-0 mt-lg-0">
-              {navlist.map((nav) => (
-                <li key={nav.id} className="menu-item">
+              {navlist.map((nav, id) => (
+                <li key={id} className="menu-item">
                   <NavLink
-                    to={nav.path}
+                    to={nav.pathname}
                     // className={'menu-item__link'}
                     className={({ isActive }) => `menu-item__link ${isActive ? 'active' : ''}`}
                   >
-                    {nav.name}
+                    {nav.title}
                   </NavLink>
                 </li>
               ))}
@@ -45,7 +46,7 @@ function BaseLayout() {
         </div>
       </nav>
 
-      <main className="pt-6">
+      <main className="container pt-6">
         <Outlet />
       </main>
     </>
