@@ -112,14 +112,14 @@ module.exports = {
         test: /\.(jpe?g|png|gif|svg)$/i,
         type: 'asset/resource',
         generator: {
-          filename: 'images/[name][ext][query]',
+          filename: 'assets/images/[name][ext][query]',
         },
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
         type: 'asset/resource',
         generator: {
-          filename: 'fonts/[name][ext][query]',
+          filename: 'assets/fonts/[name][ext][query]',
         },
       },
       {
@@ -130,7 +130,7 @@ module.exports = {
       {
         test: /\.html$/,
         loader: 'html-loader',
-        options: { minimize: true },
+        options: { minimize: false },
       },
     ],
   },
