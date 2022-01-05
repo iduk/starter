@@ -3,10 +3,9 @@ module.exports = {
   env: {
     browser: true,
     es6: true,
-    node: true,
   },
   // 'eslint:recommended' >> Production시
-  extends: ['eslint:recommended', 'plugin:react/recommended', 'prettier'],
+  extends: ['plugin:react/recommended', 'prettier'],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
