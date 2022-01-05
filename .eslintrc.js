@@ -2,7 +2,8 @@
 module.exports = {
   env: {
     browser: true,
-    es6: true,
+    es2021: true,
+    node: true,
   },
   // 'eslint:recommended' >> Production시
   extends: ['plugin:react/recommended', 'prettier'],

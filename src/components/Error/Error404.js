@@ -8,6 +8,10 @@ export default function Error404() {
     navigate(-1)
   }
 
+  function goHome() {
+    navigate('/', { replace: true })
+  }
+
   return (
     <div className="d-flex align-items-center justify-content-center" style={{ height: '100vh' }}>
       <div className="text-center">

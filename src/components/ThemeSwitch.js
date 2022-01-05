@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 
+const SwitchBox = styled.div`
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  padding: 1rem;
+  width: 200px;
+`
+
 function ThemeSwitch() {
   const [toggleTheme, setToggleTheme] = useState()
 
@@ -13,22 +21,17 @@ function ThemeSwitch() {
     }
   })
 
-  const SwitchBox = styled.div`
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    padding: 1rem;
-    width: 200px;
-  `
-
   const isToggle = () => {
     setToggleTheme(!toggleTheme)
   }
 
   return (
-    <SwitchBox className="theme-switch">
+    <SwitchBox>
       <div className="d-grid">
-        <button className={`btn btn-black ${toggleTheme ? 'active' : ''}`} onClick={isToggle}>
+        <button
+          className={`btn btn-black ${toggleTheme ? 'active' : ''}`}
+          onClick={isToggle}
+        >
           <i className="bx bx-fw bxs-adjust-alt"></i>
           {toggleTheme ? 'Light Mode' : 'Dark Mode'}
         </button>
