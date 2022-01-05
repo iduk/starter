@@ -43,7 +43,7 @@ export default function Sidebar() {
             </a>
           </nav>
         </div>
-        <div class="main-container">
+        <div className="main-container">
           <Outlet />
         </div>
       </main>
@@ -76,10 +76,10 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
   function colorLink() {
     if (linkColor) {
-      linkColor.forEach((lala) => l.classList.remove('active'))
+      linkColor.forEach((lala) => this.classList.remove('active'))
       this.classList.add('active')
     }
   }
 
-  linkColor.forEach((lala) => l.addEventListener('click', colorLink))
+  linkColor.forEach((lala) => this.addEventListener('click', colorLink))
 })

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Outlet, Link, NavLink, useParams, useLocation, useNavigate } from 'react-router-dom'
 import { getNavList } from '../data/data'
 import './BaseLayout.scss'
+import ThemeSwitch from '../ThemeSwitch'
 
 function BaseLayout() {
   let params = useParams()
@@ -50,6 +51,7 @@ function BaseLayout() {
 
       <main className="container pt-6">
         <Outlet />
+        <ThemeSwitch />
       </main>
     </>
   )

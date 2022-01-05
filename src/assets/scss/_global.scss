@@ -3,15 +3,15 @@
 
 // Reset
 
-// @font-face {
-//   font-family: 'Noto Sans KR';
-//   font-style: normal;
-//   font-weight: 400;
-//   src: local('Noto Sans KR'), url('../fonts/NotoSans-Regular.woff2') format('woff2'),
-//     url('../fonts/NotoSans-Regular.woff') format('woff'),
-//     url('../fonts/NotoSans-Regular.eot?#iefix') format('embedded-opentype'),
-//     url('../fonts/NotoSans-Regular.otf') format('opentype');
-// }
+@font-face {
+  font-family: 'Noto Sans KR';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Noto Sans KR'), url('../fonts/NotoSans-Regular.woff2') format('woff2'),
+    url('../fonts/NotoSans-Regular.woff') format('woff'),
+    url('../fonts/NotoSans-Regular.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/NotoSans-Regular.otf') format('opentype');
+}
 
 ul,
 li,
@@ -35,7 +35,7 @@ i.bx {
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI';
+  font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI';
 }
 
 .btns {
@@ -162,6 +162,9 @@ body {
   }
 }
 
-.display-1 {
+.display-1,
+.display-2,
+.display-3,
+.display-4 {
   font-family: 'Yeseva One';
 }

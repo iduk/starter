@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useNavigate, useLocation } from 'react-router-dom'
 
 // components
 import BaseLayout from './components/Layouts/BaseLayout'
@@ -11,13 +11,17 @@ import SubContent from './pages/Sub/Content'
 import Example from './pages/Example'
 
 export default function App() {
+  let navigate = useNavigate()
+  let location = useLocation()
+
   return (
     <Routes>
       {/* Nav Layout */}
       <Route path="/" element={<BaseLayout />}>
         <Route index element={<Home />} />
         <Route path="sub" element={<Sub />}>
-          <Route path=":id" element={<div>1111111</div>} />
+          <Route path=":subId" element={<SubContent />} />
+          <Route path="about" element={<div>sub about</div>} />
         </Route>
         <Route path="example" element={<Example />} />
       </Route>

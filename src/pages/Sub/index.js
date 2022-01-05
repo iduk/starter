@@ -7,13 +7,23 @@ export default function Sub() {
 
   return (
     <div>
-      <h1 className="display-1">{subId}</h1>
       <p>location: {location.pathname}</p>
 
-      <Link to="content1">content1</Link>
-      <Link to="content2">content2</Link>
+      <div className="d-flex justify-content-between" style={{ maxWidth: '300px' }}>
+        <Link role={'button'} className="btn btn-secondary" to={'about'}>
+          About
+        </Link>
+        <Link role={'button'} className="btn btn-secondary" to={'content1'}>
+          Content1
+        </Link>
+        <Link role={'button'} className="btn btn-secondary" to={'content2'}>
+          Content2
+        </Link>
+      </div>
 
-      <Outlet />
+      <div className="mt-4">
+        <Outlet />
+      </div>
     </div>
   )
 }
