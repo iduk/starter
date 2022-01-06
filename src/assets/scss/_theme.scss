@@ -4,7 +4,7 @@
 $dark-bg: $dark;
 $dark-text: $white;
 $dark-border: rgba(#fff, 0.15);
-$light-bg: $white;
+$light-bg: $gray-100;
 $light-text: $dark-bg;
 $light-border: rgba(#000, 0.15);
 $transition-bg: background 0.3s cubic-bezier(0.185, 0.475, 0.895, 0.39);
@@ -53,12 +53,12 @@ body[data-theme='dark'] {
   h5,
   h6,
   p,
-  .menu-item__link {
+  .menu-item-link {
     background-color: inherit;
     border-color: inherit;
     color: inherit;
   }
-  .menu-item__link.active {
+  .menu-item-link.active {
     &::after {
       background-color: $light-bg;
     }
@@ -77,12 +77,12 @@ body[data-theme='light'] {
   h5,
   h6,
   p,
-  .menu-item__link {
+  .menu-item-link {
     background-color: inherit;
     border-color: inherit;
     color: inherit;
   }
-  .menu-item__link.active {
+  .menu-item-link.active {
     &::after {
       background-color: $dark-bg;
     }

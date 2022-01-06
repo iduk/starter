@@ -4,16 +4,12 @@ let navlist = [
     title: 'Index',
   },
   {
-    pathname: '/sub',
+    pathname: 'sub',
     title: 'Sub',
   },
   {
-    pathname: '/example',
+    pathname: 'example',
     title: 'Example',
-  },
-  {
-    pathname: '/error',
-    title: 'Error',
   },
 ]
 

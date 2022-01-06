@@ -1,46 +1,50 @@
-import React, { useState } from 'react'
-import { Outlet, Link, NavLink, useParams, useLocation, useNavigate } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+import { Outlet, Link, NavLink, useLocation } from 'react-router-dom'
 import { getNavList } from '../data/data'
-import './BaseLayout.scss'
 import ThemeSwitch from '../ThemeSwitch'
+import classnames from 'classnames/bind'
+
+import './BaseLayout.scss'
 
 function BaseLayout() {
-  let params = useParams()
   let navlist = getNavList()
-  let navigate = useNavigate()
-  let location = useLocation()
-
   const [btnText, setBtnText] = useState(false)
+  const [isCollapsedNav, setIsCollapsedNav] = useState(false)
 
-  const handleClick = (e) => {
-    setBtnText(!btnText)
+  const toggleNav = ({ isOpen, onClose }) => {
+    setIsCollapsedNav(!isCollapsedNav)
   }
 
   return (
     <>
       <nav className="navbar navbar-expand-lg">
         <div className="container-xl">
-          <Link to="/" className={'navbar-brand'}>
+          <Link to="/" className="navbar-brand">
             Pictor.
           </Link>
           <a
             className="navbar-toggler d-lg-none"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapsibleNavId"
-            onClick={handleClick}
+            onClick={toggleNav}
+            data-bs-backdrop={true}
           >
-            {`${btnText ? 'close' : 'menu'}`}
+            Burger
           </a>
-          <div className="collapse navbar-collapse" id="collapsibleNavId">
-            <ul className="navbar-nav ms-auto me-0 mt-lg-0">
-              {navlist.map((nav, id) => (
+          <div
+            className={`navbar-collapse collapse ${
+              isCollapsedNav ? 'show' : ''
+            }`}
+            id="menu"
+          >
+            <ul className="navbar-nav ms-lg-auto me-lg-0 mt-lg-0">
+              {navlist.map((item, id) => (
                 <li key={id} className="menu-item">
                   <NavLink
-                    to={nav.pathname}
-                    // className={'menu-item__link'}
-                    className={({ isActive }) => `menu-item__link ${isActive ? 'active' : ''}`}
+                    to={item.pathname}
+                    className={({ isActive }) =>
+                      `menu-item-link ${isActive ? 'active' : ''}`
+                    }
                   >
-                    {nav.title}
+                    {item.title}
                   </NavLink>
                 </li>
               ))}

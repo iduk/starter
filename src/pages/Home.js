@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './Home.module.scss'
-import classnames from 'classnames/bind'
 import Chart from '../components/Charts/Chart'
+import classnames from 'classnames/bind'
 
 const cx = classnames.bind(styles)
 

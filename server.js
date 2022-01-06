@@ -1,20 +1,32 @@
-const express = require('express');
-const webpack = require('webpack');
-const webpackDevMiddleware = require('webpack-dev-middleware');
+const express = require('express')
+const path = require('path')
+const webpack = require('webpack')
+const webpackDevMiddleware = require('webpack-dev-middleware')
+const port = 3333
+const app = express()
+const config = require('./webpack.config.js')
+const compiler = webpack(config)
 
-const app = express();
-const config = require('./webpack.config.js');
-const compiler = webpack(config);
+app.use(express.json())
 
-// express에서 webpack-dev-middleware와 webpack.config.js를 사용하도록 설정하세요.
-// 기본 설정 파일
+app.get('/', (req, res, next) => {
+  next()
+})
+
+// dev
 app.use(
   webpackDevMiddleware(compiler, {
     publicPath: config.output.publicPath,
   })
-);
+)
 
-// 포트 3000에서 파일 제공
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!\n');
-});
+app.use(express.static(__dirname))
+
+// // production
+// app.get('/*', (req, res) => {
+// res.sendFile(path.join(__dirname, 'dist', 'index.html'))
+// })
+
+app.listen(port, function () {
+  console.log(`개발서버 구동중이야... localhost:${port}`)
+})

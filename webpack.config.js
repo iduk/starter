@@ -48,6 +48,12 @@ module.exports = {
   devServer: {
     static: './dist',
     historyApiFallback: true,
+
+    client: {
+      progress: true,
+      webSocketTransport: 'ws',
+    },
+    webSocketServer: 'ws',
   },
 
   module: {
@@ -70,26 +76,15 @@ module.exports = {
             loader: 'css-loader',
             options: {
               importLoaders: 2,
+              sourceMap: true,
               modules: {
                 auto: true,
-                localIdentName: '[name]-[local]__[hash:base64:5]',
+                localIdentName: '[local]__[hash:base64:7]',
               },
             },
           },
           {
             loader: 'postcss-loader',
-            options: {
-              postcssOptions: {
-                plugins: [
-                  [
-                    'postcss-preset-env',
-                    {
-                      'postcss-import': {},
-                    },
-                  ],
-                ],
-              },
-            },
           },
           // scss
           {

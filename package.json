@@ -4,14 +4,14 @@
   "private": "false",
   "author": "iduk",
   "license": "MIT",
-  "homepage": "https://bootstrap5-webpack.vercel.app/",
+  "homepage": "https://pictor.dev/",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "npx webpack --watch",
     "server": "node server.js",
     "start": "npx webpack serve --open",
     "build": "npx webpack",
-    "prod": "webpack --mode=production",
+    "prod": "npx webpack --mode=production",
     "deploy": "yarn prod && gh-pages -d dist",
     "lint": "eslint \"src/**/*.js\" --fix"
   },
