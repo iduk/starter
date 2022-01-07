@@ -74,7 +74,7 @@ body {
 
 // animation gradient button
 .anim-bg-gradient {
-  background: linear-gradient(120deg, $indigo, $red, $yellow);
+  background: linear-gradient(120deg, #0044ff, #00d9ff, #ff7300);
   background-size: 200% 100%;
   background-position: 100% 0;
   transition: background-position 0.5s;
@@ -90,7 +90,7 @@ body {
 
 // animation Text Underline
 .anim-underline-fx {
-  background-image: linear-gradient(to right, $indigo 50%, $blue 50%);
+  background-image: linear-gradient(to right, #0044ff 50%, #00ffbf 50%);
   background-size: 200% 4px;
   background-repeat: no-repeat;
   background-position: 100% 100%;
@@ -148,19 +148,19 @@ body {
     }
     // style stuff
     &:nth-child(1) {
-      background-color: $primary;
+      background-color: #0044ff;
     }
     &:nth-child(2) {
-      background-color: $secondary;
+      background-color: #25bbe0;
     }
     &:nth-child(3) {
-      background-color: $warning;
+      background-color: #88ff00;
     }
     &:nth-child(4) {
-      background-color: $danger;
+      background-color: #ffe600;
     }
     &:nth-child(5) {
-      background-color: $success;
+      background-color: #ff6600;
     }
   }
 }

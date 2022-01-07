@@ -96,8 +96,7 @@ module.exports = {
                 fiber: require('fibers'), // 속도향상
               },
               additionalData: `
-              @import "~bootstrap/scss/functions";
-              @import "${PATHS.src}/assets/scss/custom-variables";
+              @import "${PATHS.src}/assets/scss/variables";
               @import "${PATHS.src}/assets/scss/theme";
               `,
             },

@@ -3,7 +3,6 @@ import { render } from 'react-dom'
 import { HashRouter } from 'react-router-dom'
 
 import App from './App'
-import * as bootstrap from 'bootstrap'
 import ThemeSwitch from './components/ThemeSwitch'
 import './assets/scss/main.scss'
 
