@@ -1,5 +1,3 @@
-@use 'sass:math';
-
 // mode properties
 $dark-bg: $dark;
 $dark-text: $white;
@@ -63,7 +61,7 @@ body[data-theme='dark'] {
       background-color: $light-bg;
     }
   }
-  .navbar {
+  .header-nav {
     border-color: rgba(#fff, 0.15);
   }
 }
@@ -87,7 +85,7 @@ body[data-theme='light'] {
       background-color: $dark-bg;
     }
   }
-  .navbar {
+  .header-nav {
     border-color: rgba(#000, 0.15);
   }
 }

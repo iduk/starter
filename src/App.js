@@ -30,22 +30,24 @@ export default function App() {
   }
 
   return (
-    <Routes>
-      {/* Nav Layout */}
-      <Route path="/" element={<BaseLayout />}>
-        <Route index element={<Home />} replace={true} />
-        <Route path="sub/*" element={<SubIndex pages={pages} />}>
-          <Route
-            path=":subId"
-            element={<SubContent onRemovePage={handleRemovePage} />}
-          />
-          <Route path="about" element={<About />} />
+    <>
+      <Routes>
+        {/* Nav Layout */}
+        <Route path="/" element={<BaseLayout />}>
+          <Route index element={<Home />} replace={true} />
+          <Route path="sub/*" element={<SubIndex pages={pages} />}>
+            <Route
+              path=":subId"
+              element={<SubContent onRemovePage={handleRemovePage} />}
+            />
+            <Route path="about" element={<About />} />
+          </Route>
+          <Route path="example" element={<Example />} />
         </Route>
-        <Route path="example" element={<Example />} />
-      </Route>
 
-      {/* None Layout */}
-      <Route path="*" element={<Error404 />} />
-    </Routes>
+        {/* None Layout */}
+        <Route path="*" element={<Error404 />} />
+      </Routes>
+    </>
   )
 }

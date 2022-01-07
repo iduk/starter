@@ -79,7 +79,7 @@ module.exports = {
               sourceMap: true,
               modules: {
                 auto: true,
-                localIdentName: '[local]__[hash:base64:7]',
+                localIdentName: '[folder]-[local]__[hash:base64:5]',
               },
             },
           },
@@ -92,10 +92,13 @@ module.exports = {
             options: {
               sourceMap: true,
               implementation: require.resolve('sass'),
+              sassOptions: {
+                fiber: require('fibers'), // 속도향상
+              },
               additionalData: `
-              @import "~bootstrap/scss/_functions.scss";
-              @import '~bootstrap/scss/mixins';
-              @import "${PATHS.src}/assets/scss/_custom-variables.scss";
+              @import "~bootstrap/scss/functions";
+              @import "${PATHS.src}/assets/scss/custom-variables";
+              @import "${PATHS.src}/assets/scss/theme";
               `,
             },
           },

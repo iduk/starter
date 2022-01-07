@@ -7,7 +7,8 @@
   font-family: 'Noto Sans KR';
   font-style: normal;
   font-weight: 400;
-  src: local('Noto Sans KR'), url('../fonts/NotoSans-Regular.woff2') format('woff2'),
+  src: local('Noto Sans KR'),
+    url('../fonts/NotoSans-Regular.woff2') format('woff2'),
     url('../fonts/NotoSans-Regular.woff') format('woff'),
     url('../fonts/NotoSans-Regular.eot?#iefix') format('embedded-opentype'),
     url('../fonts/NotoSans-Regular.otf') format('opentype');
@@ -35,7 +36,8 @@ i.bx {
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI';
+  font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, system-ui,
+    Roboto, 'Helvetica Neue', 'Segoe UI';
 }
 
 .btns {
@@ -137,7 +139,8 @@ body {
     // style stuff
     border-radius: 0.4em;
     padding: 1.25em;
-    box-shadow: 0 0.9px 1.5px rgba(0, 0, 0, 0.03), 0 3.1px 5.5px rgba(0, 0, 0, 0.08), 0 14px 25px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 0.9px 1.5px rgba(0, 0, 0, 0.03),
+      0 3.1px 5.5px rgba(0, 0, 0, 0.08), 0 14px 25px rgba(0, 0, 0, 0.12);
 
     // grid gap
     &:not(:last-child) {
@@ -167,4 +170,10 @@ body {
 .display-3,
 .display-4 {
   font-family: 'Yeseva One';
+}
+
+.device-test {
+  @include screen-down('small') {
+    border: 3px solid red;
+  }
 }

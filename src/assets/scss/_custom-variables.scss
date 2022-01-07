@@ -321,7 +321,11 @@ $enable-important-utilities: true !default;
 $variable-prefix: bs- !default;
 
 // variable-gradient
-$gradient: linear-gradient(180deg, rgba($white, 0.15), rgba($white, 0)) !default;
+$gradient: linear-gradient(
+  180deg,
+  rgba($white, 0.15),
+  rgba($white, 0)
+) !default;
 
 // Spacing
 $spacer: 1rem !default;
@@ -372,13 +376,13 @@ $container-max-widths: (
 
 // Grid columns
 $grid-columns: 12 !default;
-$grid-gutter-width: 1rem !default;
+$grid-gutter-width: 16px !default;
 $grid-row-columns: 6 !default;
 
 $gutters: $spacers !default;
 
 // Container padding
-$container-padding-x: $grid-gutter-width * 2 !default;
+$container-padding-x: $grid-gutter-width * 1 !default;
 
 // Body
 $body-bg: null !default;

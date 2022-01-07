@@ -31,7 +31,7 @@ export default function SubIndex() {
         ))}
       </div>
 
-      <div className="mt-4">
+      <div className="mt-4 container device-test border-danger">
         <Outlet />
       </div>
     </div>

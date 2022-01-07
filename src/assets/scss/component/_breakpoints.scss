@@ -1,0 +1,15 @@
+// $breakpoints
+// prettier-ignore
+$breakpoints: (
+  small:  ( min-width:  576px ),
+  medium: ( min-width:  768px ),
+  large:  ( min-width:  992px ),
+) !default;
+
+// max-widths
+// prettier-ignore
+$max-widths: (
+  small:   ( max-width: 540px ),
+  medium:  ( max-width: 720px ),
+  large:   ( max-width: 960px ),
+) !default;
