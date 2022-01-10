@@ -9,7 +9,7 @@ function BaseLayout() {
   return (
     <>
       <GlobalNav />
-      <main className="container pt-6">
+      <main className="container">
         <Outlet />
       </main>
     </>
