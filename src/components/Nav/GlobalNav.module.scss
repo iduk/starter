@@ -3,86 +3,143 @@
 $header-h: 80px;
 $header-h-m: 54px;
 
-.header-nav {
+.global-menu {
   position: relative;
-  height: $header-h;
-  padding: 0;
-  overflow: hidden;
+  display: grid;
+  border-width: 1px;
+  border-bottom-style: solid;
+}
+
+.wrapper {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menubar {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.menu-list {
+  display: flex;
+  flex-wrap: wrap;
+
+  .menu-items {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    padding: 0.75rem 0.5rem;
+    opacity: 0.65;
+
+    &.active {
+      opacity: 1;
+
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 1rem;
+        right: 1rem;
+        bottom: 0;
+        border-bottom-style: solid;
+        border-width: 1px;
+      }
+    }
+  }
+  .menu-link {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    transition: background-color 0.3s ease;
+    &:focus,
+    &:hover {
+      background-color: rgba($black, 0.35);
+    }
+  }
+}
+
+body[data-theme='dark'] {
+  .global-menu {
+    border-color: rgba($light, 0.15);
+  }
+  .menu-items.active {
+    &::before {
+      border-color: $light;
+    }
+  }
+}
+
+body[data-theme='light'] {
+  .global-menu {
+    border-color: rgba($dark, 0.15);
+  }
+  .menu-items.active {
+    &::before {
+      border-color: $dark;
+    }
+  }
+}
+
+.toggler {
+  display: none;
 }
 
 // logo
 .logo {
   display: inline-flex;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-family: 'Yeseva One';
   font-weight: bold;
   color: inherit;
+  line-height: normal;
 }
 
 .text-gradient-anima {
-  font-size: inherit;
-  background: linear-gradient(
-    to left top,
-    $primary 20%,
-    transparent 40%,
-    $primary 60%
+  background-color: #000000;
+  background-image: linear-gradient(
+    50% 0%,
+    8% 50%,
+    #ffffff80 0%,
+    #ffffff00 100%
   );
-  background-size: 200% auto;
   color: transparent;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  transition: background-position 0.5s;
-  animation: Grandient 2s linear infinite;
-}
+  background-size: 500px 100%;
+  transition: background 0.5s ease-in-out;
+  animation: textGradient 3s linear infinite;
 
-@keyframes Gradient {
-  to {
-    background-size: 200% center;
-  }
+  // &:hover,
+  // &:focus {
+  //   background-size: 200% 100%;
+  // }
 }
+.tracking-in-expand {
+  animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) both;
 
-// btn
-.toggler {
-  padding: 1rem;
-  font-size: 1rem;
-  font-weight: bolder;
-  font-family: 'Yeseva One';
-  border: 0;
-  transition: 0.3s;
-  cursor: pointer;
-}
-
-.menu-item {
-  padding: 0;
-}
-.menu-item-link {
-  position: relative;
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  color: inherit;
-  transition: all 0.3s ease;
-
-  &:focus,
-  &:hover {
-    opacity: 0.65;
-  }
-  &:focus,
-  &:hover,
-  &.active {
-    background-color: inherit;
-    &::after {
-      content: '';
-      display: block;
-      position: absolute;
-      left: 50%;
-      bottom: -2px;
-      height: 4px;
-      width: 24px;
-      transform: translateX(-50%);
-      animation: linkAnima 0.3s ease;
-      background-color: inherit;
+  @keyframes tracking-in-expand {
+    0% {
+      letter-spacing: -1em;
+      opacity: 0;
     }
+    40% {
+      opacity: 0.6;
+    }
+    100% {
+      letter-spacing: 0.125em;
+      opacity: 1;
+    }
+  }
+}
+
+@keyframes textGradient {
+  0% {
+    background-position-x: 500px;
+  }
+  100% {
+    background-position-x: 1000px;
   }
 }
 
@@ -92,60 +149,6 @@ $header-h-m: 54px;
   }
   100% {
     width: 30px;
-  }
-}
-
-// responsive
-// small
-@media (max-width: 767px) {
-  .header-nav {
-    height: $header-h-m;
-    padding: 0;
-
-    .logo,
-    .toggler {
-      z-index: 2;
-    }
-
-    .logo {
-      font-size: 1.5rem;
-    }
-    .navbar-collapse.g {
-      position: absolute;
-      z-index: 1;
-      top: 0;
-      right: -100%;
-      bottom: 0;
-      width: 100%;
-      height: 100%;
-      padding-top: $header-h-m;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      backdrop-filter: blur(15px);
-      background-color: inherit;
-      color: inherit;
-      // effect
-      transition: right 0.3s ease;
-    }
-
-    .collapse:not(.show) {
-      right: -100%;
-    }
-    .collapse.show {
-      right: 0;
-    }
-  }
-
-  .navbar-nav {
-    padding: 2rem 0;
-  }
-
-  .menu-item-link {
-    display: block;
-    padding: 0.5rem 0;
-    font-size: 1.5rem;
-    text-align: center;
   }
 }
 

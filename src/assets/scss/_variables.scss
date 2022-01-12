@@ -1,15 +1,59 @@
 // My Variables
+
+// ====================== breakpoint ( max-width ) ======================//
 $col-small: 540px;
 $col-medium: 720px;
 $col-large: 960px;
 
+// ====================== colors ======================//
 $primary: #0044ff;
 $secondary: #00d9ff;
 $success: #00ff6a;
 $warning: #ffd900;
 $danger: #ff2802;
 
-$dark: #222;
+$dark: #222222;
 $light: #f2f2f2;
+
 $black: #000;
 $white: #fff;
+
+// ====================== Typography ======================//
+$text-base: 1rem;
+
+$text-sizes: (
+  'xs': $text-base * 0.75,
+  'sm': $text-base * 0.875,
+  'md': $text-base,
+  'lg': $text-base * 1.25,
+  'xl': $text-base * 1.5,
+  '2xl': $text-base * 1.75,
+  '3xl': $text-base * 2,
+) !default;
+
+$headings: (
+  1: $text-base * 3.5,
+  2: $text-base * 3,
+  3: $text-base * 2.5,
+  4: $text-base * 2,
+  5: $text-base * 1.5,
+  6: $text-base * 1,
+) !default;
+
+$font-weight: (
+  'thin': 100,
+  'light': 300,
+  'normal': 400,
+  'medium': 500,
+  'bold': 600,
+  'extrabold': 700,
+) !default;
+
+// ====================== button ======================//
+$btn-padding-xs: 0.75rem 2rem;
+$btn-padding-sm: 0.825rem 2rem;
+$btn-padding-md: 1rem 2rem;
+$btn-padding-lg: 1.25rem 2rem;
+$btn-padding-xl: 1.5rem 2rem;
+
+$btn-border-width: 1px;

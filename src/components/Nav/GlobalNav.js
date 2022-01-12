@@ -17,39 +17,30 @@ function GlobalNav() {
 
   return (
     <>
-      <header className={cx('header-nav', 'navbar', 'navbar-expand-lg')}>
-        <div className={cx('container')}>
-          <Link to="/" className={cx('logo', 'navbar-brand')}>
-            <span className={cx('text-gradient-anima')}>Pictor.</span>
+      <header className={cx('global-menu')}>
+        <div className={cx('container', 'wrapper')}>
+          <Link to="/" className={cx('logo', 'tracking-in-expand')}>
+            PICTOR
           </Link>
-          <a
-            className={cx('toggler', ' d-lg-none')}
-            onClick={toggleNav}
-            data-bs-backdrop={true}
-          >
+          <a className={cx('toggler')} onClick={toggleNav}>
             Burger
           </a>
           <nav
-            className={
-              cx('g', 'navbar-collapse', 'collapse') +
-              `${isCollapsedNav ? cx('show') : ''}`
-            }
+            className={cx('menubar') + `${isCollapsedNav ? cx('show') : ''}`}
             id="menu"
           >
-            <ul className="navbar-nav ms-lg-auto me-lg-0 mt-lg-0">
+            <ul className={cx('menu-list')}>
               {navlist.map((item, id) => (
-                <li key={id} className={cx('menu-item')}>
+                <li key={id}>
                   <NavLink
                     to={item.pathname}
                     className={({ isActive }) =>
                       `${
-                        isActive
-                          ? cx('menu-item-link', 'active')
-                          : cx('menu-item-link')
+                        isActive ? cx('menu-items', 'active') : cx('menu-items')
                       }`
                     }
                   >
-                    {item.title}
+                    <span className={cx('menu-link')}>{item.title}</span>
                   </NavLink>
                 </li>
               ))}

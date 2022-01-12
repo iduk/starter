@@ -97,7 +97,7 @@ module.exports = {
               },
               additionalData: `
               @import "${PATHS.src}/assets/scss/variables";
-              @import "${PATHS.src}/assets/scss/theme";
+              @import "${PATHS.src}/assets/scss/mixins";
               `,
             },
           },

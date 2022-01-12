@@ -34,7 +34,7 @@ export default function App() {
       <Routes>
         {/* Nav Layout */}
         <Route path="/" element={<BaseLayout />}>
-          <Route index element={<Home />} replace={true} />
+          <Route index element={<Home />} />
           <Route path="sub/*" element={<SubIndex pages={pages} />}>
             <Route
               path=":subId"

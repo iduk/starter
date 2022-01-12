@@ -5439,6 +5439,11 @@ sass-loader@^12.4.0:
     klona "^2.0.4"
     neo-async "^2.6.2"
 
+sass-migrator@^1.5.3:
+  version "1.5.3"
+  resolved "https://registry.yarnpkg.com/sass-migrator/-/sass-migrator-1.5.3.tgz#a2989e937f3ce032a6b66d333d5242daed06233c"
+  integrity sha512-EyWLvkHPiVbBptblFVMHbzcNgHTSIy1F38lpgH5xf9IHBCHYQbmynXzMcdpWg4+R8NGW8u9XoWpcRizll+OYMg==
+
 sass@^1.45.0:
   version "1.45.0"
   resolved "https://registry.yarnpkg.com/sass/-/sass-1.45.0.tgz#192ede1908324bb293a3e403d1841dbcaafdd323"

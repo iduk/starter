@@ -1,13 +1,16 @@
-// mode properties
+// Theme Properties
+
 $dark-bg: $dark;
 $dark-text: $white;
 $dark-border: rgba(#fff, 0.15);
+
 $light-bg: $light;
 $light-text: $dark-bg;
 $light-border: rgba(#000, 0.15);
+
 $transition-bg: background 0.3s cubic-bezier(0.185, 0.475, 0.895, 0.39);
 
-// Theming Element
+// Theme Color Invert
 @mixin color-yiq($background) {
   $r: red($background);
   $g: green($background);
@@ -22,6 +25,7 @@ $transition-bg: background 0.3s cubic-bezier(0.185, 0.475, 0.895, 0.39);
   }
 }
 
+// Theme Mode
 @mixin themes($dark-mode: true) {
   @if $dark-mode {
     background-color: $dark-bg !important;
@@ -32,16 +36,15 @@ $transition-bg: background 0.3s cubic-bezier(0.185, 0.475, 0.895, 0.39);
     border-color: $light-border !important;
     @include color-yiq($light-bg);
   }
-
-  // transition: $transition-bg;
 }
 
+// Theme Style
 body {
   position: relative;
   transition: $transition-bg;
 }
 
-body[data-theme='dark'] {
+[data-theme='dark'] {
   @include themes($dark-mode: true);
   // mode target
   h1,
@@ -50,22 +53,14 @@ body[data-theme='dark'] {
   h4,
   h5,
   h6,
-  p,
-  .menu-item-link {
+  p {
     background-color: inherit;
     border-color: inherit;
     color: inherit;
   }
-  .menu-item-link.active {
-    &::after {
-      background-color: $light-bg;
-    }
-  }
-  .header-nav {
-    border-color: rgba(#fff, 0.15);
-  }
 }
-body[data-theme='light'] {
+
+[data-theme='light'] {
   @include themes($dark-mode: false);
   // mode target
   h1,
@@ -74,18 +69,9 @@ body[data-theme='light'] {
   h4,
   h5,
   h6,
-  p,
-  .menu-item-link {
+  p {
     background-color: inherit;
     border-color: inherit;
     color: inherit;
-  }
-  .menu-item-link.active {
-    &::after {
-      background-color: $dark-bg;
-    }
-  }
-  .header-nav {
-    border-color: rgba(#000, 0.15);
   }
 }

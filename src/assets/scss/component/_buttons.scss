@@ -1,15 +1,22 @@
 // Buttons
-
-// btn-soft-{}
-@each $color, $value in $theme-colors {
-  .btn-soft-#{$color} {
-    background-color: rgba($value, 0.15);
-    color: $value;
-
-    &:hover,
-    &:focus {
-      background-color: rgba($value, 0.25);
-      color: $value;
-    }
-  }
+%btn {
+  display: inline-block;
+  border-style: solid;
+  appearance: none;
+  box-shadow: none;
+  box-sizing: border-box;
+  line-height: normal;
+  border-color: transparent;
+  border-width: $btn-border-width;
+  font-size: $text-base;
 }
+
+.btn {
+  @extend %btn;
+}
+
+// @each $key, $value in $btn-sizes {
+//   .btn-#{$key} {
+//     font-weight: $value;
+//   }
+// }
