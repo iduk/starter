@@ -71,7 +71,7 @@ module.exports = {
       {
         test: /\.s[ac]ss$/i,
         use: [
-          devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+          MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
             options: {
@@ -90,7 +90,6 @@ module.exports = {
           {
             loader: 'sass-loader',
             options: {
-              sourceMap: true,
               implementation: require.resolve('sass'),
               sassOptions: {
                 fiber: require('fibers'), // 속도향상
@@ -141,13 +140,13 @@ module.exports = {
 
     new MiniCssExtractPlugin({
       filename: '[name].css',
-      chunkFilename: '[id].css',
+      chunkFilename: '[id].[contenthash].css',
     }),
 
     // * 사용안된 Css 제거 (dev)
-    new PurgecssPlugin({
-      paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true }),
-    }),
+    // new PurgecssPlugin({
+    //   paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true }),
+    // }),
 
     new CleanWebpackPlugin(),
   ],
