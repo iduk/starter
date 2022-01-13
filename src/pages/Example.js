@@ -1,7 +1,22 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import Img from '../assets/images/macbook.png'
+import Chart from '../components/Charts/Chart'
+import Dialog from '../components/Dialogs/Dialog'
+import { CSSTransition } from 'react-transition-group'
 
 function Example() {
+  const ref = useRef()
+
+  const [isDialog, setIsDialog] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
+
+  const closeModal = (e) => {
+    setIsOpen(false)
+  }
+  const openModal = (e) => {
+    setIsOpen(true)
+  }
+
   return (
     <div>
       <div className="pb-3">
@@ -10,6 +25,31 @@ function Example() {
           Static Pages, by iduk
         </figcaption>
       </div>
+
+      <section className="doc-section">
+        <h5>Typography</h5>
+        <div className="py-4 text-center">
+          <button
+            className="btn p-3 bg-slate-600"
+            onClick={() => {
+              setIsDialog(!isDialog)
+            }}
+          >
+            Transition Dialog
+          </button>
+
+          <CSSTransition
+            in={isDialog}
+            timeout={300}
+            classNames="dialogs"
+            unmountOnExit
+          >
+            <Dialog isOpen={isDialog} setIsDialog={setIsDialog}>
+              <h1>Look! I'm inside the dialog!</h1>
+            </Dialog>
+          </CSSTransition>
+        </div>
+      </section>
 
       <section className="doc-section">
         <h5>Typography</h5>

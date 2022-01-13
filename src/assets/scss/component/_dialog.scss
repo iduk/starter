@@ -1,0 +1,66 @@
+// dialog style
+
+.dialog-backdrop {
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-color: rgba(black, 0.6);
+  backdrop-filter: blur(12px);
+}
+
+.dialog {
+  z-index: 20;
+  position: absolute;
+  width: 100%;
+  height: 400px;
+
+  // max-widths
+  @include screen-up('small') {
+    max-width: $col-small;
+  }
+  @include screen-up('medium') {
+    max-width: $col-medium;
+  }
+  @include screen-up('large') {
+    max-width: $col-large;
+  }
+
+  .dialog-content {
+    width: 100%;
+    height: 100%;
+    background-color: $dark;
+  }
+}
+
+// Transition, className='dialogs'
+.dialogs-enter .dialog-content {
+  opacity: 0;
+  transform: scale(0.9);
+}
+.dialogs-enter-active .dialog-content {
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 0.3s;
+}
+.dialogs-exit .dialog-content {
+  opacity: 1;
+}
+.dialogs-exit-active .dialog-content {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 0.3s;
+}
+.dialogs-exit-active .dialog-backdrop {
+  opacity: 0;
+  transition: all 0.3s;
+}

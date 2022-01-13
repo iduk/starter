@@ -79,7 +79,7 @@ module.exports = {
               sourceMap: true,
               modules: {
                 auto: true,
-                localIdentName: '[folder]-[local]__[hash:base64:5]',
+                localIdentName: '[local]__[hash:base64:5]',
               },
             },
           },
