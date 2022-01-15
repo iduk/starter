@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import Img from '../assets/images/macbook.png'
 import Chart from '../components/Charts/Chart'
 import Dialog from '../components/Dialogs/Dialog'

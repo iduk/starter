@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Link, NavLink, useLocation } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { getNavList } from '../../data/nav'
 import classnames from 'classnames/bind'
 import styles from './GlobalNav.module.scss'
@@ -33,14 +33,16 @@ function GlobalNav() {
               {navlist.map((item, id) => (
                 <li key={id}>
                   <NavLink
-                    to={item.pathname}
+                    to={item.links}
                     className={({ isActive }) =>
                       `${
-                        isActive ? cx('menu-items', 'active') : cx('menu-items')
+                        isActive ? cx('menu-link', 'active') : cx('menu-link')
                       }`
                     }
+                    tabIndex={0}
+                    title={item.title}
                   >
-                    <span className={cx('menu-link')}>{item.title}</span>
+                    <span className={cx('menu-text')}>{item.title}</span>
                   </NavLink>
                 </li>
               ))}

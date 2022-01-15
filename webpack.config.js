@@ -48,6 +48,7 @@ module.exports = {
   devServer: {
     static: './dist',
     historyApiFallback: true,
+    port: 3333,
 
     client: {
       progress: true,

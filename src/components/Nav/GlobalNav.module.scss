@@ -25,13 +25,13 @@ $header-h-m: 54px;
   display: flex;
   flex-wrap: wrap;
 
-  .menu-items {
+  .menu-link {
     position: relative;
     display: inline-block;
-    cursor: pointer;
     outline: none;
     padding: 0.75rem 0.5rem;
     opacity: 0.65;
+    cursor: pointer;
 
     &.active {
       opacity: 1;
@@ -47,16 +47,19 @@ $header-h-m: 54px;
         border-width: 1px;
       }
     }
+    &:focus,
+    &:hover {
+      .menu-link {
+        background-color: rgba($black, 0.3);
+        outline: auto;
+      }
+    }
   }
-  .menu-link {
+  .menu-text {
     display: inline-block;
     padding: 0.5rem 1rem;
     border-radius: 0.25rem;
     transition: background-color 0.3s ease;
-    &:focus,
-    &:hover {
-      background-color: rgba($black, 0.35);
-    }
   }
 }
 
@@ -64,7 +67,7 @@ body[data-theme='dark'] {
   .global-menu {
     border-color: rgba($light, 0.15);
   }
-  .menu-items.active {
+  .menu-link.active {
     &::before {
       border-color: $light;
     }
@@ -75,7 +78,7 @@ body[data-theme='light'] {
   .global-menu {
     border-color: rgba($dark, 0.15);
   }
-  .menu-items.active {
+  .menu-link.active {
     &::before {
       border-color: $dark;
     }

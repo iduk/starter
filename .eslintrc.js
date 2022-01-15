@@ -1,20 +1,22 @@
 /* eslint-disable no-undef */
 module.exports = {
+  root: true,
   env: {
     browser: true,
-    es2021: true,
     node: true,
   },
   // 'eslint:recommended' >> Production시
-  extends: ['plugin:react/recommended', 'prettier'],
+  extends: ['eslint:recommended', 'plugin:react/recommended', 'prettier'],
+  parser: '@babel/eslint-parser',
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
     },
     ecmaVersion: 12,
     sourceType: 'module',
+    allowImportExportEverywhere: false,
   },
-  plugins: ['react', 'html'],
+  plugins: ['react'],
   rules: {
     'no-unused-expressions': 0,
     'react/no-unescaped-entities': 0,

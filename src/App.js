@@ -1,46 +1,26 @@
-import React, { useState } from 'react'
-import {
-  Routes,
-  Route,
-  useNavigate,
-  useLocation,
-  useParams,
-} from 'react-router-dom'
+import * as React from 'react'
+import { Routes, Route } from 'react-router-dom'
 
 // components
 import BaseLayout from './components/Layouts/BaseLayout'
 import Error404 from './components/Error/Error404'
-// page
 import Home from './pages/Home'
-import SubIndex from './pages/Sub/index'
-import SubContent from './pages/Sub/Content'
-import About from './pages/Sub/About'
 import Example from './pages/Example'
+import Posts from './pages/Blog/Posts'
+import PostList from './pages/Blog/PostList'
+import Post from './pages/Blog/Post'
 
 export default function App() {
-  const navigate = useNavigate()
-  const params = useParams()
-  const location = useLocation()
-
-  const [pages, setPages] = useState()
-
-  const handleRemovePage = (subId) => {
-    setPages((state) => state.filter((page) => page.id !== subId))
-    navigate('/sub')
-  }
-
   return (
     <>
       <Routes>
         {/* Nav Layout */}
         <Route path="/" element={<BaseLayout />}>
           <Route index element={<Home />} />
-          <Route path="sub/*" element={<SubIndex pages={pages} />}>
-            <Route
-              path=":subId"
-              element={<SubContent onRemovePage={handleRemovePage} />}
-            />
-            <Route path="about" element={<About />} />
+          <Route path="profile" element={<Profile />} />
+          <Route path="posts/*" element={<Posts />}>
+            <Route index element={<PostList />} />
+            <Route path=":postId" element={<Post />} />
           </Route>
           <Route path="example" element={<Example />} />
         </Route>
@@ -49,5 +29,14 @@ export default function App() {
         <Route path="*" element={<Error404 />} />
       </Routes>
     </>
+  )
+}
+
+function Profile() {
+  return (
+    <div>
+      <h1>Profile</h1>
+      <p>하와유?</p>
+    </div>
   )
 }
