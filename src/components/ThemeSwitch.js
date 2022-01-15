@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import styled from 'styled-components'
 
 const SwitchBox = styled.div`
@@ -8,36 +8,48 @@ const SwitchBox = styled.div`
   padding: 1rem;
   width: 200px;
 `
+const ThemeContext = React.createContext('theme')
 
 function ThemeSwitch() {
-  const [toggleTheme, setToggleTheme] = useState()
+  const [theme, setTheme] = useState(false)
 
   // Theme Switch
   useEffect(() => {
     document.body.setAttribute('data-theme', 'dark')
 
-    if (toggleTheme) {
+    if (theme) {
       document.body.setAttribute('data-theme', 'light')
     }
-  })
+  }, [theme])
 
   const isToggle = () => {
-    setToggleTheme(!toggleTheme)
+    setTheme(!theme)
   }
 
   return (
-    <SwitchBox>
-      <div className="d-grid">
-        <button
-          className={`btn btn-black ${toggleTheme ? 'active' : ''}`}
-          onClick={isToggle}
-        >
-          <i className="bx bx-fw bxs-adjust-alt"></i>
-          {toggleTheme ? 'Light Mode' : 'Dark Mode'}
-        </button>
-      </div>
-    </SwitchBox>
+    <ThemeContext.Provider value={{ theme, isToggle }}>
+      <SwitchBox>
+        <div className="d-grid">
+          <ThemeToggler />
+        </div>
+      </SwitchBox>
+    </ThemeContext.Provider>
   )
 }
-
 export default ThemeSwitch
+
+function ThemeToggler() {
+  const { theme, isToggle } = useContext(ThemeContext)
+
+  return (
+    <div>
+      <button
+        className={`btn btn-black ${theme ? 'active' : ''}`}
+        onClick={isToggle}
+      >
+        <i className="bx bx-fw bxs-adjust-alt"></i>
+        {theme ? 'Light Mode' : 'Dark Mode'}
+      </button>
+    </div>
+  )
+}
