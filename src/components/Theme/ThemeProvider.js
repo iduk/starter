@@ -49,9 +49,8 @@ function ThemeSwitch() {
 }
 
 const SwitchBox = styled.div`
+  z-index: 10;
   position: fixed;
   bottom: 2rem;
   right: 2rem;
-  padding: 1rem;
-  width: 200px;
 `
