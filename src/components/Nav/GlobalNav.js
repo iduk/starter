@@ -19,7 +19,7 @@ function GlobalNav() {
     <>
       <header className={cx('global-menu')}>
         <div className={cx('container', 'wrapper')}>
-          <Link to="/" className={cx('logo', 'text-gradient-anima')}>
+          <Link to="/" className={cx('logo', 'tracking-in-expand')}>
             PICTOR
           </Link>
           <a className={cx('toggler')} onClick={toggleNav}>

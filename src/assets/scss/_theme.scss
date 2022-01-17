@@ -8,7 +8,7 @@ $light-bg: $light;
 $light-text: $dark-bg;
 $light-border: rgba(#000, 0.15);
 
-$transition-bg: background 0.3s cubic-bezier(0.185, 0.475, 0.895, 0.39);
+$transition-bg: all 0.1s cubic-bezier(0.185, 0.475, 0.895, 0.39);
 
 // Theme Color Invert
 @mixin color-yiq($background) {
@@ -28,50 +28,22 @@ $transition-bg: background 0.3s cubic-bezier(0.185, 0.475, 0.895, 0.39);
 // Theme Mode
 @mixin themes($dark-mode: true) {
   @if $dark-mode {
-    background-color: $dark-bg !important;
-    border-color: $dark-border !important;
+    background-color: $dark-bg;
+    border-color: $dark-border;
     @include color-yiq($dark-bg);
   } @else {
-    background-color: $light-bg !important;
-    border-color: $light-border !important;
+    background-color: $light-bg;
+    border-color: $light-border;
     @include color-yiq($light-bg);
   }
-}
-
-// Theme Style
-body {
-  position: relative;
   transition: $transition-bg;
 }
 
+// Theme Style
 [data-theme='dark'] {
   @include themes($dark-mode: true);
-  // mode target
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p {
-    background-color: inherit;
-    border-color: inherit;
-    color: inherit;
-  }
 }
 
 [data-theme='light'] {
   @include themes($dark-mode: false);
-  // mode target
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p {
-    background-color: inherit;
-    border-color: inherit;
-    color: inherit;
-  }
 }

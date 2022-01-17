@@ -3,13 +3,14 @@ import * as ReactDOM from 'react-dom'
 import { BrowserRouter, HashRouter } from 'react-router-dom'
 
 import App from './App'
-import ThemeSwitch from './components/ThemeSwitch'
 import './assets/scss/main.scss'
+import ThemeProvider from './components/Theme/ThemeProvider'
 
 ReactDOM.render(
   <HashRouter>
-    <App />
-    <ThemeSwitch />
+    <ThemeProvider>
+      <App />
+    </ThemeProvider>
   </HashRouter>,
   document.getElementById('root')
 )
