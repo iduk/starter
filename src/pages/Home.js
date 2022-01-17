@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
+import { useParams, useLocation } from 'react-router-dom'
 import styles from './Home.module.scss'
 import classnames from 'classnames/bind'
-import { useParams, useLocation } from 'react-router-dom'
 
 const cx = classnames.bind(styles)
 
