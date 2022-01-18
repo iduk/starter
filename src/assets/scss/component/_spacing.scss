@@ -1,0 +1,49 @@
+// p-*, px-*, py-*
+$spacing: 0.5rem !default;
+
+$spacing-sizes: (
+   0: $spacing * 0,
+   1: $spacing * 1,
+   2: $spacing * 1.5,
+   3: $spacing * 2,
+   4: $spacing * 2.5,
+   5: $spacing * 3,
+   6: $spacing * 3.5,
+   7: $spacing * 4,
+   8: $spacing * 4.5,
+   9: $spacing * 5,
+  10: $spacing * 5.5,
+  11: $spacing * 6,
+  12: $spacing * 6.5,
+) !default;
+
+$arrows: (
+  t: '-top',
+  b: '-bottom',
+  r: '-right',
+  l: '-left',
+) !default;
+
+
+/*********************** Test1 ***********************/
+@each $num, $value in $spacing-sizes {
+  @each $p1, $p2 in (m: 'margin', p: 'padding') {
+      .#{$p1}-#{$num} {
+          #{$p2}: $value $value;
+        }
+      .#{$p1}x-#{$num} {
+            #{$p2}-left: $value;
+            #{$p2}-right: $value;
+        }
+        .#{$p1}y-#{$num} {
+            #{$p2}-top: $value;
+            #{$p2}-bottom: $value;
+        }
+        
+      @each $name, $arrow in $arrows {
+        .#{$p1}#{$name}-#{$num} {
+            #{$p2}#{$arrow}: $value;
+        }
+    }
+  }
+}

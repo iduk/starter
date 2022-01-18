@@ -27,6 +27,34 @@ function Example() {
       </div>
 
       <section className="doc-section">
+        <h5 className="mb-4">Grid</h5>
+        <div className="container">
+          <div className="row mb-3">
+            <div className="col-6 border">
+              <div className="column-size bg-stone-500">element</div>
+            </div>
+            <div className="col-6 border">
+              <div className="column-size bg-stone-500">element</div>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-3 border">
+              <div className="column-size bg-stone-500">element</div>
+            </div>
+            <div className="col-3 border">
+              <div className="column-size bg-stone-500">element</div>
+            </div>
+            <div className="col-3 border">
+              <div className="column-size bg-stone-500">element</div>
+            </div>
+            <div className="col-3 border">
+              <div className="column-size bg-stone-500">element</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="doc-section">
         <h5>Typography</h5>
         <div className="py-4 text-center">
           <button

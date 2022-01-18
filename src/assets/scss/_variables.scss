@@ -49,6 +49,10 @@ $font-weight: (
   'extrabold': 700,
 ) !default;
 
+// ====================== grid ======================//
+$col-count: 12 !default;
+$gutter-size: 1rem !default;
+
 // ====================== button ======================//
 $btn-padding-xs: 0.75rem 2rem;
 $btn-padding-sm: 0.825rem 2rem;

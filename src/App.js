@@ -9,6 +9,7 @@ import Example from './pages/Example'
 import Posts from './pages/Blog/Posts'
 import PostList from './pages/Blog/PostList'
 import Post from './pages/Blog/Post'
+import Profile from './pages/Profile'
 
 export default function App() {
   return (
@@ -29,14 +30,5 @@ export default function App() {
         <Route path="*" element={<Error404 />} />
       </Routes>
     </>
-  )
-}
-
-function Profile() {
-  return (
-    <div>
-      <h1>Profile</h1>
-      <p>하와유?</p>
-    </div>
   )
 }

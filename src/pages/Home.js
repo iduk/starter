@@ -7,18 +7,24 @@ const cx = classnames.bind(styles)
 
 function Home() {
   const location = useLocation()
-  console.log(location.state)
 
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    setTimeout(() => setLoading(false), 2000)
+    setTimeout(() => setLoading(false), 1000)
   }, [])
 
   let params = useParams()
 
   return (
     <>
+      <ul>
+        {Array(9)
+          .fill()
+          .map((item, index) => (
+            <li key={index}>{item}호로로로로롤ㄹ</li>
+          ))}
+      </ul>
       {loading === false ? (
         <div className={cx('home')}>
           <article
