@@ -1,9 +1,7 @@
 .container {
-  position: relative;
   width: 100%;
-  margin-right: auto;
-  margin-left:  auto;
   padding: 0 $gutter-size;
+  @include margin-auto;
 
   // max-widths
   @include screen-up('small') {
@@ -13,6 +11,16 @@
     max-width: $col-medium;
   }
   @include screen-up('large') {
+    max-width: $col-large;
+  }
+
+  &-sm {
+    max-width: $col-small;
+  }
+  &-md {
+    max-width: $col-medium;
+  }
+  &-lg {
     max-width: $col-large;
   }
 }

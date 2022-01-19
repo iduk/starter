@@ -98,6 +98,7 @@ module.exports = {
               additionalData: `
               @import "${PATHS.src}/assets/scss/variables";
               @import "${PATHS.src}/assets/scss/mixins";
+              @import "${PATHS.src}/assets/scss/components";
               `,
             },
           },

@@ -18,32 +18,33 @@ $spacing-sizes: (
 ) !default;
 
 $arrows: (
+  x: ('-left', '-right'),
+  y: ('-top', '-bottom'),
   t: '-top',
   b: '-bottom',
   r: '-right',
   l: '-left',
+
 ) !default;
 
 
 /*********************** Test1 ***********************/
 @each $num, $value in $spacing-sizes {
   @each $p1, $p2 in (m: 'margin', p: 'padding') {
-      .#{$p1}-#{$num} {
-          #{$p2}: $value $value;
-        }
-      .#{$p1}x-#{$num} {
-            #{$p2}-left: $value;
-            #{$p2}-right: $value;
-        }
-        .#{$p1}y-#{$num} {
-            #{$p2}-top: $value;
-            #{$p2}-bottom: $value;
-        }
-        
-      @each $name, $arrow in $arrows {
-        .#{$p1}#{$name}-#{$num} {
-            #{$p2}#{$arrow}: $value;
-        }
+    @each $name, $arrow in $arrows {
+      .#{$p1}#{$name}-#{$num} {
+          @if length($arrow) > 1 {
+              #{$p2}#{nth($arrow, 1)}: $value;
+              #{$p2}#{nth($arrow, 2)}: $value;
+          } @else {
+              #{$p2}#{$arrow}: $value;
+          }
+      }
     }
   }
+}
+
+
+.mx-auto {
+  @include margin-auto;
 }

@@ -1,7 +1,7 @@
 // Theme Properties
 
 $dark-bg: $dark;
-$dark-text: $white;
+$dark-text: $light;
 $dark-border: rgba(#fff, 0.15);
 
 $light-bg: $light;
@@ -9,31 +9,16 @@ $light-text: $dark-bg;
 $light-border: rgba(#000, 0.15);
 $transition-bg: all 0.1s cubic-bezier(0.185, 0.475, 0.895, 0.39);
 
-// Theme Color Invert
-@mixin color-yiq($background) {
-  $r: red($background);
-  $g: green($background);
-  $b: blue($background);
-
-  $yiq: (($r * 299) + ($g * 587) + ($b * 114)) * 0.001;
-
-  @if ($yiq >= 128) {
-    color: $dark-bg;
-  } @else {
-    color: $light-bg;
-  }
-}
-
 // Theme Mode
 @mixin themes($dark-mode: true) {
   @if $dark-mode {
     background-color: $dark-bg;
     border-color: $dark-border;
-    @include color-yiq($dark-bg);
+    @include color-invert($dark-bg);
   } @else {
     background-color: $light-bg;
     border-color: $light-border;
-    @include color-yiq($light-bg);
+    @include color-invert($light-bg);
   }
   transition: $transition-bg;
 }

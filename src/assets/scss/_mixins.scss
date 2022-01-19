@@ -38,6 +38,22 @@
   }
 }
 
+/* ------------------- color invert (yiq) ------------------- */
+// Theme Color Invert
+@mixin color-invert($background) {
+  $r: red($background);
+  $g: green($background);
+  $b: blue($background);
+
+  $yiq: (($r * 299) + ($g * 587) + ($b * 114)) * 0.001;
+
+  @if ($yiq >= 128) {
+    color: black;
+  } @else {
+    color: white;
+  }
+}
+
 /* ------------------- input placeholder ------------------- */
 @mixin input-placeholder {
   &.placeholder {
@@ -76,4 +92,10 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+/* ------------------- margin-auto ------------------- */
+@mixin margin-auto {
+  margin-left: auto;
+  margin-right: auto;
 }
