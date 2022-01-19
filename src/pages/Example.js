@@ -28,28 +28,27 @@ function Example() {
 
       <section className="doc-section">
         <h5 className="mb-4">Grid</h5>
-        <div className="container">
-          <div className="row mb-3">
-            <div className="col-6 border">
-              <div className="column-size bg-stone-500">element</div>
-            </div>
-            <div className="col-6 border">
-              <div className="column-size bg-stone-500">element</div>
-            </div>
+
+        <div className="row mb-3">
+          <div className="col-6 border">
+            <div className="column-size bg-stone-500">element</div>
           </div>
-          <div className="row">
-            <div className="col-3 border">
-              <div className="column-size bg-stone-500">element</div>
-            </div>
-            <div className="col-3 border">
-              <div className="column-size bg-stone-500">element</div>
-            </div>
-            <div className="col-3 border">
-              <div className="column-size bg-stone-500">element</div>
-            </div>
-            <div className="col-3 border">
-              <div className="column-size bg-stone-500">element</div>
-            </div>
+          <div className="col-6 border">
+            <div className="column-size bg-stone-500">element</div>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-3 border">
+            <div className="column-size bg-stone-500">element</div>
+          </div>
+          <div className="col-3 border">
+            <div className="column-size bg-stone-500">element</div>
+          </div>
+          <div className="col-3 border">
+            <div className="column-size bg-stone-500">element</div>
+          </div>
+          <div className="col-3 border">
+            <div className="column-size bg-stone-500">element</div>
           </div>
         </div>
       </section>
@@ -72,8 +71,16 @@ function Example() {
             classNames="dialogs"
             unmountOnExit
           >
-            <Dialog isOpen={isDialog} setIsDialog={setIsDialog}>
-              <h1>Look! I'm inside the dialog!</h1>
+            <Dialog
+              className={' max-w-xs mt-8'}
+              width="300px"
+              isOpen={isDialog}
+              setIsDialog={setIsDialog}
+            >
+              <p>안녕하세요 모달입니다</p>
+              <button className="btn p-2" onClick={() => setIsDialog(false)}>
+                [Close]
+              </button>
             </Dialog>
           </CSSTransition>
         </div>
@@ -81,7 +88,7 @@ function Example() {
 
       <section className="doc-section">
         <h5>Typography</h5>
-        <div className="py-4 text-center">
+        <div className="py-4 text-center overflow-hidden">
           <div className="flex gap-4 items-center">
             <p className="text-xs">xs</p>
             <p className="text-sm">sm</p>

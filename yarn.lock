@@ -5176,11 +5176,6 @@ react-lifecycles-compat@^3.0.4:
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
 
-react-loading-skeleton@^3.0.2:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/react-loading-skeleton/-/react-loading-skeleton-3.0.2.tgz#f1ba7344e03fb3363f2986e0f879d88249fc230f"
-  integrity sha512-rlALwuZEcjazUDeIy3+fEhm20Uk9Yd/zZGeITU034K2ts5/yEf7RuZaV2FyrPWypIII4LAsFEo9WDTPKp6G0fQ==
-
 react-router-dom@^6.2.1:
   version "6.2.1"
   resolved "https://registry.yarnpkg.com/react-router-dom/-/react-router-dom-6.2.1.tgz#32ec81829152fbb8a7b045bf593a22eadf019bec"
@@ -5491,11 +5486,6 @@ sass-loader@^12.4.0:
   dependencies:
     klona "^2.0.4"
     neo-async "^2.6.2"
-
-sass-migrator@^1.5.3:
-  version "1.5.3"
-  resolved "https://registry.yarnpkg.com/sass-migrator/-/sass-migrator-1.5.3.tgz#a2989e937f3ce032a6b66d333d5242daed06233c"
-  integrity sha512-EyWLvkHPiVbBptblFVMHbzcNgHTSIy1F38lpgH5xf9IHBCHYQbmynXzMcdpWg4+R8NGW8u9XoWpcRizll+OYMg==
 
 sass@^1.47.0:
   version "1.47.0"
