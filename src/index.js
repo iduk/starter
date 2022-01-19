@@ -7,10 +7,10 @@ import './assets/scss/main.scss'
 import ThemeProvider from './components/Theme/ThemeProvider'
 
 ReactDOM.render(
-  <BrowserRouter>
+  <HashRouter>
     <ThemeProvider>
       <App />
     </ThemeProvider>
-  </BrowserRouter>,
+  </HashRouter>,
   document.getElementById('root')
 )
