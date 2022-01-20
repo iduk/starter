@@ -1,21 +1,6 @@
 // p-*, px-*, py-*
 $spacing: 0.5rem !default;
-
-$spacing-sizes: (
-   0: $spacing * 0,
-   1: $spacing * 1,
-   2: $spacing * 1.5,
-   3: $spacing * 2,
-   4: $spacing * 2.5,
-   5: $spacing * 3,
-   6: $spacing * 3.5,
-   7: $spacing * 4,
-   8: $spacing * 4.5,
-   9: $spacing * 5,
-  10: $spacing * 5.5,
-  11: $spacing * 6,
-  12: $spacing * 6.5,
-) !default;
+$space-count: 16;
 
 $arrows: (
   x: ('-left', '-right'),
@@ -29,16 +14,17 @@ $arrows: (
 
 
 /*********************** Test1 ***********************/
-@each $num, $value in $spacing-sizes {
+
+@for $i from 0 through $space-count {
   @each $p1, $p2 in (m: 'margin', p: 'padding') {
     @each $name, $arrow in $arrows {
-      .#{$p1}#{$name}-#{$num} {
-          @if length($arrow) > 1 {
-              #{$p2}#{nth($arrow, 1)}: $value;
-              #{$p2}#{nth($arrow, 2)}: $value;
-          } @else {
-              #{$p2}#{$arrow}: $value;
-          }
+      .#{$p1}#{$name}-#{$i} {
+        @if length($arrow) > 1 {
+            #{$p2}#{nth($arrow, 1)}: $spacing * $i;
+            #{$p2}#{nth($arrow, 2)}: $spacing * $i;
+        } @else {
+            #{$p2}#{$arrow}: $spacing * $i;
+        }
       }
     }
   }

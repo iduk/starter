@@ -4,17 +4,24 @@ import Chart from '../components/Charts/Chart'
 import Dialog from '../components/Dialogs/Dialog'
 import { CSSTransition } from 'react-transition-group'
 
+import styled from 'styled-components'
+
+const Document = styled.section`
+  margin: 3rem 0;
+  border: 1px solid var(--primary);
+`
+
 function Example() {
   const ref = useRef()
 
   const [isDialog, setIsDialog] = useState(false)
-  const [isOpen, setIsOpen] = useState(false)
+  const visibleModal = () => setIsDialog(!isDialog)
 
-  const closeModal = (e) => {
-    setIsOpen(false)
+  const onClose = (e) => {
+    setIsDialog(false)
   }
   const openModal = (e) => {
-    setIsOpen(true)
+    setIsDialog(true)
   }
 
   return (
@@ -24,12 +31,19 @@ function Example() {
         <figcaption className="blockquote-footer">
           Static Pages, by iduk
         </figcaption>
+
+        {/* <div className="grid btns my-2">
+          <button className="btn anim-bg-gradient">
+            Gradient Animate Button
+          </button>
+        </div> */}
       </div>
 
-      <section className="doc-section">
-        <h5 className="mb-4">Grid</h5>
+      <Document>
+        <h5>12 Grid Columns</h5>
+        <p>.row, .col-{'{number}'}</p>
 
-        <div className="row mb-3">
+        <div className="row my-3">
           <div className="col-6 border">
             <div className="column-size bg-stone-500">element</div>
           </div>
@@ -51,42 +65,38 @@ function Example() {
             <div className="column-size bg-stone-500">element</div>
           </div>
         </div>
-      </section>
+      </Document>
 
-      <section className="doc-section">
-        <h5>Typography</h5>
+      <Document>
+        <h5>Dialog</h5>
         <div className="py-4 text-center">
-          <button
-            className="btn p-3 bg-slate-600"
-            onClick={() => {
-              setIsDialog(!isDialog)
-            }}
-          >
+          <button className="btn p-3 bg-slate-600" onClick={visibleModal}>
             Transition Dialog
           </button>
 
           <CSSTransition
             in={isDialog}
-            timeout={300}
+            onClose={visibleModal}
+            timeout={200}
             classNames="dialogs"
             unmountOnExit
           >
             <Dialog
+              isDialog={isDialog}
+              onClose={visibleModal}
               className={' max-w-xs mt-8'}
               width="300px"
-              isOpen={isDialog}
-              setIsDialog={setIsDialog}
             >
               <p>안녕하세요 모달입니다</p>
-              <button className="btn p-2" onClick={() => setIsDialog(false)}>
+              <button className="btn p-2" onClick={visibleModal}>
                 [Close]
               </button>
             </Dialog>
           </CSSTransition>
         </div>
-      </section>
+      </Document>
 
-      <section className="doc-section">
+      <Document>
         <h5>Typography</h5>
         <div className="py-4 text-center overflow-hidden">
           <div className="flex gap-4 items-center">
@@ -119,20 +129,17 @@ function Example() {
             <p className="font-extrabold">extrabold</p>
           </div>
         </div>
+      </Document>
 
-        <div className="grid btns my-2">
-          <button className="btn anim-bg-gradient">
-            Gradient Animate Button
-          </button>
+      <Document>
+        <h5>Colors</h5>
+        <p>.bg-{'{theme}'}</p>
+        <div className="mt-3 flex gap-2">
+          <span className="p-2 bg-primary">primary</span>
+          <span className="p-2 bg-secondary">secondary</span>
         </div>
-      </section>
-
-      <section className="doc-section">
-        <h5>Background Color Shades</h5>
-        <p>
-          bg-{'{'}theme{'}'}-{'{'}value{'}'}
-        </p>
         <div>
+          <span className="box bg-primary-100" />
           <span className="box bg-primary-100" />
           <span className="box bg-primary-200" />
           <span className="box bg-primary-300" />
@@ -143,85 +150,9 @@ function Example() {
           <span className="box bg-primary-800" />
           <span className="box bg-primary-900" />
         </div>
-        <div>
-          <span className="box bg-secondary-100" />
-          <span className="box bg-secondary-200" />
-          <span className="box bg-secondary-300" />
-          <span className="box bg-secondary-400" />
-          <span className="box bg-secondary-500" />
-          <span className="box bg-secondary-600" />
-          <span className="box bg-secondary-700" />
-          <span className="box bg-secondary-800" />
-          <span className="box bg-secondary-900" />
-        </div>
-        <div>
-          <span className="box bg-success-100" />
-          <span className="box bg-success-200" />
-          <span className="box bg-success-300" />
-          <span className="box bg-success-400" />
-          <span className="box bg-success-500" />
-          <span className="box bg-success-600" />
-          <span className="box bg-success-700" />
-          <span className="box bg-success-800" />
-          <span className="box bg-success-900" />
-        </div>
-        <div>
-          <span className="box bg-warning-100" />
-          <span className="box bg-warning-200" />
-          <span className="box bg-warning-300" />
-          <span className="box bg-warning-400" />
-          <span className="box bg-warning-500" />
-          <span className="box bg-warning-600" />
-          <span className="box bg-warning-700" />
-          <span className="box bg-warning-800" />
-          <span className="box bg-warning-900" />
-        </div>
-        <div>
-          <span className="box bg-danger-100" />
-          <span className="box bg-danger-200" />
-          <span className="box bg-danger-300" />
-          <span className="box bg-danger-400" />
-          <span className="box bg-danger-500" />
-          <span className="box bg-danger-600" />
-          <span className="box bg-danger-700" />
-          <span className="box bg-danger-800" />
-          <span className="box bg-danger-900" />
-        </div>
-        <div>
-          <span className="box bg-grays-100" />
-          <span className="box bg-grays-200" />
-          <span className="box bg-grays-300" />
-          <span className="box bg-grays-400" />
-          <span className="box bg-grays-500" />
-          <span className="box bg-grays-600" />
-          <span className="box bg-grays-700" />
-          <span className="box bg-grays-800" />
-          <span className="box bg-grays-900" />
-        </div>
-      </section>
+      </Document>
 
-      <section className="doc-section">
-        <h5>Background Color &amp; Opacity</h5>
-        <p>
-          bg-{'{'}theme{'}'} bg-opacity-{'{'}value{'}'}
-        </p>
-        <article className="d-flex gap-3">
-          <div>
-            <span className="box bg-primary bg-opacity-10" />
-            <span className="box bg-primary bg-opacity-25" />
-            <span className="box bg-primary bg-opacity-50" />
-            <span className="box bg-primary bg-opacity-75" />
-          </div>
-          <div>
-            <span className="box o-secondary-20" />
-            <span className="box o-secondary-40" />
-            <span className="box o-secondary-60" />
-            <span className="box o-secondary-80" />
-          </div>
-        </article>
-      </section>
-
-      <section className="doc-section">
+      <Document>
         <h5>3D Transform Effect</h5>
         <article>
           <figure className="effect" style={{ maxWidth: 500 }}>
@@ -232,26 +163,26 @@ function Example() {
             />
           </figure>
         </article>
-      </section>
+      </Document>
 
-      <section className="doc-section">
+      <Document>
         <h5>Scroll Snap</h5>
 
-        <div className="scroll-snap" style={{ height: 500, maxWidth: 500 }}>
-          <section className="scroll-snap__child">
+        <div className="scroll-snap" style={{ height: 300, maxWidth: 300 }}>
+          <span className="scroll-snap__child">
             <h1>1</h1>
-          </section>
-          <section className="scroll-snap__child">
+          </span>
+          <span className="scroll-snap__child">
             <h1>2</h1>
-          </section>
-          <section className="scroll-snap__child">
+          </span>
+          <span className="scroll-snap__child">
             <h1>3</h1>
-          </section>
-          <section className="scroll-snap__child">
+          </span>
+          <span className="scroll-snap__child">
             <h1>4</h1>
-          </section>
+          </span>
         </div>
-      </section>
+      </Document>
     </div>
   )
 }
