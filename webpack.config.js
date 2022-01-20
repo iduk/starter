@@ -3,6 +3,7 @@ const glob = require('glob')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const PurgecssPlugin = require('purgecss-webpack-plugin')
+const purgecss = require('@fullhuman/postcss-purgecss')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 const devMode = process.env.NODE_ENV !== 'production'
@@ -86,6 +87,24 @@ module.exports = {
           },
           {
             loader: 'postcss-loader',
+            options: {
+              postcssOptions: {
+                plugins: [
+                  'postcss-preset-env',
+                  [
+                    '@fullhuman/postcss-purgecss',
+                    {
+                      content: [
+                        path.join(__dirname, './public/index.html'),
+                        ...glob.sync(`${path.join(__dirname, 'src')}/**/*.js`, {
+                          nodir: true,
+                        }),
+                      ],
+                    },
+                  ],
+                ],
+              },
+            },
           },
           // scss
           {
@@ -147,7 +166,7 @@ module.exports = {
 
     // * 사용안된 Css 제거 (dev)
     // new PurgecssPlugin({
-    //   paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true }),
+    //   paths: glob.sync(`${PATHS.src}/**/*.css`, { nodir: true }),
     // }),
 
     new CleanWebpackPlugin(),
