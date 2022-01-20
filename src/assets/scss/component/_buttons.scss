@@ -15,8 +15,23 @@
   @extend %btn;
 }
 
-// @each $key, $value in $btn-sizes {
-//   .btn-#{$key} {
-//     font-weight: $value;
-//   }
-// }
+// buttons, badges
+@mixin button-theme($color-palette) {
+  @each $name, $value in $color-palette {
+    &-#{$name} {
+      background-color: $value;
+      border-color: $value;
+      @include color-invert($value);
+
+      &:hover,
+      &:focus {
+        /* hover */
+
+      }
+    }
+  }
+}
+
+.btn {
+  @include button-theme($color-palette);
+}

@@ -1,19 +1,6 @@
 @use 'sass:map';
 @use 'sass:meta';
 
-/* ------------------- rem to px ------------------- */
-@function rem($size, $font-size: $font-size) {
-  $font-size: $font-size + 0px;
-  $remSize: $size / $font-size;
-  @return #{$remSize}rem;
-}
-// em to px
-@function em($size, $font-size: $font-size) {
-  $font-size: $font-size + 0px;
-  $remSize: $size / $font-size;
-  @return #{$remSize}em;
-}
-
 /* ------------------- Breakpoints ------------------- */
 @mixin screen-up($breakpoint) {
   @if map.has-key($breakpoints, $breakpoint) {
