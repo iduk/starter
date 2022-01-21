@@ -1,71 +1,47 @@
-import React, { useState } from 'react'
-import { Transition, CSSTransition } from 'react-transition-group'
-import classNames from 'classnames'
+import React from 'react'
+import { useState } from 'react'
+import { useTransition, useSpring, animated } from 'react-spring'
 
-import styles from './Profile.module.scss'
-
-const popUpDefaultStyles = {
-  transition: `opacity 300ms ease-in-out`,
-  opacity: 0,
+const myCallback = () => {
+  console.log('animation complete')
 }
 
-const transitionStyles = {
-  entering: { opacity: 1 },
-  entered: { opacity: 1 },
-  exiting: { opacity: 0 },
-  exited: { opacity: 0 },
-}
+function Profile() {
+  const [isHide, setHide] = useState(false)
+  const [isNumber, setNumber] = useState(false)
 
-const Modal = (props) => (
-  <div className={styles.modal} style={props.styles}>
-    <div className={styles.modalContent}>
-      {props.title && <h4 className={styles.h4}>{props.title}</h4>}
-      <p>Animated alert pop up</p>
-      <button
-        className={classNames(styles.btn, styles.primary)}
-        onClick={props.onClose}
-      >
-        Close
-      </button>
-    </div>
-  </div>
-)
+  const { opacity } = useSpring({
+    opacity: isHide ? 0 : 1,
+    width: 200,
+    onRest: myCallback,
+  })
+  const toggleHide = () => setHide(!isHide)
 
-const Profile = () => {
-  const [animate, setAnimate] = useState(false)
-  const [showModal, setShowModal] = useState(false)
-
-  const handleClick = () => setAnimate(!animate)
-  const handleShowModalClick = () => setShowModal(!showModal)
+  const { number } = useSpring({
+    number: isNumber ? 100 : 0,
+  })
+  const toggleNum = () => setNumber(!isNumber)
 
   return (
-    <>
-      <div className={styles.container}>
-        <h4>Make me grow!</h4>
-        <button
-          onClick={handleClick}
-          className={classNames(styles.animate, animate && styles.grow)}
-        >
-          Toggle animate value
-        </button>
-      </div>
-      <div className={styles.container}>
-        <h4>Regular transition</h4>
-        <button onClick={handleShowModalClick}>Show modal</button>
-        <Transition in={showModal} timeout={300}>
-          {(state) => (
-            <Modal
-              title="Transition alert"
-              styles={{
-                ...popUpDefaultStyles,
-                ...transitionStyles[state],
-              }}
-              onClose={handleShowModalClick}
-            />
-          )}
-        </Transition>
-      </div>
-    </>
+    <main className="mt-10">
+      <section className="flex flex-col items-center gap-10">
+        <div>
+          <animated.div style={{ opacity }}>
+            {isHide ? 'bye' : 'show'}
+          </animated.div>
+          <button className="btn btn-primary p-2" onClick={toggleHide}>
+            TOGGLE
+          </button>
+        </div>
+
+        <div>
+          <animated.div>{number.interpolate((x) => x.toFixed(0))}</animated.div>
+          <button className="btn btn-primary p-2" onClick={toggleNum}>
+            숫자넘기기
+          </button>
+        </div>
+      </section>
+    </main>
   )
 }
 

@@ -1,10 +1,9 @@
 import React, { useRef, useState, useEffect } from 'react'
 import Img from '../assets/images/macbook.png'
 import Chart from '../components/Charts/Chart'
-import Dialog from '../components/Dialogs/Dialog'
-import { CSSTransition } from 'react-transition-group'
-import styled from 'styled-components'
 import useDialog from '../components/Dialogs/useDialog'
+import Dialog from '../components/Dialogs/Dialog'
+import styled from 'styled-components'
 
 const Document = styled.section`
   margin: 3rem 0;

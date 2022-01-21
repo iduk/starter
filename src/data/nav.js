@@ -15,6 +15,10 @@ let navlist = [
     links: '/example',
     title: 'Example',
   },
+  {
+    links: '/test',
+    title: 'Test',
+  },
 ]
 
 export function getNavList() {

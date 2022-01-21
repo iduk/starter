@@ -10,6 +10,7 @@ import Posts from './pages/Blog/Posts'
 import PostList from './pages/Blog/PostList'
 import Post from './pages/Blog/Post'
 import Profile from './pages/Profile'
+import Test from './pages/Test/index'
 
 export default function App() {
   return (
@@ -24,6 +25,7 @@ export default function App() {
             <Route path=":postId" element={<Post />} />
           </Route>
           <Route path="example" element={<Example />} />
+          <Route path="test" element={<Test />} />
         </Route>
 
         {/* None Layout */}
