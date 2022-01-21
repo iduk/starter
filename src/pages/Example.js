@@ -3,8 +3,8 @@ import Img from '../assets/images/macbook.png'
 import Chart from '../components/Charts/Chart'
 import Dialog from '../components/Dialogs/Dialog'
 import { CSSTransition } from 'react-transition-group'
-
 import styled from 'styled-components'
+import useDialog from '../components/Dialogs/useDialog'
 
 const Document = styled.section`
   margin: 3rem 0;
@@ -14,15 +14,8 @@ const Document = styled.section`
 function Example() {
   const ref = useRef()
 
-  const [isDialog, setIsDialog] = useState(false)
-  const visibleModal = () => setIsDialog(!isDialog)
-
-  const onClose = (e) => {
-    setIsDialog(false)
-  }
-  const openModal = (e) => {
-    setIsDialog(true)
-  }
+  const [isDialog, toggleDialog] = useDialog()
+  const toggleButton = () => toggleDialog(!isDialog)
 
   return (
     <div>
@@ -38,6 +31,27 @@ function Example() {
           </button>
         </div> */}
       </div>
+
+      <Document>
+        <h5>Dialog</h5>
+        <div className="py-4 text-center">
+          <button className="btn p-3 bg-slate-600" onClick={toggleButton}>
+            Transition Dialog
+          </button>
+
+          <Dialog
+            open={isDialog}
+            toggle={toggleDialog}
+            className={'max-w-xs mt-8'}
+            width="300px"
+          >
+            <p>안녕하세요 모달입니다</p>
+            <button className="btn p-2" onClick={() => toggleDialog(false)}>
+              [Close]
+            </button>
+          </Dialog>
+        </div>
+      </Document>
 
       <Document>
         <h5>12 Grid Columns</h5>
@@ -64,35 +78,6 @@ function Example() {
           <div className="col-3 border">
             <div className="column-size bg-stone-500">element</div>
           </div>
-        </div>
-      </Document>
-
-      <Document>
-        <h5>Dialog</h5>
-        <div className="py-4 text-center">
-          <button className="btn p-3 bg-slate-600" onClick={visibleModal}>
-            Transition Dialog
-          </button>
-
-          <CSSTransition
-            in={isDialog}
-            onClose={visibleModal}
-            timeout={200}
-            classNames="dialogs"
-            unmountOnExit
-          >
-            <Dialog
-              isDialog={isDialog}
-              onClose={visibleModal}
-              className={' max-w-xs mt-8'}
-              width="300px"
-            >
-              <p>안녕하세요 모달입니다</p>
-              <button className="btn p-2" onClick={visibleModal}>
-                [Close]
-              </button>
-            </Dialog>
-          </CSSTransition>
         </div>
       </Document>
 

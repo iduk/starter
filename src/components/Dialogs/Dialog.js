@@ -2,20 +2,22 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import './Dialog.scss'
 
-const Dialog = ({ children, setIsDialog, ...props }) => {
-  return (
-    <>
-      <div className="dialog">
-        <div
-          className={`dialog-content ${props.className}`}
-          onClick={(e) => e.stopPropagation()}
-        >
-          {children}
-        </div>
-      </div>
-      <div className="dialog-backdrop" onClick={props.onClose}></div>
-    </>
-  )
+const dialogRoot = document.getElementById('dialog-root')
+
+const Dialog = ({ open, toggle, children, ...props }) => {
+  return open
+    ? ReactDOM.createPortal(
+        <>
+          <div className="dialog" onClick={(e) => e.stopPropagation()}>
+            <div className={`dialog-content ${props.className}`}>
+              {children}
+            </div>
+          </div>
+          <div className="dialog-backdrop" onClick={() => toggle()}></div>
+        </>,
+        dialogRoot
+      )
+    : null
 }
 
 export default Dialog
