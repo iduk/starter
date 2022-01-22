@@ -7,9 +7,11 @@ $dark-border: rgba(#fff, 0.15);
 $light-bg: $light;
 $light-text: $dark-bg;
 $light-border: rgba(#000, 0.15);
+
 $transition-bg: all 0.1s cubic-bezier(0.185, 0.475, 0.895, 0.39);
 
 // Theme Mode
+
 @mixin themes($dark-mode: true) {
   @if $dark-mode {
     background-color: $dark-bg;

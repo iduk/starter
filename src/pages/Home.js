@@ -2,16 +2,16 @@ import React, { useState, useEffect } from 'react'
 import { useParams, useLocation } from 'react-router-dom'
 import styles from './Home.module.scss'
 import classnames from 'classnames/bind'
+import Loading from '../components/Loading'
 
 const cx = classnames.bind(styles)
 
 function Home() {
   const location = useLocation()
-
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    setTimeout(() => setLoading(false), 1000)
+    setTimeout(() => setLoading(false), 6000)
   }, [])
 
   let params = useParams()
@@ -36,7 +36,7 @@ function Home() {
           </article>
         </div>
       ) : (
-        <div>Loading....</div>
+        <Loading />
       )}
     </>
   )
