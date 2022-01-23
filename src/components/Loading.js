@@ -44,7 +44,7 @@ const Circle = styled.div`
   animation-duration: 1.5s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
-  border-color: $light;
+  border-color: var(--border);
 
   &:nth-child(1) {
     height: 3rem;

@@ -3,22 +3,31 @@ import ThemeContext from './ThemeContext'
 import styled from 'styled-components'
 
 function ThemeProvider({ children }) {
-  const [theme, setTheme] = useState(false)
+  const [theme, setTheme] = useState()
+  const useTheme = window.matchMedia('(prefers-color-scheme: dark)')
 
   // Theme Switch
   useEffect(() => {
-    document.body.setAttribute('data-theme', 'dark')
-    window.localStorage.setItem('theme', 'dark')
-
-    if (theme === true) {
+    if (theme) {
       document.body.setAttribute('data-theme', 'light')
-      window.localStorage.setItem('theme', 'light')
+    } else {
+      document.body.setAttribute('data-theme', 'dark')
     }
   }, [theme])
 
   function toggleTheme() {
     setTheme(!theme)
   }
+
+  function checkUseTheme(query) {
+    if (query.matches) {
+      document.body.setAttribute('data-theme', 'dark')
+    } else {
+      document.body.setAttribute('data-theme', 'light')
+    }
+  }
+  checkUseTheme(useTheme)
+  useTheme.addListener(checkUseTheme)
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
@@ -36,12 +45,12 @@ function ThemeSwitch() {
     <SwitchBox>
       <div className="d-grid">
         <button
-          className={`btn py-2 px-4 rounded-full ${
-            theme ? 'bg-gray-800 text-white' : 'bg-white text-black'
+          className={`btn py-1 px-3 rounded-full ${
+            theme ? 'bg-dark text-white' : 'bg-light text-black'
           }`}
           onClick={toggleTheme}
         >
-          {theme ? '🌝 Dark Mode' : '🌚 Light Mode'}
+          {theme ? 'Dark Mode 🌙' : 'Light Mode 🌈'}
         </button>
       </div>
     </SwitchBox>

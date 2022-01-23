@@ -13,18 +13,8 @@ $header-h: 60px;
   height: $header-h;
   background-color: inherit;
   backdrop-filter: blur(15px);
-}
-[data-theme='dark'] {
-  .global-nav {
-    border-color: rgba($light, 0.15);
-    background-color: rgba(black, 0.75);
-  }
-}
-[data-theme='light'] {
-  .global-nav {
-    border-color: rgba($dark, 0.15);
-    background-color: rgba(white, 0.75);
-  }
+  border-color: var(--border);
+  background-color: var(--bg);
 }
 
 /* ------------------- NavWrap ------------------- */
@@ -71,9 +61,8 @@ $header-h: 60px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: rgba($dark, 0.75);
+  color: var(--color);
   // backdrop-filter: blur(15px);
-
   .nav-link {
     z-index: 10;
     display: block;
