@@ -1,9 +1,6 @@
 $theme: (
   'light': (
-    'colors': (
-      'primary': $navy,
-      'secondary': $orange,
-    ),
+    'colors': $color-palette,
     'shades': (
       'shade-0': #fff,
       'shade-1': $gray-100,
@@ -15,10 +12,7 @@ $theme: (
     ),
   ),
   'dark': (
-    'colors': (
-      'primary': lighten($navy, 10%),
-      'secondary': lighten($orange, 10%),
-    ),
+    'colors': $dark-palette,
     'shades': (
       'shade-0': $gray-900,
       'shade-1': $gray-800,
@@ -30,6 +24,7 @@ $theme: (
     ),
   ),
 );
+
 $transition-bg: all 0.1s cubic-bezier(0.185, 0.475, 0.895, 0.39);
 
 @each $theme-name, $theme-vars in $theme {
@@ -51,8 +46,8 @@ $transition-bg: all 0.1s cubic-bezier(0.185, 0.475, 0.895, 0.39);
 
     @each $name, $color in $colors {
       --#{$name}: #{$color};
-      --#{$name}-dark: #{darken($color, 15%)};
-      --#{$name}-light: #{lighten($color, 15%)};
+      --#{$name}-dark: #{darken($color, 10%)};
+      --#{$name}-light: #{lighten($color, 10%)};
     }
 
     @each $name, $color in $theme-mode {
