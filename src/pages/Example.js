@@ -83,7 +83,7 @@ function Example() {
       <Document>
         <h5>Typography</h5>
         <div className="py-4 text-center overflow-hidden">
-          <div className="flex gap-4 items-center">
+          <div className="flex flex-wrap gap-4 items-center">
             <p className="text-xs">xs</p>
             <p className="text-sm">sm</p>
             <p className="text-md">md</p>
@@ -94,7 +94,7 @@ function Example() {
           </div>
         </div>
         <div className="py-4 text-center">
-          <div className="flex gap-4 items-center">
+          <div className="flex flex-wrap gap-4 items-center">
             <p className="h6">H6</p>
             <p className="h5">H5</p>
             <p className="h4">H4</p>
@@ -104,7 +104,7 @@ function Example() {
           </div>
         </div>
         <div className="py-8 text-center">
-          <div className="flex gap-4 items-center">
+          <div className="flex flex-wrap gap-4 items-center">
             <p className="font-thin">thin</p>
             <p className="font-light">light</p>
             <p className="font-normal">normal</p>

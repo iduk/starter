@@ -6,33 +6,19 @@ import './Dialog.scss'
 const dialogRoot = document.getElementById('dialog-root')
 
 const Dialog = ({ open, toggle, children, ...props }) => {
-  return ReactDOM.createPortal(
-    open ? (
-      <>
-        <div className="dialog" onClick={(e) => e.stopPropagation()}>
-          <div className={`dialog-content ${props.className}`}>{children}</div>
-        </div>
-        <div className="dialog-backdrop" onClick={() => toggle()}></div>
-      </>
-    ) : null,
-    dialogRoot
-  )
+  return open
+    ? ReactDOM.createPortal(
+        <>
+          <div className="dialog" onClick={(e) => e.stopPropagation()}>
+            <div className={`dialog-content ${props.className}`}>
+              {children}
+            </div>
+          </div>
+          <div className="dialog-backdrop" onClick={() => toggle()}></div>
+        </>,
+        dialogRoot
+      )
+    : null
 }
-
-// const Dialog = ({ open, toggle, children, ...props }) => {
-//   return open
-//     ? ReactDOM.createPortal(
-//         <>
-//           <div className="dialog" onClick={(e) => e.stopPropagation()}>
-//             <div className={`dialog-content ${props.className}`}>
-//               {children}
-//             </div>
-//           </div>
-//           <div className="dialog-backdrop" onClick={() => toggle()}></div>
-//         </>,
-//         dialogRoot
-//       )
-//     : null
-// }
 
 export default Dialog

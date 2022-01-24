@@ -62,6 +62,7 @@ $header-h: 60px;
   flex-direction: column;
   justify-content: center;
   color: var(--color);
+  background-color: var(--bg);
   // backdrop-filter: blur(15px);
   .nav-link {
     z-index: 10;
