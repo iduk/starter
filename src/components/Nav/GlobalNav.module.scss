@@ -13,8 +13,8 @@ $header-h: 60px;
   height: $header-h;
   background-color: inherit;
   backdrop-filter: blur(15px);
-  border-color: var(--border);
-  background-color: var(--bg);
+  border-color: var(--theme-border);
+  background-color: var(--theme-bg);
 }
 
 /* ------------------- NavWrap ------------------- */
@@ -61,8 +61,8 @@ $header-h: 60px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  color: var(--color);
-  background-color: var(--bg);
+  color: var(--theme-color);
+  background-color: var(--theme-bg);
   // backdrop-filter: blur(15px);
   .nav-link {
     z-index: 10;

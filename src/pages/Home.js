@@ -11,16 +11,9 @@ const ThemeWrap = styled.div`
   height: 280px;
   padding: 3rem 2rem;
   margin-top: 2rem;
-  &[data-theme='dark'] {
-    background-color: var(--bg);
-    color: var(--color);
-    border: 1px solid var(--border);
-  }
-  &[data-theme='light'] {
-    background-color: var(--bg);
-    color: var(--color);
-    border: 1px solid var(--border);
-  }
+  background-color: var(--theme-bg);
+  color: var(--theme-text);
+  border: 1px solid var(--theme-border);
 `
 
 function Home() {

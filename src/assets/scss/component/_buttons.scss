@@ -10,9 +10,10 @@
   border-width: $btn-border-width;
   font-size: $text-base;
   transition: background 0.2s ease;
+  cursor: pointer
 }
 
-// buttons, badges
+// bg,border,invert-color & hover,focus
 @mixin button-theme($color-palette) {
   @each $name, $color in $color-palette {
     &-#{$name} {
@@ -30,6 +31,14 @@
     }
   }
 }
+
+// Button xs, sm, md, lg, xl
+
+// Button Outline
+
+// Button Tertiery
+
+
 
 .btn {
   @extend %btn;

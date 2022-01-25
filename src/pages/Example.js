@@ -34,8 +34,8 @@ function Example() {
       <Document>
         <h5>Dialog</h5>
         <div className="py-4 text-center">
-          <button className="btn p-3 bg-slate-600" onClick={toggleButton}>
-            Transition Dialog
+          <button className="btn btn-primary p-3" onClick={toggleButton}>
+            Dialog
           </button>
 
           <Dialog
@@ -44,7 +44,7 @@ function Example() {
             className={'max-w-xs mt-8'}
             width="300px"
           >
-            <p>안녕하세요 모달입니다</p>
+            <h5>안녕하세요 모달입니다</h5>
             <button className="btn p-2" onClick={() => toggleDialog(false)}>
               [Close]
             </button>
@@ -58,24 +58,24 @@ function Example() {
 
         <div className="row my-3">
           <div className="col-6 border">
-            <div className="column-size bg-stone-500">element</div>
+            <div className="column-size bg-gray">element</div>
           </div>
           <div className="col-6 border">
-            <div className="column-size bg-stone-500">element</div>
+            <div className="column-size bg-gray">element</div>
           </div>
         </div>
         <div className="row">
           <div className="col-3 border">
-            <div className="column-size bg-stone-500">element</div>
+            <div className="column-size bg-gray">element</div>
           </div>
           <div className="col-3 border">
-            <div className="column-size bg-stone-500">element</div>
+            <div className="column-size bg-gray">element</div>
           </div>
           <div className="col-3 border">
-            <div className="column-size bg-stone-500">element</div>
+            <div className="column-size bg-gray">element</div>
           </div>
           <div className="col-3 border">
-            <div className="column-size bg-stone-500">element</div>
+            <div className="column-size bg-gray">element</div>
           </div>
         </div>
       </Document>
