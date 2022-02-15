@@ -171,9 +171,3 @@ body {
 .display-4 {
   font-family: 'Yeseva One';
 }
-
-.device-test {
-  @include screen-down('small') {
-    border: 3px solid red;
-  }
-}
