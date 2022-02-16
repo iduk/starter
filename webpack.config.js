@@ -16,10 +16,9 @@ const PATHS = {
 module.exports = {
   mode: 'development',
 
-  entry: {
-    main: './src/index.js',
-  },
+  entry: './src/index.tsx',
 
+  devtool: 'inline-source-map',
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, './dist'),
@@ -28,7 +27,10 @@ module.exports = {
   },
 
   resolve: {
-    extensions: ['*', '.js', '.jsx'],
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+    },
+    extensions: ['.tsx', '.ts', '.js', '.jsx'],
   },
 
   // 최적화 설정
@@ -48,8 +50,9 @@ module.exports = {
   devtool: 'cheap-source-map',
   devServer: {
     static: './dist',
-    historyApiFallback: true,
     port: 3333,
+    historyApiFallback: true,
+    hot: true,
 
     client: {
       progress: true,
@@ -61,12 +64,13 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(ts|js)x?$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
-        options: {
-          presets: ['@babel/preset-env'],
-        },
+        use: [
+          {
+            loader: 'babel-loader',
+          },
+        ],
       },
 
       // css & scss
@@ -96,9 +100,12 @@ module.exports = {
                     {
                       content: [
                         path.join(__dirname, './public/index.html'),
-                        ...glob.sync(`${path.join(__dirname, 'src')}/**/*.js`, {
-                          nodir: true,
-                        }),
+                        ...glob.sync(
+                          `${path.join(__dirname, 'src')}/**/*.tsx`,
+                          {
+                            nodir: true,
+                          }
+                        ),
                       ],
                     },
                   ],
@@ -131,15 +138,16 @@ module.exports = {
         },
       },
       {
-        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        test: /\.(woff(2)?|eot|ttf|otf)$/,
         type: 'asset/resource',
         generator: {
           filename: 'assets/fonts/[name][ext][query]',
         },
       },
       {
-        test: /\.svg/,
+        test: /\.svg$/,
         type: 'asset/inline',
+        use: ['@svgr/webpack'],
       },
       // html
       {
@@ -152,17 +160,15 @@ module.exports = {
 
   plugins: [
     new HtmlWebpackPlugin({
-      chunks: ['main'],
       template: './public/index.html',
-      filename: 'index.html',
     }),
 
     new MiniCssExtractPlugin({
       filename: '[name].css',
-      chunkFilename: '[id].[contenthash].css',
+      chunkFilename: '[id].css',
     }),
 
-    // * 사용안된 Css 제거 (dev)
+    // * 사용안된 Css 제거 (Only Dev)
     // new PurgecssPlugin({
     //   paths: glob.sync(`${PATHS.src}/**/*.css`, { nodir: true }),
     // }),

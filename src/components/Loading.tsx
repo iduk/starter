@@ -1,5 +1,6 @@
-import React from 'react'
-import styled, { keyframes } from 'styled-components'
+import * as React from 'react'
+import { keyframes } from '@emotion/react'
+import styled from '@emotion/styled'
 
 const SpinnerWrapper = styled.div`
   position: fixed;
@@ -65,7 +66,6 @@ const Circle = styled.div`
     border-width: 1px;
   }
 `
-
 export default function Loading() {
   return (
     <SpinnerWrapper>

@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import { useNavigate } from 'react-router-dom'
 import styles from './Error404.module.scss'
 import classnames from 'classnames/bind'

@@ -1,6 +1,5 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import { useTransition, animated } from 'react-spring'
+import * as React from 'react'
+import * as ReactDOM from 'react-dom'
 import './Dialog.scss'
 
 const dialogRoot = document.getElementById('dialog-root')

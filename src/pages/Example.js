@@ -1,9 +1,9 @@
 import React, { useRef, useState, useEffect } from 'react'
 import Img from '../assets/images/macbook.png'
-import Chart from '../components/Charts/Chart'
-import useDialog from '../components/Dialogs/useDialog'
-import Dialog from '../components/Dialogs/Dialog'
-import styled from 'styled-components'
+import Chart from '@/components/Charts/Chart'
+import useDialog from '@/components/Dialogs/useDialog'
+import Dialog from '@/components/Dialogs/Dialog'
+import styled from '@emotion/styled'
 
 const Document = styled.section`
   margin: 3rem 0;

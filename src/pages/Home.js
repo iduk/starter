@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from 'react'
+import Loading from '@/components/Loading'
+import styled from '@emotion/styled'
+
 import styles from './Home.module.scss'
 import classnames from 'classnames/bind'
-import Loading from '../components/Loading'
-import { Link } from 'react-router-dom'
-import styled from 'styled-components'
-
 const cx = classnames.bind(styles)
 
 const ThemeWrap = styled.div`
   height: 280px;
   padding: 3rem 2rem;
   margin-top: 2rem;
-  background-color: var(--theme-bg);
+  /* background-color: var(--theme-bg); */
   color: var(--theme-text);
   border: 1px solid var(--theme-border);
 `
@@ -20,26 +19,15 @@ function Home() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    setTimeout(() => setLoading(false), 0)
+    setTimeout(() => setLoading(false), 500)
   }, [])
 
   return (
     <>
       {loading === false ? (
         <div className={cx('home')}>
-          <ThemeWrap
-            data-theme="light"
-            className="flex flex-col justify-center text-center"
-          >
-            <h6>Theme Mode: Light</h6>
-            <HomeContent />
-          </ThemeWrap>
-
-          <ThemeWrap
-            data-theme="dark"
-            className="flex flex-col justify-center text-center"
-          >
-            <h6>Theme Mode: Dark</h6>
+          <ThemeWrap className="flex flex-col justify-center text-center">
+            <h6>Theme Mode</h6>
             <HomeContent />
           </ThemeWrap>
         </div>
@@ -53,7 +41,7 @@ function Home() {
 function HomeContent() {
   return (
     <>
-      <h5>Welcome, Pictor World</h5>
+      <h1>원투뜨리포퍼블퍼블</h1>
 
       <p>
         별빛이 이 가을 못 슬퍼하는 버리었습니다. 청춘이 강아지, 패, 계십니다.
