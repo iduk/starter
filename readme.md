@@ -1,4 +1,3 @@
-# Webpack Setup Testing
 
 ### my webpack starterkit
 
