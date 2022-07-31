@@ -1,66 +1,37 @@
-@use 'sass:map';
-@use 'sass:meta';
+//  Breakpoints
+@function breakpoint-min($name, $breakpoints: $grid-breakpoints) {
+  $min: map-get($breakpoints, $name);
+  @return if($min != 0, $min, null);
+}
 
-/* ------------------- Breakpoints ------------------- */
-@mixin screen-up($breakpoint) {
-  @if map.has-key($breakpoints, $breakpoint) {
-    @media #{meta.inspect(map.get($breakpoints, $breakpoint))} {
+@function breakpoint-max($name, $breakpoints: $grid-breakpoints) {
+  $max: map-get($breakpoints, $name);
+  @return if($max and $max > 0, $max - 0.02, null);
+}
+
+@mixin breakepoint-up($name, $breakpoints: $grid-breakpoints) {
+  $min: breakpoint-min($name, $breakpoints);
+  @if $min {
+    @media (min-width: $min) {
       @content;
     }
   } @else {
-    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
-        + "Available breakpoints are: #{map.keys($breakpoints)}.";
+    @content;
   }
 }
 
-// max-width (container-width)
-@mixin screen-down($widths) {
-  @if map.has-key($max-widths, $widths) {
-    @media #{meta.inspect(map.get($max-widths, $widths))} {
+@mixin breakepoint-down($name, $breakpoints: $grid-breakpoints) {
+  $max: breakpoint-max($name, $breakpoints);
+  @if $max {
+    @media (max-width: $max) {
       @content;
     }
   } @else {
-    @warn "Unfortunately, no value could be retrieved from `#{$widths}`. "
-        + "Available breakpoints are: #{map.keys($max-widths)}.";
-  }
-}
-
-/* ------------------- color invert (yiq) ------------------- */
-// Theme Color Invert
-@mixin color-invert($background) {
-  $r: red($background);
-  $g: green($background);
-  $b: blue($background);
-
-  $yiq: (($r * 299) + ($g * 587) + ($b * 114)) * 0.001;
-
-  @if ($yiq >= 128) {
-    color: black;
-  } @else {
-    color: white;
-  }
-}
-
-/* ------------------- input placeholder ------------------- */
-@mixin input-placeholder {
-  &.placeholder {
-    @content;
-  }
-  &:-moz-placeholder {
-    @content;
-  }
-  &::-moz-placeholder {
-    @content;
-  }
-  &:-ms-input-placeholder {
-    @content;
-  }
-  &::-webkit-input-placeholder {
     @content;
   }
 }
 
-/* ------------------- ::after ------------------- */
+// ::after
 @mixin pseudo(
   $width: 100%,
   $height: 100%,
@@ -74,14 +45,14 @@
   @include box($width, $height);
 }
 
-/* ------------------- text-ellipsis ------------------- */
+//  text-ellipsis
 @mixin text-ellipsis {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-/* ------------------- margin-auto ------------------- */
+//  margin-auto
 @mixin margin-auto {
   margin-left: auto;
   margin-right: auto;

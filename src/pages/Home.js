@@ -7,9 +7,7 @@ import classnames from 'classnames/bind'
 const cx = classnames.bind(styles)
 
 const ThemeWrap = styled.div`
-  height: 280px;
-  padding: 3rem 2rem;
-  margin-top: 2rem;
+  padding: 2rem;
   /* background-color: var(--theme-bg); */
   color: var(--theme-text);
   border: 1px solid var(--theme-border);
@@ -25,11 +23,61 @@ function Home() {
   return (
     <>
       {loading === false ? (
-        <div className={cx('home')}>
-          <ThemeWrap className="flex flex-col justify-center text-center">
+        <div className="container">
+          <ThemeWrap>
             <h6>Theme Mode</h6>
             <HomeContent />
           </ThemeWrap>
+
+          <section className="p-3 mt-3 bg-gray-3">
+            <div className="grid">
+              <span className="col-lg-1 col-md-3 col-sm-6 col-12 bg-gray-6">
+                1
+              </span>
+              <span className="col-lg-1 col-md-3 col-sm-6 col-12 bg-gray-6">
+                2
+              </span>
+              <span className="col-lg-1 col-md-3 col-sm-6 col-12 bg-gray-6">
+                3
+              </span>
+              <span className="col-lg-1 col-md-3 col-sm-6 col-12 bg-gray-6">
+                4
+              </span>
+              <span className="col-lg-1 col-md-3 col-sm-6 col-12 bg-gray-6">
+                5
+              </span>
+              <span className="col-lg-1 col-md-3 col-sm-6 col-12 bg-gray-6">
+                6
+              </span>
+              <span className="col-lg-1 col-md-3 col-sm-6 col-12 bg-gray-6">
+                7
+              </span>
+              <span className="col-lg-1 col-md-3 col-sm-6 col-12 bg-gray-6">
+                8
+              </span>
+              <span className="col-lg-1 col-md-3 col-sm-6 col-12 bg-gray-6">
+                9
+              </span>
+              <span className="col-lg-1 col-md-3 col-sm-6 col-12 bg-gray-6">
+                10
+              </span>
+              <span className="col-lg-1 col-md-3 col-sm-6 col-12 bg-gray-6">
+                11
+              </span>
+              <span className="col-lg-1 col-md-3 col-sm-6 col-12 bg-gray-6">
+                12
+              </span>
+            </div>
+          </section>
+
+          <section className="p-3 mt-3 bg-gray-3">
+            <div className="grid">
+              <span className="col-lg-3 col-md-6 col-6 bg-gray-6">1</span>
+              <span className="col-lg-3 col-md-6 col-6 bg-gray-6">2</span>
+              <span className="col-lg-3 col-md-6 col-6 bg-gray-6">3</span>
+              <span className="col-lg-3 col-md-6 col-6 bg-gray-6">4</span>
+            </div>
+          </section>
         </div>
       ) : (
         <Loading />
@@ -42,7 +90,6 @@ function HomeContent() {
   return (
     <>
       <h1>원투뜨리포퍼블퍼블</h1>
-
       <p>
         별빛이 이 가을 못 슬퍼하는 버리었습니다. 청춘이 강아지, 패, 계십니다.
         남은 풀이 옥 내린 노새, 아름다운 못 봅니다.
@@ -51,6 +98,8 @@ function HomeContent() {
         <button className="btn btn-primary p-2 ">primary</button>
         <button className="btn btn-secondary p-2">secondary</button>
       </div>
+
+      <hr className="my-4" />
     </>
   )
 }

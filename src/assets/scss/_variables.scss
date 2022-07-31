@@ -1,14 +1,6 @@
 // My Variables
 
 /* ---------------------------------------------------------- 
-    breakpoint ( max-width )
- ---------------------------------------------------------- */
-
-$col-small: 540px;
-$col-medium: 720px;
-$col-large: 960px;
-
-/* ---------------------------------------------------------- 
     colors palette
  ---------------------------------------------------------- */
 
@@ -34,17 +26,6 @@ $color-palette: (
   gray: $gray,
 ) !default;
 
-$dark-palette: (
-  primary: lighten($brand-1, 5%),
-  secondary: lighten($brand-2, 5%),
-  success: lighten($green, 5%),
-  warning: lighten($yellow, 5%),
-  error: lighten($red, 5%),
-  dark: lighten($dark, 5%),
-  light: lighten($light, 5%),
-  gray: lighten($gray, 5%),
-) !default;
-
 $gray-100: #f8f9fa;
 $gray-200: #eeeeee;
 $gray-300: #dddddd;
@@ -56,15 +37,15 @@ $gray-800: #333333;
 $gray-900: #222222;
 
 $grays: (
-  100: $gray-100,
-  200: $gray-200,
-  300: $gray-300,
-  400: $gray-400,
-  500: $gray-500,
-  600: $gray-600,
-  700: $gray-700,
-  800: $gray-800,
-  900: $gray-900,
+  gray-1: $gray-100,
+  gray-2: $gray-200,
+  gray-3: $gray-300,
+  gray-4: $gray-400,
+  gray-5: $gray-500,
+  gray-6: $gray-600,
+  gray-7: $gray-700,
+  gray-8: $gray-800,
+  gray-9: $gray-900,
 ) !default;
 
 /* ---------------------------------------------------------- 
@@ -101,11 +82,27 @@ $font-weight: (
 ) !default;
 
 /* ---------------------------------------------------------- 
-    Grid
+    Grid & Container & BreakPoint
  ---------------------------------------------------------- */
+// BreakPoint
+$grid-breakpoints: (
+  xs: 0,
+  sm: 600px,
+  md: 900px,
+  lg: 1200px,
+  xl: 1800px,
+) !default;
+
+// Cotainer
+$container-max-widths: (
+  sm: 568px,
+  md: 880px,
+  lg: 1140px,
+  xl: 1720px,
+) !default;
 
 $col-count: 12 !default;
-$gutter-size: 1rem !default;
+$gap: 1rem !default;
 
 /* ---------------------------------------------------------- 
     Buttons
@@ -115,5 +112,10 @@ $btn-padding-sm: 0.825rem 2rem;
 $btn-padding-md: 1rem 2rem;
 $btn-padding-lg: 1.25rem 2rem;
 $btn-padding-xl: 1.5rem 2rem;
-
 $btn-border-width: 1px;
+
+/* ---------------------------------------------------------- 
+    Spacing
+ ---------------------------------------------------------- */
+$spacing: 0.5rem !default;
+$space-count: 20;

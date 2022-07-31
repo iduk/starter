@@ -10,9 +10,9 @@ const SpinnerWrapper = styled.div`
 `
 
 const Spinner = styled.div`
-  height: 3rem;
-  width: 3rem;
-  padding: 3px;
+  height: 3.5rem;
+  width: 3.5rem;
+  /* padding: 3px; */
   position: relative;
   display: flex;
   justify-content: center;
@@ -47,19 +47,19 @@ const Circle = styled.div`
   animation-iteration-count: infinite;
   border-color: var(--border);
 
-  &:nth-child(1) {
+  &:nth-of-type(1) {
     height: 3rem;
     width: 3rem;
     animation-name: ${anima1};
     border-width: 3px;
   }
-  &:nth-child(2) {
+  &:nth-of-type(2) {
     height: calc(3rem * 0.65);
     width: calc(3rem * 0.65);
     animation-name: ${anima2};
     border-width: 2px;
   }
-  &:nth-child(3) {
+  &:nth-of-type(3) {
     height: calc(3rem * 0.1);
     width: calc(3rem * 0.1);
     animation-name: ${anima3};

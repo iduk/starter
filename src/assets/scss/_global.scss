@@ -1,17 +1,48 @@
 // Global Styles
 // by. iduk
+// Kor
 
-// Reset
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
-@font-face {
-  font-family: 'Noto Sans KR';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Noto Sans KR'),
-    url('../fonts/NotoSans-Regular.woff2') format('woff2'),
-    url('../fonts/NotoSans-Regular.woff') format('woff'),
-    url('../fonts/NotoSans-Regular.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/NotoSans-Regular.otf') format('opentype');
+// @font-face {
+//   font-family: 'Noto Sans KR';
+//   font-weight: 400;
+//   src: local('Noto Sans KR'),
+//     url('static/fontsNotoSans-Regular.otf') format('otf'),
+//     url('static/fontsNotoSans-Regular.woff') format('woff'),
+//     url('static/fontsNotoSans-Regular.woff2') format('woff2'),
+//     url('static/fontsNotoSans-Regular.eot?#iefix') format('embedded-opentype');
+// }
+
+// @font-face {
+//   font-family: 'Noto Sans KR';
+//   font-weight: 500;
+//   src: local('Noto Sans KR'),
+//     url('static/fontsNotoSans-Regular.otf') format('otf'),
+//     url('static/fontsNotoSans-Medium.woff') format('woff'),
+//     url('static/fontsNotoSans-Medium.woff2') format('woff2'),
+//     url('static/fontsNotoSans-Medium.eot?#iefix') format('embedded-opentype');
+// }
+
+// @font-face {
+//   font-family: 'Noto Sans KR';
+//   font-weight: 700;
+//   src: local('Noto Sans KR'),
+//     url('static/fontsNotoSans-Regular.otf') format('otf'),
+//     url('static/fontsNotoSans-Bold.woff') format('woff'),
+//     url('static/fontsNotoSans-Bold.woff2') format('woff2'),
+//     url('static/fontsNotoSans-Bold.eot?#iefix') format('embedded-opentype');
+// }
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, system-ui,
+    Roboto, 'Helvetica Neue', 'Segoe UI';
 }
 
 ul,
@@ -25,25 +56,6 @@ dd {
 
 a {
   text-decoration: none;
-}
-
-i.bx {
-  line-height: normal;
-  display: inline-flex;
-  align-items: center;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Pretendard', 'Noto Sans KR', -apple-system, BlinkMacSystemFont,
-    system-ui, Roboto, 'Helvetica Neue', 'Segoe UI';
-}
-
-.btns {
-  > .btn {
-    margin: 0.25rem 0.25rem;
-  }
 }
 
 // 3D effect 원근법 효과

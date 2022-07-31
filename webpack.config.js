@@ -15,14 +15,14 @@ const PATHS = {
 
 module.exports = {
   mode: 'development',
-
+  devtool: 'inline-source-map',
   entry: './src/index.tsx',
 
-  devtool: 'inline-source-map',
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, './dist'),
-    assetModuleFilename: 'assets/[name][ext]', // 리소스 경로 구성
+    assetModuleFilename: './static/[name][ext]', // 리소스 경로 구성
+    asyncChunks: true,
     clean: true, // 생성된 파일만 보임
   },
 
@@ -66,50 +66,40 @@ module.exports = {
       {
         test: /\.(ts|js)x?$/,
         exclude: /node_modules/,
-        use: [
-          {
-            loader: 'babel-loader',
-          },
-        ],
+        loader: 'babel-loader',
+        options: {
+          presets: ['@babel/preset-env'],
+        },
       },
 
       // css & scss
       {
         test: /\.s[ac]ss$/i,
         use: [
-          MiniCssExtractPlugin.loader,
+          devMode ? MiniCssExtractPlugin.loader : 'style-loader',
           {
             loader: 'css-loader',
             options: {
               importLoaders: 2,
               sourceMap: true,
-              modules: {
-                auto: true,
-                localIdentName: '[local]__[hash:base64:5]',
-              },
+              esModule: true,
+              modules: devMode
+                ? {
+                    auto: true,
+                    exportGlobals: true,
+                    localIdentName: '[local]__[sha1:hash:hex:5]',
+                  }
+                : {
+                    auto: true,
+                    localIdentName: '[sha1:hash:hex:5]',
+                  },
             },
           },
           {
             loader: 'postcss-loader',
             options: {
               postcssOptions: {
-                plugins: [
-                  'postcss-preset-env',
-                  [
-                    '@fullhuman/postcss-purgecss',
-                    {
-                      content: [
-                        path.join(__dirname, './public/index.html'),
-                        ...glob.sync(
-                          `${path.join(__dirname, 'src')}/**/*.tsx`,
-                          {
-                            nodir: true,
-                          }
-                        ),
-                      ],
-                    },
-                  ],
-                ],
+                plugins: ['postcss-preset-env'],
               },
             },
           },
@@ -122,7 +112,7 @@ module.exports = {
                 fiber: require('fibers'), // 속도향상
               },
               additionalData: `
-              @import "${PATHS.src}/assets/scss/variables";
+              @import "${PATHS.src}/assets/scss/_variables.scss";
               `,
             },
           },
@@ -132,47 +122,53 @@ module.exports = {
       // assets
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
-        type: 'asset/resource',
-        generator: {
-          filename: 'assets/images/[name][ext][query]',
-        },
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: devMode
+                ? 'images/[name].[contenthash].[ext]'
+                : 'images/[contenthash].[ext]',
+              limit: 8192,
+            },
+          },
+        ],
       },
       {
-        test: /\.(woff(2)?|eot|ttf|otf)$/,
-        type: 'asset/resource',
-        generator: {
-          filename: 'assets/fonts/[name][ext][query]',
-        },
-      },
-      {
-        test: /\.svg$/,
-        type: 'asset/inline',
-        use: ['@svgr/webpack'],
-      },
-      // html
-      {
-        test: /\.html$/,
-        loader: 'html-loader',
-        options: { minimize: false },
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: devMode
+                ? 'fonts/[name].[contenthash].[ext]'
+                : 'fonts/[contenthash].[ext]',
+            },
+          },
+        ],
       },
     ],
   },
 
   plugins: [
     new HtmlWebpackPlugin({
+      chunks: ['main'],
       template: './public/index.html',
+      filename: 'index.html',
+      templateParameters: {
+        env: process.env.NODE_ENV === 'development' ? '🚧' : '✨',
+      },
     }),
 
     new MiniCssExtractPlugin({
       filename: '[name].css',
-      chunkFilename: '[id].css',
+      chunkFilename: '[id].[contenthash].css',
     }),
 
-    // * 사용안된 Css 제거 (Only Dev)
-    // new PurgecssPlugin({
-    //   paths: glob.sync(`${PATHS.src}/**/*.css`, { nodir: true }),
-    // }),
+    new PurgecssPlugin({
+      paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true }),
+    }),
 
-    new CleanWebpackPlugin(),
+    new CleanWebpackPlugin({}),
   ],
 }

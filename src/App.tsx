@@ -1,21 +1,26 @@
 import * as React from 'react'
-import { Navigate, useRoutes } from 'react-router-dom'
+import { useRoutes } from 'react-router-dom'
 
 // components
 import BaseLayout from '@/components/Layouts/BaseLayout'
 import Error404 from '@/components/Error/Error404'
 import Home from '@/pages/Home'
-import Example from '@/pages/Example'
 
 const App: React.FC = (): JSX.Element => {
   const routes = {
     path: '/',
     element: <BaseLayout />,
     children: [
-      { path: '*', element: <Navigate to="/404" /> },
-      { path: '/', element: <Home /> },
-      { path: '404', element: <Error404 /> },
-      { path: 'example', element: <Example /> },
+      {
+        path: '*',
+        element: <Error404 />,
+        title: 'error',
+      },
+      {
+        path: '/',
+        element: <Home />,
+        title: 'home',
+      },
     ],
   }
 
@@ -23,7 +28,6 @@ const App: React.FC = (): JSX.Element => {
 
   return <>{routing}</>
 }
-
 export default App
 
 // const App = (): JSX.Element => {

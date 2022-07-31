@@ -1,0 +1,17 @@
+// w-*, h-*
+$size: 5;
+$count: 20;
+
+$sizes: (
+  w: 'width',
+  h: 'height',
+) !default;
+
+
+@for $i from 1 through $count {
+  @each $name, $property in $sizes {
+    .#{$name}-#{$i * $size} {
+      #{$property}: $i * $size + 0% !important;
+    }
+  }
+}

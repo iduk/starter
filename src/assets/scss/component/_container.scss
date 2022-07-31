@@ -1,26 +1,24 @@
-.container {
+// fluid
+@mixin make-container($gutter: $gap) {
+  --gutter-x: #{$gutter};
+  --gutter-y: 0;
   width: 100%;
-  padding: 0 $gutter-size;
-  @include margin-auto;
+  padding-right: calc(var(--gutter-x) * .5);
+  padding-left: calc(var(--gutter-x) * .5);
+  margin-right: auto;
+  margin-left: auto;
+}
 
-  // max-widths
-  @include screen-up('small') {
-    max-width: $col-small;
-  }
-  @include screen-up('medium') {
-    max-width: $col-medium;
-  }
-  @include screen-up('large') {
-    max-width: $col-large;
-  }
 
-  &-sm {
-    max-width: $col-small;
-  }
-  &-md {
-    max-width: $col-medium;
-  }
-  &-lg {
-    max-width: $col-large;
+.container,
+.is-fluid {
+  @include make-container();
+}
+
+.container {
+  @each $breakpoint, $width in $container-max-widths {
+    @include breakepoint-up(#{$breakpoint}) {
+      max-width: $width;
+    }
   }
 }
