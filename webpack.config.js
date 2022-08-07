@@ -76,23 +76,18 @@ module.exports = {
       {
         test: /\.s[ac]ss$/i,
         use: [
-          devMode ? MiniCssExtractPlugin.loader : 'style-loader',
+          devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
             options: {
               importLoaders: 2,
               sourceMap: true,
-              esModule: true,
-              modules: devMode
-                ? {
-                    auto: true,
-                    exportGlobals: true,
-                    localIdentName: '[local]__[sha1:hash:hex:5]',
-                  }
-                : {
-                    auto: true,
-                    localIdentName: '[sha1:hash:hex:5]',
-                  },
+              modules: {
+                auto: true,
+                localIdentName: devMode
+                  ? '[local]__[sha1:hash:hex:5]'
+                  : '[sha1:hash:hex:5]',
+              },
             },
           },
           {
@@ -103,7 +98,6 @@ module.exports = {
               },
             },
           },
-          // scss
           {
             loader: 'sass-loader',
             options: {
