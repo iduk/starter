@@ -6,7 +6,7 @@ import BaseLayout from '@/components/Layouts/BaseLayout'
 import Error404 from '@/components/Error/Error404'
 import Home from '@/pages/Home'
 
-const App: React.FC = (): JSX.Element => {
+function App(): JSX.Element {
   const routes = {
     path: '/',
     element: <BaseLayout />,
@@ -14,14 +14,14 @@ const App: React.FC = (): JSX.Element => {
       {
         path: '*',
         element: <Error404 />,
-        title: 'error',
+        title: 'error'
       },
       {
         path: '/',
         element: <Home />,
-        title: 'home',
-      },
-    ],
+        title: 'home'
+      }
+    ]
   }
 
   const routing = useRoutes([routes])
@@ -29,21 +29,3 @@ const App: React.FC = (): JSX.Element => {
   return <>{routing}</>
 }
 export default App
-
-// const App = (): JSX.Element => {
-//   return (
-//     <>
-//       <Routes>
-//         {/* Nav Layout */}
-//         <Route path="/" element={<BaseLayout />}>
-//           <Route path="home" element={<Home />} />
-//           <Route path="example" element={<Example />} />
-//         </Route>
-
-//         {/* None Layout */}
-//         <Route path="*" element={<Error404 />} />
-//       </Routes>
-//     </>
-//   )
-// }
-// export default App

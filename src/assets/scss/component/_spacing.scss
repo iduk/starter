@@ -3,36 +3,48 @@
 $arrows: (
   x: (
     '-left',
-    '-right',
+    '-right'
   ),
   y: (
     '-top',
-    '-bottom',
+    '-bottom'
   ),
   t: '-top',
   b: '-bottom',
   r: '-right',
-  l: '-left',
+  l: '-left'
 ) !default;
 
-@for $i from 0 through $space-count {
-  @each $p1, $p2 in (m: 'margin', p: 'padding') {
-    .#{$p1}-#{$i} {
-      #{$p2}: $spacing * $i !important;
-    }
-    @each $name, $arrow in $arrows {
-      .#{$p1}#{$name}-#{$i} {
-        @if length($arrow) > 1 {
-          #{$p2}#{nth($arrow, 1)}: $spacing * $i !important;
-          #{$p2}#{nth($arrow, 2)}: $spacing * $i !important;
-        } @else {
-          #{$p2}#{$arrow}: $spacing * $i !important;
+.mx-auto {
+  @include margin-auto;
+}
+
+@mixin space($bp: null) {
+  $infix: if($bp == null, '', '-#{$bp}');
+
+  @for $i from 0 through $space-count {
+    @each $p1, $p2 in (m: 'margin', p: 'padding') {
+      .#{$p1}#{$infix}-#{$i} {
+        #{$p2}: $spacing * $i !important;
+      }
+      @each $name, $arrow in $arrows {
+        .#{$p1}#{$name}#{$infix}-#{$i} {
+          @if length($arrow) > 1 {
+            #{$p2}#{nth($arrow, 1)}: $spacing * $i !important;
+            #{$p2}#{nth($arrow, 2)}: $spacing * $i !important;
+          } @else {
+            #{$p2}#{$arrow}: $spacing * $i !important;
+          }
         }
       }
     }
   }
 }
 
-.mx-auto {
-  @include margin-auto;
+@include space;
+
+@each $bp, $w in $grid-breakpoints {
+  @media screen and (min-width: $w) {
+    @include space($bp);
+  }
 }

@@ -1,14 +1,11 @@
 {
   "compilerOptions": {
-    "module": "ESNext",
-    "target": "ES5",
+    "allowSyntheticDefaultImports": true,
     "jsx": "react",
-    "noImplicitAny": true,
-    "allowJs": true,
+    "lib": ["DOM", "ESNext"],
+    "noEmit": true,
+    "skipLibCheck": true,
     "strict": true,
-    "sourceMap": true,
-    "lib": ["esnext", "dom", "dom.iterable"],
-    "moduleResolution": "node",
     "outDir": "./dist/",
     "baseUrl": ".",
     "paths": {

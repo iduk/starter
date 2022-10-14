@@ -1,36 +1,62 @@
-@use "sass:math";
-
-
-@mixin create-selectors($breakpoint: null) {
-    $infix: if($breakpoint == null, '', '-#{$breakpoint}');
-
-    @for $i from 1 through $col-count {
-        .col#{$infix}-#{$i} {
-            grid-column-end: span $i;
-        }
-        .col-offset#{$infix}-#{$i} {
-            grid-column-start: $i + 1;
-        }
-        .row#{$infix}-#{$i} {
-            grid-row-end: span $i;
-        }
-        .row-offset#{$infix}-#{$i} {
-            grid-row-start: $i + 1;
-        }
-    }
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  flex: 0 1 auto;
+  margin-right: calc($grid-gutter / -2);
+  margin-left: calc($grid-gutter / -2);
+  > * {
+    flex-shrink: 0;
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    padding-right: calc($grid-gutter / 2);
+    padding-left: calc($grid-gutter / 2);
+  }
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat($col-count, 1fr);
-    grid-gap: $gap;
-    gap: $gap;
+.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+  > * {
+    padding-right: 0;
+    padding-left: 0;
+  }
 }
 
-@include create-selectors;
+[class^='col'] {
+  display: block;
+  flex: 1 0 0%;
+}
 
-@each $breakpoint, $width in $grid-breakpoints {
-    @media (min-width: $width) {
-        @include create-selectors($breakpoint);
+@mixin grid-columns($bp: null) {
+  $infix: if($bp == null, '', '-#{$bp}');
+
+  @for $i from 1 through $grid-count {
+    .col#{$infix}-#{$i} {
+      flex: 0 0 auto;
+      flex-basis: calc(100 / ($grid-count / $i) * 1%);
     }
+    .offset#{$infix}-#{$i} {
+      margin-left: calc(100 / ($grid-count / $i) * 1%);
+    }
+  }
+  .col#{$infix}-auto {
+    flex: 1 0 0;
+  }
+
+  .offset#{$infix}-0 {
+    margin-left: 0;
+  }
+  // hidden-[*]
+  .hidden#{$infix} {
+    display: none !important;
+  }
+}
+@include grid-columns;
+
+@each $bp, $w in $grid-breakpoints {
+  @media screen and (min-width: $w) {
+    @include grid-columns($bp);
+  }
 }
