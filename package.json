@@ -4,9 +4,6 @@
   "private": "false",
   "author": "iduk",
   "license": "MIT",
-  "engines": {
-    "node": "^14.20.1"
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "npx webpack --watch",
