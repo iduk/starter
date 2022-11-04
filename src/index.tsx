@@ -1,15 +1,19 @@
 import * as React from 'react'
-import * as ReactDOM from 'react-dom'
-import { BrowserRouter, HashRouter } from 'react-router-dom'
+import { createRoot } from 'react-dom/client'
+import { BrowserRouter } from 'react-router-dom'
 
 import App from './App'
 import '@/assets/scss/main.scss'
 import ThemeSwitch from '@/components/ThemeSwitch'
 
-ReactDOM.render(
-  <BrowserRouter>
-    <App />
-    <ThemeSwitch />
-  </BrowserRouter>,
-  document.getElementById('root')
+const container = document.getElementById('app')
+const root = createRoot(container!)
+
+root.render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <App />
+      <ThemeSwitch />
+    </BrowserRouter>
+  </React.StrictMode>
 )
