@@ -57,8 +57,8 @@ module.exports = (env, options) => {
                 modules: {
                   auto: true,
                   localIdentName: isDev
-                    ? '[local]__[sha1:hash:hex:5]'
-                    : '[sha1:hash:hex:5]'
+                    ? '[local]--[hash:base64:5]'
+                    : '[hash:base64:7]'
                 }
               }
             },
@@ -163,7 +163,7 @@ module.exports = (env, options) => {
       static: 'dist',
       historyApiFallback: true,
       hot: true,
-      port: 3603,
+      port: 'auto',
       client: {
         progress: true,
         webSocketTransport: 'ws'
