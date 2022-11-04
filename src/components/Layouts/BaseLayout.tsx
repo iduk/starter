@@ -7,7 +7,7 @@ const cx = classnames.bind(styles)
 
 function BaseLayout() {
   return (
-    <main className={cx('layout--base')}>
+    <main className={cx('layout')}>
       <Outlet />
     </main>
   )
