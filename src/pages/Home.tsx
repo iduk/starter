@@ -26,7 +26,7 @@ export function Home(): JSX.Element {
   return (
     <>
       {loading === false ? (
-        <div className="container">
+        <div className="container bg-gray-2">
           <ThemeWrap>
             <h6>Theme Mode</h6>
             <HomeContent />
@@ -74,10 +74,15 @@ export function Home(): JSX.Element {
 
             <section className="p-4 mt-3">
               <div className="row">
-                <span className="col-lg-3 col-md-6 col-6 bg-gray-3">1</span>
-                <span className="col-lg-3 col-md-6 col-6 bg-gray-4">2</span>
-                <span className="col-lg-3 col-md-6 col-6 bg-gray-5">3</span>
-                <span className="col-lg-3 col-md-6 col-6 bg-gray-6">4</span>
+                <span className="col-lg-4 col-md-6 bg-gray-1">gray-1</span>
+                <span className="col-lg-1 col-md-6 bg-gray-2">gray-2</span>
+                <span className="col-lg-1 col-md-6 bg-gray-3">gray-3</span>
+                <span className="col-lg-1 col-md-6 bg-gray-4">gray-4</span>
+                <span className="col-lg-1 col-md-6 bg-gray-5">gray-5</span>
+                <span className="col-lg-1 col-md-6 bg-gray-6">gray-6</span>
+                <span className="col-lg-1 col-md-6 bg-gray-7">gray-7</span>
+                <span className="col-lg-1 col-md-6 bg-gray-8">gray-8</span>
+                <span className="col-lg-1 col-md-6 bg-gray-9">gray-9</span>
               </div>
             </section>
           </ThemeWrap>
