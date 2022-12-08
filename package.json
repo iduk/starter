@@ -27,6 +27,7 @@
     "@typescript-eslint/parser": "^5.40.1",
     "babel-loader": "^8.2.5",
     "clean-webpack-plugin": "^4.0.0",
+    "core-js": "3",
     "cross-env": "^7.0.3",
     "css-loader": "^6.7.1",
     "eslint": "^8.25.0",
@@ -57,8 +58,8 @@
     "webpack-cli": "^4.10.0"
   },
   "dependencies": {
-    "@babel/core": "^7.19.6",
-    "@babel/preset-env": "^7.19.4",
+    "@babel/core": "^7.20.5",
+    "@babel/preset-env": "^7.20.2",
     "@babel/preset-react": "^7.18.6",
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
@@ -83,8 +84,7 @@
     "webpack-dev-server": "^4.11.1"
   },
   "browserslist": [
-    "last 2 versions",
-    "> 1% in KR",
+    "> 0.25%",
     "ie >= 11"
   ],
   "lint-staged": {

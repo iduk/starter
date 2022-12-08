@@ -1,4 +1,3 @@
-import 'core-js'
 import * as React from 'react'
 import { useRoutes } from 'react-router-dom'
 import '@/assets/scss/main.scss'
