@@ -1,5 +1,7 @@
+import '@babel/polyfill'
 import * as React from 'react'
 import { useRoutes } from 'react-router-dom'
+import '@/assets/scss/main.scss'
 
 // components
 import BaseLayout from '@/components/Layouts/BaseLayout'

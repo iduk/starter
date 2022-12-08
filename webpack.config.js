@@ -1,8 +1,5 @@
-/* eslint-disable @typescript-eslint/explicit-function-return-type */
-/* eslint-disable @typescript-eslint/no-var-requires */
 const webpack = require('webpack')
 const path = require('path')
-const glob = require('glob')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const PurgecssPlugin = require('purgecss-webpack-plugin')
@@ -18,7 +15,7 @@ module.exports = (env, options) => {
     target: 'web',
     entry: './src/index.tsx',
     output: {
-      filename: isDev ? '[name].js' : '[name].[contenthash:8].js',
+      filename: isDev ? '[name].[contenthash:8].js' : '[name].js',
       path: path.join(__dirname, '/dist'),
       assetModuleFilename: 'static/[name][ext]', // 리소스 경로 구성
       asyncChunks: true,
@@ -66,14 +63,17 @@ module.exports = (env, options) => {
               loader: 'postcss-loader',
               options: {
                 postcssOptions: {
-                  plugins: ['postcss-preset-env']
+                  plugins: [
+                    'postcss-preset-env',
+                    { autoprefixer: { grid: true } }
+                  ]
                 }
               }
             },
             {
               loader: 'sass-loader',
               options: {
-                implementation: require.resolve('sass'),
+                warnRuleAsWarning: true,
                 additionalData: `
               @import "./src/assets/scss/_variables.scss";
               `
@@ -119,21 +119,6 @@ module.exports = (env, options) => {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        minify: isDev
-          ? false
-          : {
-              collapseWhitespace: true,
-              keepClosingSlash: true,
-              minifyCSS: true,
-              minifyJS: true,
-              minifyURLs: true,
-              removeComments: true,
-              removeEmptyAttributes: true,
-              removeRedundantAttributes: true,
-              removeScriptTypeAttributes: true,
-              removeStyleLinkTypeAttributes: true,
-              useShortDoctype: true
-            },
         template: './src/index.html',
         templateParameters: {
           env: process.env.NODE_ENV === 'development' ? '🚧' : '✨'
@@ -144,21 +129,7 @@ module.exports = (env, options) => {
         chunkFilename: '[id].css'
       })
     ],
-    stats: {
-      assetsSort: '!size',
-      colors: true,
-      entrypoints: false,
-      errors: true,
-      errorDetails: true,
-      groupAssetsByChunk: false,
-      groupAssetsByExtension: false,
-      groupAssetsByInfo: false,
-      groupAssetsByPath: false,
-      modules: false,
-      relatedAssets: true,
-      timings: false,
-      version: false
-    },
+
     devServer: {
       static: 'dist',
       historyApiFallback: true,

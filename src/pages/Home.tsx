@@ -26,7 +26,7 @@ export function Home(): JSX.Element {
   return (
     <>
       {loading === false ? (
-        <div className="container bg-gray-2">
+        <div className="container">
           <ThemeWrap>
             <h6>Theme Mode</h6>
             <HomeContent />
