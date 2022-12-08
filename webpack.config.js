@@ -2,10 +2,9 @@ const webpack = require('webpack')
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const PurgecssPlugin = require('purgecss-webpack-plugin')
-const purgecss = require('@fullhuman/postcss-purgecss')
 const json5 = require('json5')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const NodePolyfillPlugin = require('node-polyfill-webpack-plugin')
 
 module.exports = (env, options) => {
   const isDev = options.mode !== 'production'
@@ -127,7 +126,8 @@ module.exports = (env, options) => {
       new MiniCssExtractPlugin({
         filename: '[name].css',
         chunkFilename: '[id].css'
-      })
+      }),
+      new NodePolyfillPlugin()
     ],
 
     devServer: {
