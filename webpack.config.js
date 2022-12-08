@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const json5 = require('json5')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const NodePolyfillPlugin = require('node-polyfill-webpack-plugin')
+
 
 module.exports = (env, options) => {
   const isDev = options.mode !== 'production'
@@ -32,7 +32,7 @@ module.exports = (env, options) => {
       rules: [
         {
           test: /\.[jt]s?(x)$/,
-          exclude: /(node_modules)|(dist)/,
+          exclude: /node_modules/,
           use: {
             loader: 'babel-loader',
             options: {
@@ -126,8 +126,7 @@ module.exports = (env, options) => {
       new MiniCssExtractPlugin({
         filename: '[name].css',
         chunkFilename: '[id].css'
-      }),
-      new NodePolyfillPlugin()
+      })
     ],
 
     devServer: {
