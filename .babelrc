@@ -3,7 +3,7 @@
     [
       "@babel/preset-env",
       {
-        "useBuiltIns": "entry"
+        "useBuiltIns": false,
         // "targets": { "ie": "11" } // 대상 브라우저에 필요한 플러그인만 변환
       }
     ],
