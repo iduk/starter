@@ -4,8 +4,7 @@
       "@babel/preset-env",
       {
         // "useBuiltIns": false,
-        "targets": { "ie": "11" }, // 대상 브라우저에 필요한 플러그인만 변환
-        "debug": true
+        "targets": { "ie": "11" } // 대상 브라우저에 필요한 플러그인만 변환
       }
     ],
     "@babel/preset-react",

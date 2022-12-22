@@ -10,10 +10,12 @@ module.exports = (env, options) => {
 
   return {
     mode: isDev ? 'development' : 'production',
-    entry: ['./src/index.tsx'],
+    entry: {
+      main: './src/index.tsx'
+    },
     output: {
-      filename: isDev ? '[name].[contenthash:8].js' : '[name].js',
-      path: path.join(__dirname, '/dist'),
+      filename: isDev ? '[name].[contenthash:8].js' : '[name].[bundle].js',
+      path: path.join(__dirname, 'dist'),
       assetModuleFilename: 'assets/[name][ext]', // 리소스 경로 구성
       asyncChunks: true,
       clean: true // 생성된 파일만 보임
@@ -30,7 +32,7 @@ module.exports = (env, options) => {
       rules: [
         {
           test: /\.[jt]s?(x)$/,
-          exclude: /(node_modules)|(dist)/,
+          exclude: /node_modules/,
           use: {
             loader: 'babel-loader',
             options: {
@@ -66,8 +68,8 @@ module.exports = (env, options) => {
               options: {
                 warnRuleAsWarning: true,
                 additionalData: `
-              @import "./src/assets/scss/_variables.scss";
-              `
+                @import "./src/assets/scss/_variables.scss";
+                `
               }
             }
           ]
@@ -105,9 +107,9 @@ module.exports = (env, options) => {
         name: false
       }
     },
-    performance: {
-      hints: false
-    },
+    // performance: {
+    //   hints: false
+    // },
     plugins: [
       new HtmlWebpackPlugin({
         template: './src/index.html',
