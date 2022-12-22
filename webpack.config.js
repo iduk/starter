@@ -63,8 +63,16 @@ module.exports = (env, options) => {
               options: {
                 postcssOptions: {
                   plugins: [
-                    'postcss-preset-env',
-                    { autoprefixer: { grid: true } }
+                    require('postcss-preset-env')({
+                      autoprefixer: {
+                        flexbox: 'no-2009',
+                        grid: 'autoplace'
+                      }
+                    }),
+                    require('postcss-import'),
+                    require('postcss-flexbugs-fixes'),
+                    require('postcss-gap-properties'),
+                    require('postcss-nested')
                   ]
                 }
               }
@@ -81,12 +89,12 @@ module.exports = (env, options) => {
           ]
         },
         {
-          test: /\.(jpe?g|png|gif|svg)$/i,
+          test: /\.(?:ico|jpe?g|png|gif)$/i,
           type: 'asset/resource'
         },
         {
-          test: /\.(woff|woff2|eot|ttf|otf)$/i,
-          type: 'asset/resource'
+          test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
+          type: 'asset/inline'
         },
         {
           test: /\.json5$/i,
