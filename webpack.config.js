@@ -5,18 +5,17 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const json5 = require('json5')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
-
 module.exports = (env, options) => {
   const isDev = options.mode !== 'production'
 
   return {
     mode: isDev ? 'development' : 'production',
     target: 'web',
-    entry: './src/index.tsx',
+    entry: ['@babel/polyfill', './src/index.tsx'],
     output: {
       filename: isDev ? '[name].[contenthash:8].js' : '[name].js',
       path: path.join(__dirname, '/dist'),
-      assetModuleFilename: 'static/[name][ext]', // 리소스 경로 구성
+      assetModuleFilename: 'assets/[name][ext]', // 리소스 경로 구성
       asyncChunks: true,
       clean: true // 생성된 파일만 보임
     },
@@ -32,10 +31,11 @@ module.exports = (env, options) => {
       rules: [
         {
           test: /\.[jt]s?(x)$/,
-          exclude: /node_modules/,
+          exclude: /(node_modules)|(dist)/,
           use: {
             loader: 'babel-loader',
             options: {
+              presets: ['@babel/preset-env'],
               cacheDirectory: true
             }
           }
@@ -130,10 +130,13 @@ module.exports = (env, options) => {
     ],
 
     devServer: {
-      static: 'dist',
+      static: {
+        directory: path.join(__dirname, 'dist')
+      },
       historyApiFallback: true,
       hot: true,
-      port: 'auto',
+      compress: true,
+      port: 3603,
       client: {
         progress: true,
         webSocketTransport: 'ws'
