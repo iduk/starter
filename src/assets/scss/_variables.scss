@@ -4,28 +4,6 @@
     colors palette
  ---------------------------------------------------------- */
 
-$brand-1: #a4d233;
-$brand-2: #f2827f;
-$blue: #084b83;
-$green: #127039;
-$yellow: #c2b542;
-$orange: #e58f65;
-$red: #d05353;
-$gray: #88a0a8;
-$dark: #111111;
-$light: #f5f5f5;
-
-$color-palette: (
-  primary: $brand-1,
-  secondary: $brand-2,
-  success: $green,
-  warning: $yellow,
-  error: $red,
-  dark: $dark,
-  light: $light,
-  gray: $gray
-) !default;
-
 $gray-100: #f7f9fb;
 $gray-200: #e8e9ea;
 $gray-300: #d1d3d5;
@@ -46,6 +24,29 @@ $grays: (
   gray-7: $gray-700,
   gray-8: $gray-800,
   gray-9: $gray-900
+) !default;
+
+
+$blue: #3d75a3;
+$navy: #003d5b;
+$green: #127039;
+$teal: #00798c;
+$yellow: #edae49;
+$orange: #e58f65;
+$red: #d1495b;
+$gray: $gray-600;
+$dark: $gray-800;
+$light: $gray-300;
+
+$color-palette: (
+  primary: $orange,
+  secondary: $gray,
+  success: $teal,
+  warning: $yellow,
+  error: $red,
+  dark: $dark,
+  light: $light,
+  gray: $gray
 ) !default;
 
 /* ---------------------------------------------------------- 
@@ -104,18 +105,43 @@ $container-max-widths: (
 $grid-count: 12 !default;
 $grid-gutter: 1rem !default;
 
+
+$border-width: 1px;
+$border-width-lg: 2px;
+
+$rounded: 4px;
+$rounded-xs: 2px;
+$rounded-sm: 4px;
+$rounded-lg: 12px;
+$rounded-full: 24px;
+$rounded-0: 0;
+
+$rounded-sizes: (
+  '': $rounded,
+  '-xs': $rounded-xs,
+  '-sm': $rounded-sm,
+  '-lg': $rounded-lg,
+  '-full': $rounded-full,
+  '-0': $rounded-0,
+) !default;
+
 /* ---------------------------------------------------------- 
     Buttons
  ---------------------------------------------------------- */
-$btn-padding-xs: 0.75rem 2rem;
-$btn-padding-sm: 0.825rem 2rem;
-$btn-padding-md: 1rem 2rem;
-$btn-padding-lg: 1.25rem 2rem;
-$btn-padding-xl: 1.5rem 2rem;
-$btn-border-width: 1px;
+$btn-size: 12px 16px !default;
+$btn-size-sm: 4px 8px;
+$btn-size-lg: 20px 24px;
+$btn-size-xl: 28px 32px;
+
+$btn-sizes: (
+  '': $btn-size,
+  '-sm': $btn-size-sm,
+  '-lg': $btn-size-lg,
+  '-xl': $btn-size-xl,
+);
 
 /* ---------------------------------------------------------- 
     Spacing
  ---------------------------------------------------------- */
 $spacing: 0.5rem !default;
-$space-count: 20;
+$space-count: 20 !default;

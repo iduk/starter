@@ -30,7 +30,7 @@ function ThemeSwitch() {
 
   return (
     <SwitchBox>
-      <div className="d-grid">
+      <div className="flex">
         <button
           className={`btn btn-black ${toggleTheme ? 'active' : ''}`}
           onClick={isToggle}

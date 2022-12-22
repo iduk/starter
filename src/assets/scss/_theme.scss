@@ -1,11 +1,8 @@
 @use 'sass:color';
 @use 'sass:map';
 
-$theme: (
-  'light': (
-    'colors': $color-palette,
-    'grays': (
-      'gray-0': $light,
+$theme: ('light': ('colors': $color-palette,
+    'grays': ('gray-0': $light,
       'gray-1': $gray-100,
       'gray-2': $gray-200,
       'gray-3': $gray-300,
@@ -17,10 +14,8 @@ $theme: (
       'gray-9': $gray-900,
     ),
   ),
-  'dark': (
-    'colors': $color-palette,
-    'grays': (
-      'gray-0': $dark,
+  'dark': ('colors': $color-palette,
+    'grays': ('gray-0': $dark,
       'gray-1': $gray-900,
       'gray-2': $gray-800,
       'gray-3': $gray-700,
@@ -36,33 +31,41 @@ $theme: (
 
 $transition-bg: all 0.1s cubic-bezier(0.185, 0.475, 0.895, 0.39);
 
-@each $theme-name, $theme-vars in $theme {
+@each $theme-name,
+$theme-vars in $theme {
   $grays: map-get($theme-vars, 'grays');
   $colors: map-get($theme-vars, 'colors');
 
-  $theme-mode: (
-    'bg': map-get($grays, 'gray-0'),
-    'border': map-get($grays, 'gray-3'),
-    'border-focus': map-get($grays, 'gray-4'),
-    'text': map-get($grays, 'gray-8'),
-    'heading': map-get($grays, 'gray-9'),
-  );
+  $theme-mode: ('bg': map-get($grays, 'gray-0'),
+      'border': map-get($grays, 'gray-3'),
+      'border-focus': map-get($grays, 'gray-4'),
+      'text': map-get($grays, 'gray-8'),
+      'heading': map-get($grays, 'gray-9'),
+    );
 
-  [data-theme='#{$theme-name}'] {
-    @each $name, $color in $grays {
-      --#{''+$name}: #{$color};
-    }
-    @each $name, $color in $colors {
-      --#{''+$name}: #{$color};
-    }
+  :root {
+    @media (prefers-color-scheme: '#{$theme-name}') {
+      @each $name,
+      $color in $grays {
+        --#{''+$name}: #{$color};
+      }
 
-    @each $name, $color in $theme-mode {
-      --theme-#{''+$name}: #{$color};
+      @each $name,
+      $color in $colors {
+        --#{''+$name}: #{$color};
+      }
+
+      @each $name,
+      $color in $theme-mode {
+        --theme-#{''+$name}: #{$color};
+      }
+      
     }
   }
+
+  // [data-theme='#{$theme-name}'] {}
 }
-// @media (prefers-color-scheme: #{$theme-name}) {
-// }
+
 
 body {
   background-color: var(--theme-bg);

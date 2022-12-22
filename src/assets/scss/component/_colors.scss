@@ -1,5 +1,3 @@
-@use "sass:color";
-
 :root {
     @each $name, $value in $color-palette{
         --#{''+$name}: #{$value};      
@@ -36,9 +34,9 @@ $color-property: (
       // #{$property}: $value !important;
       #{$property}: var(--#{$name}) !important;
 
-      @if $selector == 'bg' {
-        @include color-invert($value);
-      }
+      // @if $selector == 'bg' {
+      //   @include color-invert($value);
+      // }
     }
   }
 }
@@ -50,9 +48,9 @@ $color-property: (
       // #{$property}: $value !important;
       #{$property}: var(--#{$name}) !important;
 
-      @if $selector == 'bg' {
-        @include color-invert($value);
-      }
+      // @if $selector == 'bg' {
+      //   @include color-invert($value);
+      // }
     }
   }
 }

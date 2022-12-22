@@ -32,58 +32,76 @@ export function Home(): JSX.Element {
             <HomeContent />
 
             <section className="p-4 mt-lg-3 bg-gray-3">
-              <div className="row">
-                <span className="col-lg-1 col-md-3 col-sm-6 col-12 bg-gray-6">
-                  1
-                </span>
-                <span className="col-lg-1 col-md-3 col-sm-6 col-12 bg-gray-7">
-                  2
-                </span>
-                <span className="col-lg-1 col-md-3 col-sm-6 col-12 bg-gray-6">
-                  3
-                </span>
-                <span className="col-lg-1 col-md-3 col-sm-6 col-12 bg-gray-7">
-                  4
-                </span>
-                <span className="col-lg-1 col-md-3 col-sm-6 col-12 bg-gray-6">
-                  5
-                </span>
-                <span className="col-lg-1 col-md-3 col-sm-6 col-12 bg-gray-7">
-                  6
-                </span>
-                <span className="col-lg-1 col-md-3 col-sm-6 col-12 bg-gray-6">
-                  7
-                </span>
-                <span className="col-lg-1 col-md-3 col-sm-6 col-12 bg-gray-7">
-                  8
-                </span>
-                <span className="col-lg-1 col-md-3 col-sm-6 col-12 bg-gray-6">
-                  9
-                </span>
-                <span className="col-lg-1 col-md-3 col-sm-6 col-12 bg-gray-7">
-                  10
-                </span>
-                <span className="col-lg-1 col-md-3 col-sm-6 col-12 bg-gray-6">
-                  11
-                </span>
-                <span className="col-lg-1 col-md-3 col-sm-6 col-12 bg-gray-7">
-                  12
-                </span>
-              </div>
+              <article className="row" style={{ textAlign: 'center' }}>
+                <div className="col-lg-1 col-md-3 col-sm-6 col-12">
+                  <div className="bg-gray-9 py-2 align-center">Column</div>
+                </div>
+                <div className="col-lg-1 col-md-3 col-sm-6 col-12">
+                  <div className="bg-gray-9 py-2 align-center">Column</div>
+                </div>
+                <div className="col-lg-1 col-md-3 col-sm-6 col-12">
+                  <div className="bg-gray-9 py-2 align-center">Column</div>
+                </div>
+                <div className="col-lg-1 col-md-3 col-sm-6 col-12">
+                  <div className="bg-gray-9 py-2 align-center">Column</div>
+                </div>
+                <div className="col-lg-1 col-md-3 col-sm-6 col-12">
+                  <div className="bg-gray-9 py-2 align-center">Column</div>
+                </div>
+                <div className="col-lg-1 col-md-3 col-sm-6 col-12">
+                  <div className="bg-gray-9 py-2 align-center">Column</div>
+                </div>
+                <div className="col-lg-1 col-md-3 col-sm-6 col-12">
+                  <div className="bg-gray-9 py-2 align-center">Column</div>
+                </div>
+                <div className="col-lg-1 col-md-3 col-sm-6 col-12">
+                  <div className="bg-gray-9 py-2 align-center">Column</div>
+                </div>
+                <div className="col-lg-1 col-md-3 col-sm-6 col-12">
+                  <div className="bg-gray-9 py-2 align-center">Column</div>
+                </div>
+                <div className="col-lg-1 col-md-3 col-sm-6 col-12">
+                  <div className="bg-gray-9 py-2 align-center">Column</div>
+                </div>
+                <div className="col-lg-1 col-md-3 col-sm-6 col-12">
+                  <div className="bg-gray-9 py-2 align-center">Column</div>
+                </div>
+                <div className="col-lg-1 col-md-3 col-sm-6 col-12">
+                  <div className="bg-gray-9 py-2 align-center">Column</div>
+                </div>
+              </article>
             </section>
 
             <section className="p-4 mt-3">
-              <div className="row">
-                <span className="col-lg-4 col-md-6 bg-gray-1">gray-1</span>
-                <span className="col-lg-1 col-md-6 bg-gray-2">gray-2</span>
-                <span className="col-lg-1 col-md-6 bg-gray-3">gray-3</span>
-                <span className="col-lg-1 col-md-6 bg-gray-4">gray-4</span>
-                <span className="col-lg-1 col-md-6 bg-gray-5">gray-5</span>
-                <span className="col-lg-1 col-md-6 bg-gray-6">gray-6</span>
-                <span className="col-lg-1 col-md-6 bg-gray-7">gray-7</span>
-                <span className="col-lg-1 col-md-6 bg-gray-8">gray-8</span>
-                <span className="col-lg-1 col-md-6 bg-gray-9">gray-9</span>
-              </div>
+              <article className="row" style={{ textAlign: 'center' }}>
+                <div className="col-lg-4 col-md-6">
+                  <div className="bg-gray-1 py-2 align-center">Column</div>
+                </div>
+                <div className="col-lg-1 col-md-6">
+                  <div className="bg-gray-2 py-2 align-center">Column</div>
+                </div>
+                <div className="col-lg-1 col-md-6">
+                  <div className="bg-gray-3 py-2 align-center">Column</div>
+                </div>
+                <div className="col-lg-1 col-md-6">
+                  <div className="bg-gray-4 py-2 align-center">Column</div>
+                </div>
+                <div className="col-lg-1 col-md-6">
+                  <div className="bg-gray-5 py-2 align-center">Column</div>
+                </div>
+                <div className="col-lg-1 col-md-6">
+                  <div className="bg-gray-6 py-2 align-center">Column</div>
+                </div>
+                <div className="col-lg-1 col-md-6">
+                  <div className="bg-gray-7 py-2 align-center">Column</div>
+                </div>
+                <div className="col-lg-1 col-md-6">
+                  <div className="bg-gray-8 py-2 align-center">Column</div>
+                </div>
+                <div className="col-lg-1 col-md-6">
+                  <div className="bg-gray-9 py-2 align-center">Column</div>
+                </div>
+              </article>
             </section>
           </ThemeWrap>
         </div>
@@ -102,9 +120,14 @@ function HomeContent() {
         별빛이 이 가을 못 슬퍼하는 버리었습니다. 청춘이 강아지, 패, 계십니다.
         남은 풀이 옥 내린 노새, 아름다운 못 봅니다.
       </p>
-      <div className="mt-5 flex gap-2 justify-center">
-        <button className="btn btn-primary p-2 ">primary</button>
-        <button className="btn btn-secondary p-2">secondary</button>
+      <div
+        className="mt-5 flex align-center justify-center"
+        style={{ gap: 16 }}
+      >
+        <button className="btn btn-sm btn-primary">small</button>
+        <button className="btn btn-primary">medium</button>
+        <button className="btn btn-lg btn-primary">large</button>
+        <button className="btn btn-xl btn-primary">xlarge</button>
       </div>
 
       <hr className="my-4" />
