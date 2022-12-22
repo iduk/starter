@@ -104,8 +104,7 @@ module.exports = (env, options) => {
             name: 'vendors',
             test: /[\\/]node_modules[\\/]/
           }
-        },
-        name: false
+        }
       }
     },
     // performance: {
