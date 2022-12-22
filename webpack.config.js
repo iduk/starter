@@ -2,8 +2,8 @@ const webpack = require('webpack')
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const json5 = require('json5')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const json5 = require('json5')
 
 module.exports = (env, options) => {
   const isDev = options.mode !== 'production'
@@ -60,22 +60,7 @@ module.exports = (env, options) => {
             },
             {
               loader: 'postcss-loader',
-              options: {
-                postcssOptions: {
-                  plugins: [
-                    require('postcss-preset-env')({
-                      autoprefixer: {
-                        flexbox: 'no-2009',
-                        grid: 'autoplace'
-                      }
-                    }),
-                    require('postcss-import'),
-                    require('postcss-flexbugs-fixes'),
-                    require('postcss-gap-properties'),
-                    require('postcss-nested')
-                  ]
-                }
-              }
+              options: { implementation: require('postcss') }
             },
             {
               loader: 'sass-loader',
