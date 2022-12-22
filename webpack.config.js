@@ -94,19 +94,18 @@ module.exports = (env, options) => {
     },
     devtool: isDev ? 'eval-cheap-module-source-map' : 'nosources-source-map',
     optimization: {
-      runtimeChunk: {
-        name: 'runtime'
-      },
       splitChunks: {
-        chunks: 'all',
         cacheGroups: {
-          defaultVendors: {
-            name: 'vendors',
-            test: /[\\/]node_modules[\\/]/
+          chunks: 'all',
+          styles: {
+            name: 'styles',
+            test: /\.css$/,
+            enforce: true
           }
         }
       }
     },
+
     // performance: {
     //   hints: false
     // },
