@@ -81,6 +81,7 @@
     "react-dom": "^18.2.0",
     "react-intersection-observer": "^9.4.0",
     "react-router-dom": "^6.4.2",
+    "regenerator-runtime": "^0.13.11",
     "sass": "^1.55.0",
     "typescript": "^4.8.4",
     "webpack": "^5.74.0",

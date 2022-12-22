@@ -10,8 +10,7 @@ module.exports = (env, options) => {
 
   return {
     mode: isDev ? 'development' : 'production',
-    target: 'web',
-    entry: ['@babel/polyfill', './src/index.tsx'],
+    entry: ['./src/index.tsx'],
     output: {
       filename: isDev ? '[name].[contenthash:8].js' : '[name].js',
       path: path.join(__dirname, '/dist'),
