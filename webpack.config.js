@@ -50,7 +50,7 @@ module.exports = (env, options) => {
               loader: 'css-loader',
               options: {
                 importLoaders: 2,
-                sourceMap: true,
+                sourceMap: false,
                 modules: {
                   auto: true,
                   localIdentName: isDev
@@ -66,6 +66,7 @@ module.exports = (env, options) => {
             {
               loader: 'sass-loader',
               options: {
+                sourceMap: false,
                 warnRuleAsWarning: true,
                 additionalData: `
                 @import "./src/assets/scss/_variables.scss";
