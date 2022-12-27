@@ -1,16 +1,17 @@
 import * as React from 'react'
 import { useRoutes } from 'react-router-dom'
 import '@/assets/scss/main.scss'
+import '@/assets/scss/global.scss'
 
 // components
-import BaseLayout from '@/components/Layouts/BaseLayout'
 import Error404 from '@/components/Error/Error404'
 import Home from '@/pages/Home'
+import Layout from './components/Layouts/Layout'
 
 function App(): JSX.Element {
   const routes = {
     path: '/',
-    element: <BaseLayout />,
+    element: <Layout.Base />,
     children: [
       {
         path: '*',

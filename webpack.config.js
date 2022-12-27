@@ -14,7 +14,7 @@ module.exports = (env, options) => {
       main: './src/index.tsx'
     },
     output: {
-      filename: isDev ? '[name].[contenthash:8].js' : '[name].[bundle].js',
+      filename: isDev ? '[name].[contenthash:8].js' : '[name].js',
       path: path.join(__dirname, 'dist'),
       assetModuleFilename: 'assets/[name][ext]', // 리소스 경로 구성
       asyncChunks: true,
