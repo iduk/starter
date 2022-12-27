@@ -1,27 +1,25 @@
 // Buttons
 
-%btn {
+%btn-reset {
+  transition: all 0.2s ease;
   appearance: none;
   box-sizing: border-box;
   box-shadow: none;
-  transition: all 0.2s ease;
-  background-color: transparent;
   border-width: 0;
+  outline: none;
+  background-color: transparent;
   border-color: transparent;
   border-style: solid;
+  color: inherit;
   line-height: 1;
   padding: 0;
   margin: 0;
-  outline: none;
   display: inline-block;
-  align-items: center;
-  justify-content: center;
   cursor: pointer;
 }
 
 button {
-  @extend %btn;
-  color: inherit;
+  @extend %btn-reset;
 }
 
 // bg,border,invert-color & hover,focus
@@ -62,7 +60,6 @@ button {
 }
 
 .btn {
-  @extend %btn;
   @include button-theme($color-palette);
   @include button-sizing($btn-sizes);
 }
