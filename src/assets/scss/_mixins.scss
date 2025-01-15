@@ -27,7 +27,7 @@
   }
 }
 
-// 수정된 hidden 클래스
+// hidden-[*]
 @each $bp, $w in $grid-breakpoints {
   .hidden-#{$bp} {
     @include breakpoint-down($bp) {

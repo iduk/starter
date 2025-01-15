@@ -48,10 +48,6 @@
   .offset#{$infix}-0 {
     margin-left: 0;
   }
-  // hidden-[*]
-  .hidden#{$infix} {
-    display: none !important;
-  }
 }
 @include grid-columns;
 
