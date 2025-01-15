@@ -16,7 +16,7 @@
 
 .container {
   @each $breakpoint, $width in $container-max-widths {
-    @include breakepoint-up(#{$breakpoint}) {
+    @include breakpoint-up(#{$breakpoint}) {
       max-width: $width;
     }
   }
